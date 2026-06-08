@@ -1,25 +1,25 @@
 {
   "name": "physics-2-final-boss-study-game",
-  "homepage": "https://hanbanfan.github.io/physics-2-final-boss-study-game",
   "version": "1.0.0",
-  "main": "index.js",
-  "dependencies": {
-    "expo": "~56.0.9",
-    "expo-status-bar": "~56.0.4",
-    "react": "19.2.3",
-    "react-dom": "19.2.3",
-    "react-native": "0.85.3",
-    "react-native-web": "^0.21.2"
-  },
-"scripts": {
-  "start": "expo start",
-  "android": "expo start --android",
-  "ios": "expo start --ios",
-  "web": "expo start --web",
-  "predeploy": "expo export -p web",
-  "deploy": "gh-pages --nojekyll -d dist"
-},
   "private": true,
+  "homepage": "https://hanbanfan.github.io/physics-2-final-boss-study-game",
+  "main": "expo/AppEntry.js",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web",
+    "build:web": "expo export -p web && node fix-gh-pages.js",
+    "predeploy": "rm -rf dist && expo export -p web && node fix-gh-pages.js",
+    "deploy": "gh-pages --nojekyll -d dist"
+  },
+  "dependencies": {
+    "expo": "^54.0.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-native": "^0.81.0",
+    "react-native-web": "^0.21.0"
+  },
   "devDependencies": {
     "gh-pages": "^6.3.0"
   }
