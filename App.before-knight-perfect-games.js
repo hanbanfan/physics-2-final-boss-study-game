@@ -14,7 +14,7 @@ import {
   Syllabus-based Physics II study app.
 
   Structure:
-  Home → Module → Chapter → Study Guide / Clips / Flashcards / Formula Map / Knight-Style Game / Solver
+  Home → Module → Chapter → Study Guide / Clips / Flashcards / Formula Map / Teaching Game / Solver
 
   Built around the course chapter schedule for:
   Physics for Scientists and Engineers: A Strategic Approach with Modern Physics
@@ -615,917 +615,363 @@ const CHAPTERS = [
 
 const TEACHING_GAMES = {
   "16": {
-    name: "Knight Mode: Wave Model Lab",
-    mission: "Model the wave first: identify what is oscillating, what travels, and which wave equation fits.",
+    name: "Wave Formula Goblin",
+    mission: "Pick the formula based on the clue words.",
     rounds: [
       {
-        prompt: "MODEL CHECK: A student says, “The string moves across the room with the wave.” What is actually traveling?",
-        choices: ["Energy and pattern", "The entire string", "Only tension", "Only frequency"],
-        answer: "Energy and pattern",
-        teach: "In Knight-style wave thinking, the medium oscillates locally while the disturbance/energy travels. The string particles wiggle; the wave moves.",
-      },
-      {
-        prompt: "VARIABLE SORT: Problem gives f = 12 Hz and λ = 0.80 m. What model equation is screaming at you?",
-        choices: ["v = fλ", "f = 1/T only", "F = qvBsinθ", "C = Q/ΔV"],
+        prompt: "Problem says: frequency + wavelength + speed.",
+        choices: ["v = fλ", "V = IR", "F = qvBsinθ", "C = Q/ΔV"],
         answer: "v = fλ",
-        teach: "Frequency plus wavelength plus speed belongs to the traveling-wave model: v = fλ.",
+        teach: "Frequency and wavelength are screaming v = fλ. That is the basic wave-speed formula.",
       },
       {
-        prompt: "REPRESENTATION: A graph shows displacement vs position at one instant. What kind of graph is that?",
-        choices: ["Snapshot graph", "History graph", "Circuit diagram", "Flux map"],
-        answer: "Snapshot graph",
-        teach: "Knight separates snapshot graphs from history graphs. Snapshot = shape of the wave in space at one instant.",
-      },
-      {
-        prompt: "REPRESENTATION: A graph shows displacement vs time at one point. What kind of graph is that?",
-        choices: ["History graph", "Snapshot graph", "Gauss surface", "Potential map"],
-        answer: "History graph",
-        teach: "History graph = what one point does as time passes.",
-      },
-      {
-        prompt: "MODEL CHECK: Same string, old speed v₁, old tension T₁, new speed v₂. Which shortcut is valid?",
-        choices: ["T₂ = T₁(v₂/v₁)²", "T₂ = T₁(v₂/v₁)", "T₂ = T₁(v₁/v₂)", "T₂ = T₁ + v₂"],
+        prompt: "Problem says: same string, old tension, old speed, new speed.",
+        choices: ["T₂ = T₁(v₂/v₁)²", "F = kq₁q₂/r²", "P = IV", "Φ = EAcosθ"],
         answer: "T₂ = T₁(v₂/v₁)²",
-        teach: "Because v = √(T/μ). For the same string, μ is constant, so tension scales with speed squared.",
+        teach: "Same string means μ is constant. Since v = √(T/μ), tension scales with speed squared.",
       },
       {
-        prompt: "PHASE MODEL: A problem gives λ and asks phase at a different r position. What should you find first?",
-        choices: ["k = 2π/λ", "P = IV", "R_total", "q_enc"],
-        answer: "k = 2π/λ",
-        teach: "Phase changes with position through the wave number k. First find k, then use distance change.",
-      }
+        prompt: "Problem says: wavelength, phase at r = 8 m, phase at r = 6.5 m.",
+        choices: ["Δφ = (2π/λ)Δr", "I = V/R", "E = F/q", "ε = -NΔΦ/Δt"],
+        answer: "Δφ = (2π/λ)Δr",
+        teach: "Position inside a wave changes phase. Use k = 2π/λ, then track the distance change.",
+      },
+      {
+        prompt: "Problem gives period and asks frequency.",
+        choices: ["f = 1/T", "λ = c/f", "R = V/I", "U = qV"],
+        answer: "f = 1/T",
+        teach: "Frequency and period are reciprocals. They undo each other.",
+      },
     ],
   },
 
   "22": {
-    name: "Knight Mode: Charge Interaction Arena",
-    mission: "Build the charge model: signs tell direction, Coulomb’s Law gives magnitude.",
+    name: "Charge Fight Club",
+    mission: "Decide attraction, repulsion, and the force rule.",
     rounds: [
       {
-        prompt: "MODEL CHECK: Two positive charges are placed near each other. What is the interaction?",
-        choices: ["Repulsive", "Attractive", "No force", "Magnetic only"],
-        answer: "Repulsive",
-        teach: "Same signs repel. That is the qualitative model before doing any math.",
+        prompt: "+ charge meets + charge. What happens?",
+        choices: ["Repel", "Attract", "No force", "Turns into voltage"],
+        answer: "Repel",
+        teach: "Same signs repel. They are two divas refusing to share a dressing room.",
       },
       {
-        prompt: "MODEL CHECK: A positive and negative charge are placed near each other. What is the interaction?",
-        choices: ["Attractive", "Repulsive", "No force", "Only voltage"],
-        answer: "Attractive",
-        teach: "Opposite signs attract. Direction comes from sign before number-crunching.",
+        prompt: "+ charge meets - charge. What happens?",
+        choices: ["Attract", "Repel", "No force", "Becomes a capacitor"],
+        answer: "Attract",
+        teach: "Opposite signs attract.",
       },
       {
-        prompt: "EQUATION PICK: Two point charges separated by distance r. Which model equation?",
-        choices: ["F = k|q₁q₂|/r²", "E = F/q", "V = IR", "ε = -NΔΦ/Δt"],
-        answer: "F = k|q₁q₂|/r²",
-        teach: "Point charges separated by distance means Coulomb’s Law.",
+        prompt: "Distance doubles between two charges. Force becomes:",
+        choices: ["1/4 as large", "1/2 as large", "2 times larger", "4 times larger"],
+        answer: "1/4 as large",
+        teach: "Coulomb’s Law has r² in the bottom. Double r means force divides by 4.",
       },
       {
-        prompt: "PROPORTIONAL REASONING: Distance doubles. What happens to electric force?",
-        choices: ["Becomes 1/4 as large", "Becomes 1/2 as large", "Doubles", "Stays same"],
-        answer: "Becomes 1/4 as large",
-        teach: "Coulomb force is inverse-square. Double r means divide force by 2² = 4.",
+        prompt: "Which formula is Coulomb’s Law?",
+        choices: ["F = kq₁q₂/r²", "E = F/q", "V = IR", "c = fλ"],
+        answer: "F = kq₁q₂/r²",
+        teach: "Two charges separated by distance = Coulomb’s Law.",
       },
-      {
-        prompt: "MASTERING TRAP: A charge is given in μC. Before using Coulomb’s Law, what must you do?",
-        choices: ["Convert μC to C", "Square the charge", "Change it to volts", "Ignore the prefix"],
-        answer: "Convert μC to C",
-        teach: "Mastering problems love unit prefixes. μC = 10⁻⁶ C.",
-      }
     ],
   },
 
   "23": {
-    name: "Knight Mode: Electric Field Mapper",
-    mission: "Think field first: a source creates a field; a test charge feels force.",
+    name: "Electric Field Translator",
+    mission: "Translate between field, force, and charge.",
     rounds: [
       {
-        prompt: "MODEL CHECK: Electric field means:",
-        choices: ["Force per charge", "Energy per charge", "Charge per volt", "Current per resistance"],
-        answer: "Force per charge",
-        teach: "Electric field is defined as E = F/q. It tells force per coulomb.",
+        prompt: "The problem says force per charge. What is it asking about?",
+        choices: ["Electric field", "Voltage", "Capacitance", "Power"],
+        answer: "Electric field",
+        teach: "Electric field literally means force per charge: E = F/q.",
       },
       {
-        prompt: "REPRESENTATION: Field arrows around a positive source charge point:",
-        choices: ["Away from the charge", "Toward the charge", "In circles", "Randomly"],
-        answer: "Away from the charge",
-        teach: "Field direction is the direction a positive test charge would be pushed.",
-      },
-      {
-        prompt: "REPRESENTATION: Field arrows around a negative source charge point:",
-        choices: ["Toward the charge", "Away from the charge", "Clockwise", "Nowhere"],
-        answer: "Toward the charge",
-        teach: "A positive test charge is attracted toward a negative source, so field points inward.",
-      },
-      {
-        prompt: "EQUATION PICK: You know q and E and need force.",
-        choices: ["F = qE", "E = q/F", "V = U/q", "P = IV"],
+        prompt: "You know E and q. You need force.",
+        choices: ["F = qE", "E = q/F", "V = IR", "P = IV"],
         answer: "F = qE",
-        teach: "Start from E = F/q and rearrange to F = qE.",
+        teach: "Start with E = F/q. Multiply both sides by q to get F = qE.",
       },
       {
-        prompt: "SIGN CHECK: A negative charge in an electric field feels force:",
-        choices: ["Opposite the field direction", "With the field direction", "Always upward", "No force"],
-        answer: "Opposite the field direction",
-        teach: "Field direction is based on positive charge. Negative charges feel force opposite E.",
-      }
+        prompt: "A negative charge is in an electric field. Force points:",
+        choices: ["Opposite the field", "With the field", "Nowhere", "Only clockwise"],
+        answer: "Opposite the field",
+        teach: "Electric field direction is defined by a positive test charge. Negative charges go opposite.",
+      },
     ],
   },
 
   "24": {
-    name: "Knight Mode: Flux Door Simulator",
-    mission: "Visualize field lines going through surfaces, then choose flux or Gauss’s Law.",
+    name: "Flux Door Game",
+    mission: "Decide how much field gets through the surface.",
     rounds: [
       {
-        prompt: "CONCEPT MODEL: Electric flux means:",
-        choices: ["Field passing through an area", "Force per charge", "Energy per charge", "Current in a resistor"],
-        answer: "Field passing through an area",
-        teach: "Flux is about how much field pierces a surface.",
-      },
-      {
-        prompt: "ANGLE CHECK: Field is perpendicular to the surface area vector, θ = 90°. Flux is:",
-        choices: ["Zero", "Maximum", "Always negative", "Infinite"],
-        answer: "Zero",
-        teach: "Φ = EAcosθ. cos90° = 0, so flux is zero.",
-      },
-      {
-        prompt: "ANGLE CHECK: Field is parallel to the area vector, θ = 0°. Flux is:",
-        choices: ["Maximum", "Zero", "Half", "Impossible"],
+        prompt: "Field goes straight through a flat surface. Angle θ = 0°. Flux is:",
+        choices: ["Maximum", "Zero", "Negative only", "Impossible"],
         answer: "Maximum",
-        teach: "cos0° = 1, so the full field contributes to flux.",
+        teach: "Φ = EAcosθ. cos(0°)=1, so flux is maximum.",
       },
       {
-        prompt: "EQUATION PICK: Problem says closed surface and enclosed charge. Use:",
-        choices: ["Φ = q_enc/ε₀", "Φ = EA only every time", "P = IV", "v = fλ"],
+        prompt: "Field skims sideways along the surface. θ = 90°. Flux is:",
+        choices: ["Zero", "Maximum", "Infinite", "Voltage"],
+        answer: "Zero",
+        teach: "cos(90°)=0, so no field passes through the surface.",
+      },
+      {
+        prompt: "Problem says closed surface and enclosed charge. Use:",
+        choices: ["Φ = q_enc/ε₀", "P = IV", "v = fλ", "F = qvBsinθ"],
         answer: "Φ = q_enc/ε₀",
-        teach: "Closed surface + enclosed charge is Gauss’s Law.",
+        teach: "Closed surface + enclosed charge = Gauss’s Law.",
       },
-      {
-        prompt: "GAUSS TRAP: A charge sits outside the closed surface. It contributes how much to total flux?",
-        choices: ["Zero net flux contribution", "All the flux", "Half the flux", "Only if positive"],
-        answer: "Zero net flux contribution",
-        teach: "External charges can affect local field, but total flux through a closed surface depends only on enclosed charge.",
-      }
     ],
   },
 
   "25": {
-    name: "Knight Mode: Potential Energy Elevator",
-    mission: "Separate electric potential from electric field using energy reasoning.",
+    name: "Voltage Is Energy Snacks",
+    mission: "Remember voltage means energy per charge.",
     rounds: [
       {
-        prompt: "MODEL CHECK: Electric potential/voltage means:",
-        choices: ["Energy per charge", "Force per charge", "Charge per time", "Resistance per current"],
+        prompt: "Voltage means:",
+        choices: ["Energy per charge", "Force per charge", "Charge per volt", "Current per resistor"],
         answer: "Energy per charge",
-        teach: "Voltage is V = U/q. It is energy per coulomb.",
+        teach: "V = U/q. Voltage tells how much energy each coulomb has.",
       },
       {
-        prompt: "EQUATION PICK: You know q and ΔV and need change in potential energy.",
-        choices: ["ΔU = qΔV", "F = qE", "P = IV", "C = Q/ΔV"],
-        answer: "ΔU = qΔV",
-        teach: "Potential energy change is charge times potential difference.",
+        prompt: "You know q and V. Need energy U.",
+        choices: ["U = qV", "U = V/q", "U = IR", "U = fλ"],
+        answer: "U = qV",
+        teach: "Start with V = U/q. Multiply by q to get U = qV.",
       },
       {
-        prompt: "CONCEPT CHECK: Electric potential is:",
-        choices: ["Scalar", "Vector", "Always negative", "Measured in tesla"],
+        prompt: "Electric potential is:",
+        choices: ["Scalar", "Vector", "Always negative", "Measured in amps"],
         answer: "Scalar",
-        teach: "Potential has value but no direction. Electric field is vector.",
+        teach: "Voltage/potential has no direction. Electric field does.",
       },
-      {
-        prompt: "REPRESENTATION: Equipotential lines are lines where:",
-        choices: ["Voltage is the same", "Electric field is zero", "Current is maximum", "Charge disappears"],
-        answer: "Voltage is the same",
-        teach: "Equipotential means same potential everywhere along the line.",
-      },
-      {
-        prompt: "TRAP CHECK: Voltage and electric field are:",
-        choices: ["Related but not the same", "Exactly the same", "Both measured in amps", "Only for circuits"],
-        answer: "Related but not the same",
-        teach: "Voltage is energy per charge. Electric field is force per charge.",
-      }
     ],
   },
 
   "26": {
-    name: "Knight Mode: Capacitor Plate Builder",
-    mission: "Track C, Q, ΔV, plate geometry, and dielectrics.",
+    name: "Capacitor Snack Storage",
+    mission: "Decide what C, Q, and ΔV mean.",
     rounds: [
       {
-        prompt: "MODEL CHECK: A capacitor primarily stores:",
-        choices: ["Separated charge and electric energy", "Magnetic poles", "Frequency", "Resistance"],
-        answer: "Separated charge and electric energy",
-        teach: "Capacitors store charge on plates and energy in the electric field.",
+        prompt: "Capacitance means:",
+        choices: ["Charge stored per volt", "Force per charge", "Current per second", "Wavelength per cycle"],
+        answer: "Charge stored per volt",
+        teach: "C = Q/ΔV. Capacitance tells how much charge is stored for each volt.",
       },
       {
-        prompt: "EQUATION PICK: Capacitance definition:",
-        choices: ["C = Q/ΔV", "V = IR", "F = qvBsinθ", "v = fλ"],
-        answer: "C = Q/ΔV",
-        teach: "Capacitance is charge stored per voltage difference.",
-      },
-      {
-        prompt: "REARRANGE: You know C and ΔV. Find Q.",
-        choices: ["Q = CΔV", "Q = C/ΔV", "Q = ΔV/C", "Q = IR"],
+        prompt: "You know C and ΔV. Need Q.",
+        choices: ["Q = CΔV", "Q = C/ΔV", "Q = IR", "Q = fλ"],
         answer: "Q = CΔV",
-        teach: "Multiply both sides of C = Q/ΔV by ΔV.",
+        teach: "Rearrange C = Q/ΔV to get Q = CΔV.",
       },
       {
-        prompt: "DIELECTRIC CHECK: Adding a dielectric generally:",
-        choices: ["Increases capacitance", "Makes capacitance zero", "Turns charge into current", "Removes voltage forever"],
-        answer: "Increases capacitance",
-        teach: "A dielectric reduces the effective field for the same free charge, allowing more charge per volt.",
-      },
-      {
-        prompt: "PLATE MODEL: Increasing plate area usually makes capacitance:",
-        choices: ["Increase", "Decrease", "Stay zero", "Become magnetic"],
+        prompt: "A dielectric usually makes capacitance:",
+        choices: ["Increase", "Decrease to zero", "Become current", "Turn magnetic"],
         answer: "Increase",
-        teach: "Larger plates can store more charge, so capacitance increases.",
-      }
+        teach: "Dielectrics help capacitors store more charge for the same voltage.",
+      },
     ],
   },
 
   "27": {
-    name: "Knight Mode: Current-Resistance Traffic Lab",
-    mission: "Use the circuit model: voltage pushes, resistance opposes, current flows.",
+    name: "Ohm’s Law Traffic Jam",
+    mission: "Voltage pushes, resistance blocks, current flows.",
     rounds: [
       {
-        prompt: "MODEL CHECK: Current is:",
-        choices: ["Charge flow per time", "Energy per charge", "Force per charge", "Magnetic flux"],
-        answer: "Charge flow per time",
-        teach: "Current is rate of charge flow.",
+        prompt: "Voltage is like:",
+        choices: ["The push", "The traffic flow", "The roadblock", "The phase angle"],
+        answer: "The push",
+        teach: "Voltage pushes charge through the circuit.",
       },
       {
-        prompt: "MODEL CHECK: Voltage acts like:",
-        choices: ["A push for charge", "A roadblock", "A magnetic field", "A wave crest"],
-        answer: "A push for charge",
-        teach: "Voltage provides the energy difference that drives current.",
+        prompt: "Resistance is like:",
+        choices: ["The roadblock", "The push", "The traffic flow", "The light wave"],
+        answer: "The roadblock",
+        teach: "Resistance opposes current.",
       },
       {
-        prompt: "MODEL CHECK: Resistance acts like:",
-        choices: ["Opposition to current", "Extra charge", "A battery", "Frequency"],
-        answer: "Opposition to current",
-        teach: "Resistance limits current for a given voltage.",
+        prompt: "Need current from voltage and resistance.",
+        choices: ["I = V/R", "I = VR", "I = R/V", "I = P/V²"],
+        answer: "I = V/R",
+        teach: "Ohm’s Law is V = IR. Solve for current: I = V/R.",
       },
-      {
-        prompt: "EQUATION PICK: Ohm’s Law:",
-        choices: ["V = IR", "P = IV only", "F = kq/r²", "ε = -NΔΦ/Δt"],
-        answer: "V = IR",
-        teach: "Voltage, current, and resistance belong to Ohm’s Law.",
-      },
-      {
-        prompt: "PROPORTIONAL REASONING: Same voltage, bigger resistance. Current:",
-        choices: ["Decreases", "Increases", "Stays infinite", "Turns into voltage"],
-        answer: "Decreases",
-        teach: "I = V/R. Larger R means smaller I.",
-      }
     ],
   },
 
   "28": {
-    name: "Knight Mode: Circuit Strategy Board",
-    mission: "Identify series/parallel structure before calculating.",
+    name: "Circuit Goblin Sorting Hat",
+    mission: "Sort circuit clues into series, parallel, and power.",
     rounds: [
       {
-        prompt: "REPRESENTATION: One path for current. This is:",
-        choices: ["Series", "Parallel", "Gauss surface", "Induction"],
+        prompt: "One path for current means:",
+        choices: ["Series", "Parallel", "Flux", "Induction"],
         answer: "Series",
-        teach: "Series circuit means one path; same current through all elements.",
+        teach: "Series circuits have one path, so current is the same everywhere.",
       },
       {
-        prompt: "REPRESENTATION: Multiple branches between the same two nodes. This is:",
-        choices: ["Parallel", "Series", "Coulomb interaction", "Wave phase"],
+        prompt: "Multiple branches means:",
+        choices: ["Parallel", "Series", "Coulomb", "Capacitor only"],
         answer: "Parallel",
-        teach: "Parallel branches share the same voltage.",
+        teach: "Parallel circuits have multiple paths and the same voltage across branches.",
       },
       {
-        prompt: "SERIES RULE: In series, what is the same?",
-        choices: ["Current", "Voltage across each resistor", "Resistance", "Power"],
-        answer: "Current",
-        teach: "There is only one path, so the same current passes through each element.",
-      },
-      {
-        prompt: "PARALLEL RULE: In parallel, what is the same?",
-        choices: ["Voltage", "Current in every branch", "Resistance of every branch", "Power"],
-        answer: "Voltage",
-        teach: "Parallel branches connect across the same two points, so they share voltage.",
-      },
-      {
-        prompt: "POWER MODEL: Electrical power formula:",
-        choices: ["P = IV", "P = fλ", "P = q/r²", "P = CΔV"],
+        prompt: "Power formula:",
+        choices: ["P = IV", "P = fλ", "P = qE", "P = kq/r²"],
         answer: "P = IV",
-        teach: "Power is energy transfer rate in a circuit.",
+        teach: "Electrical power is current times voltage.",
       },
       {
-        prompt: "MASTERING TRAP: Parallel resistors combine using:",
-        choices: ["Reciprocals", "Direct addition", "Sine", "Logarithms"],
+        prompt: "Parallel resistance uses:",
+        choices: ["Reciprocals", "Direct addition", "Sine", "Natural log"],
         answer: "Reciprocals",
-        teach: "For parallel: 1/R_total = 1/R₁ + 1/R₂ + ...",
-      }
+        teach: "Parallel resistors: 1/R_total = 1/R₁ + 1/R₂ + ...",
+      },
     ],
   },
 
   "29": {
-    name: "Knight Mode: Magnetic Force Direction Lab",
-    mission: "Check motion, angle, and field before using magnetic force.",
+    name: "Magnetic Sideways Slap",
+    mission: "Learn when magnetic force exists.",
     rounds: [
       {
-        prompt: "MODEL CHECK: A stationary charge in a magnetic field feels:",
-        choices: ["No magnetic force", "Maximum magnetic force", "Electric potential only", "Infinite force"],
-        answer: "No magnetic force",
-        teach: "Magnetic force needs motion. If v = 0, F = qvBsinθ = 0.",
-      },
-      {
-        prompt: "ANGLE CHECK: v is perpendicular to B. Force is:",
-        choices: ["Maximum", "Zero", "Half", "Only negative"],
-        answer: "Maximum",
-        teach: "sin90° = 1, so magnetic force is maximum.",
-      },
-      {
-        prompt: "ANGLE CHECK: v is parallel to B. Force is:",
-        choices: ["Zero", "Maximum", "Equal to qE", "Voltage"],
+        prompt: "A charge is sitting still in a magnetic field. Force is:",
+        choices: ["Zero", "Maximum", "Infinite", "Voltage"],
         answer: "Zero",
-        teach: "sin0° = 0, so magnetic force is zero.",
+        teach: "Magnetic force needs motion. F = qvBsinθ, and v = 0 makes F = 0.",
       },
       {
-        prompt: "EQUATION PICK: Moving charge in magnetic field:",
-        choices: ["F = qvBsinθ", "F = kq₁q₂/r²", "E = F/q", "V = IR"],
+        prompt: "Velocity is perpendicular to B. θ = 90°. Force is:",
+        choices: ["Maximum", "Zero", "Negative always", "Capacitance"],
+        answer: "Maximum",
+        teach: "sin(90°)=1, so magnetic force is maximum.",
+      },
+      {
+        prompt: "Velocity is parallel to B. θ = 0°. Force is:",
+        choices: ["Zero", "Maximum", "Half", "Power"],
+        answer: "Zero",
+        teach: "sin(0°)=0, so there is no magnetic force.",
+      },
+      {
+        prompt: "Magnetic force formula:",
+        choices: ["F = qvBsinθ", "F = kq₁q₂/r²", "F = qE", "F = ma only"],
         answer: "F = qvBsinθ",
-        teach: "Magnetic force on a moving charge depends on q, v, B, and the angle.",
+        teach: "Moving charge + magnetic field + angle = F = qvBsinθ.",
       },
-      {
-        prompt: "DIRECTION MODEL: Magnetic force is generally:",
-        choices: ["Perpendicular to velocity and field", "Always with velocity", "Always with field", "Always downward"],
-        answer: "Perpendicular to velocity and field",
-        teach: "Magnetic force direction uses the right-hand rule and is perpendicular to v and B.",
-      }
     ],
   },
 
   "30": {
-    name: "Knight Mode: Faraday Flux Change Lab",
-    mission: "Identify what changes flux: B, area, angle, or time.",
+    name: "Induction Drama Detector",
+    mission: "Find what changed to create emf.",
     rounds: [
       {
-        prompt: "MODEL CHECK: Induced emf requires:",
-        choices: ["Changing magnetic flux", "Constant magnetic flux", "Only a resistor", "Only a charge sitting still"],
-        answer: "Changing magnetic flux",
-        teach: "Faraday’s Law is about change. No flux change means no induced emf.",
+        prompt: "Magnetic flux is not changing. Induced emf is:",
+        choices: ["Zero", "Maximum", "Always negative", "A capacitor"],
+        answer: "Zero",
+        teach: "Induction requires changing magnetic flux. No change, no emf.",
       },
       {
-        prompt: "EQUATION PICK: Faraday’s Law magnitude:",
-        choices: ["|ε| = NΔΦB/Δt", "V = IR", "C = Q/ΔV", "c = fλ"],
-        answer: "|ε| = NΔΦB/Δt",
-        teach: "Induced emf grows with turns and rate of flux change.",
+        prompt: "More turns in the coil means emf gets:",
+        choices: ["Bigger", "Smaller always", "Zero", "Unrelated"],
+        answer: "Bigger",
+        teach: "|ε| = NΔΦ/Δt. More turns N means more emf.",
       },
       {
-        prompt: "PROPORTIONAL REASONING: More coil turns N means:",
-        choices: ["Larger induced emf", "Smaller induced emf always", "Zero emf", "No relationship"],
-        answer: "Larger induced emf",
-        teach: "|ε| is proportional to N.",
+        prompt: "Faster flux change means:",
+        choices: ["Bigger emf", "Smaller emf", "No emf", "Only voltage if parallel"],
+        answer: "Bigger emf",
+        teach: "Smaller Δt means bigger ΔΦ/Δt, so bigger emf.",
       },
       {
-        prompt: "PROPORTIONAL REASONING: Same flux change in less time means:",
-        choices: ["Larger emf", "Smaller emf", "No emf", "Same emf always"],
-        answer: "Larger emf",
-        teach: "A faster change means bigger ΔΦ/Δt.",
-      },
-      {
-        prompt: "LENZ MODEL: Lenz’s Law says the induced effect:",
-        choices: ["Opposes the change", "Helps the change", "Ignores the change", "Cancels resistance only"],
+        prompt: "Lenz’s Law says induced current:",
+        choices: ["Opposes the change", "Helps the change", "Ignores the change", "Becomes light"],
         answer: "Opposes the change",
-        teach: "The negative sign in Faraday’s Law represents opposition to the change.",
-      }
+        teach: "The negative sign in Faraday’s Law is Lenz’s Law.",
+      },
     ],
   },
 
   "31": {
-    name: "Knight Mode: Electromagnetic Wave Trap Lab",
-    mission: "Use c = fλ and avoid confusing light with sound.",
+    name: "Light Speed Trap Dungeon",
+    mission: "Do not use sound speed for light.",
     rounds: [
       {
-        prompt: "MODEL CHECK: An electromagnetic wave can travel:",
-        choices: ["Through vacuum", "Only through air", "Only through string", "Only through circuits"],
-        answer: "Through vacuum",
-        teach: "EM waves do not need a material medium.",
-      },
-      {
-        prompt: "EQUATION PICK: Light wave relationship:",
-        choices: ["c = fλ", "v = IR", "F = qE", "Φ = EAcosθ"],
-        answer: "c = fλ",
-        teach: "For light/EM waves in vacuum, speed is c.",
-      },
-      {
-        prompt: "CONSTANT CHECK: Speed of light in vacuum:",
-        choices: ["3.00 × 10⁸ m/s", "343 m/s", "9.8 m/s²", "1.60 × 10⁻¹⁹ C"],
+        prompt: "Light in vacuum uses speed:",
+        choices: ["3.00 × 10⁸ m/s", "343 m/s", "9.8 m/s²", "1 Hz"],
         answer: "3.00 × 10⁸ m/s",
-        teach: "343 m/s is sound in air. Light uses c = 3.00 × 10⁸ m/s.",
+        teach: "Light uses c = 3.00 × 10⁸ m/s. 343 m/s is sound in air.",
       },
       {
-        prompt: "PROPORTIONAL REASONING: If frequency increases while c stays fixed, wavelength:",
-        choices: ["Decreases", "Increases", "Stays infinite", "Turns into current"],
-        answer: "Decreases",
-        teach: "c = fλ. If f goes up, λ goes down.",
+        prompt: "EM wave formula:",
+        choices: ["c = fλ", "V = IR", "C = Q/ΔV", "ε = -NΔΦ/Δt"],
+        answer: "c = fλ",
+        teach: "For electromagnetic waves, speed = frequency × wavelength.",
       },
       {
-        prompt: "REPRESENTATION: EM waves contain oscillating:",
-        choices: ["Electric and magnetic fields", "Only sound pressure", "Only charges moving in a wire", "Only voltage drops"],
-        answer: "Electric and magnetic fields",
-        teach: "Electromagnetic waves are coupled electric and magnetic field oscillations.",
-      }
+        prompt: "High frequency means wavelength is:",
+        choices: ["Shorter", "Longer", "Always zero", "A capacitor"],
+        answer: "Shorter",
+        teach: "c = fλ. If c is fixed and f increases, λ decreases.",
+      },
     ],
   },
 
   "32": {
-    name: "Knight Mode: Final Formula Sorting Boss",
-    mission: "Use clue words to choose the model before math.",
+    name: "Final Boss Formula Sort",
+    mission: "Match clue words to formulas.",
     rounds: [
       {
-        prompt: "Clues: frequency, wavelength, wave speed. Choose model.",
-        choices: ["Traveling wave", "Ohm’s Law", "Gauss’s Law", "Capacitor"],
-        answer: "Traveling wave",
-        teach: "Frequency + wavelength + speed = wave model, usually v = fλ.",
+        prompt: "Clue: voltage, current, resistance.",
+        choices: ["V = IR", "v = fλ", "F = qvBsinθ", "Φ = EAcosθ"],
+        answer: "V = IR",
+        teach: "Voltage/current/resistance = Ohm’s Law.",
       },
       {
-        prompt: "Clues: voltage, current, resistance. Choose model.",
-        choices: ["Circuit/Ohm model", "Wave phase model", "Magnetic force model", "Coulomb model"],
-        answer: "Circuit/Ohm model",
-        teach: "Voltage/current/resistance = V = IR.",
+        prompt: "Clue: moving charge, magnetic field, angle.",
+        choices: ["F = qvBsinθ", "C = Q/ΔV", "V = U/q", "f = 1/T"],
+        answer: "F = qvBsinθ",
+        teach: "Moving charge in B field = magnetic force.",
       },
       {
-        prompt: "Clues: moving charge, magnetic field, angle. Choose model.",
-        choices: ["Magnetic force model", "Capacitance model", "Electric potential model", "Flux through area"],
-        answer: "Magnetic force model",
-        teach: "Moving charge through B field = F = qvBsinθ.",
+        prompt: "Clue: capacitor, charge, voltage.",
+        choices: ["C = Q/ΔV", "P = IV", "E = F/q", "c = fλ"],
+        answer: "C = Q/ΔV",
+        teach: "Capacitor problems usually use capacitance.",
       },
-      {
-        prompt: "Clues: closed surface, enclosed charge. Choose model.",
-        choices: ["Gauss’s Law", "Ohm’s Law", "EM wave", "Log rule"],
-        answer: "Gauss’s Law",
-        teach: "Closed surface and enclosed charge point to Φ = q_enc/ε₀.",
-      }
     ],
   },
 
   "33": {
-    name: "Knight Mode: Unknown Problem Survival",
-    mission: "Use the Strategic Approach when the problem looks cursed.",
+    name: "Unknown Chapter Survival Mode",
+    mission: "Use the universal method when you do not recognize the problem.",
     rounds: [
       {
-        prompt: "First move on a scary physics problem:",
-        choices: ["Identify the model/clue words", "Plug numbers randomly", "Ignore units", "Use every formula"],
-        answer: "Identify the model/clue words",
-        teach: "Knight-style solving starts with modeling the situation, not random algebra.",
+        prompt: "First move on any physics problem:",
+        choices: ["Circle clue words", "Guess formula", "Skip units", "Cry immediately"],
+        answer: "Circle clue words",
+        teach: "Clue words tell you the chapter and formula family.",
       },
       {
-        prompt: "Before substituting numbers, you should:",
-        choices: ["Solve symbolically for the unknown", "Round everything", "Delete signs", "Skip the diagram"],
-        answer: "Solve symbolically for the unknown",
-        teach: "Rearrange first, then plug in. This prevents calculator chaos.",
+        prompt: "Before plugging in numbers, always:",
+        choices: ["Rearrange for the unknown", "Delete units", "Round randomly", "Use all formulas"],
+        answer: "Rearrange for the unknown",
+        teach: "Rearranging first prevents algebra chaos.",
       },
       {
-        prompt: "A good final physics answer includes:",
-        choices: ["Number, unit, and reasonableness check", "Only a number", "Only a formula", "Only vibes"],
-        answer: "Number, unit, and reasonableness check",
-        teach: "The final step is not just math. Check units and whether the answer makes sense.",
+        prompt: "Final answer needs:",
+        choices: ["Units", "Only vibes", "No label", "A screenshot"],
+        answer: "Units",
+        teach: "Physics answers without units are basically half-dressed.",
       },
-      {
-        prompt: "If two formulas seem possible, what helps decide?",
-        choices: ["Clue words and variables", "Whichever looks cooler", "The longest equation", "Random guessing"],
-        answer: "Clue words and variables",
-        teach: "Match the givens and unknown to the model. That is the whole game.",
-      }
     ],
   },
 };
 
 function getTeachingGame(chapter) {
   return TEACHING_GAMES[String(chapter.number)] || TEACHING_GAMES["33"];
-}
-
-
-
-const MODULE_CONCEPTS = {
-  1: [
-    {
-      chapter: 16,
-      title: "Traveling Waves",
-      mustKnow: [
-        "What a wave is: a traveling disturbance that carries energy",
-        "Medium vs disturbance",
-        "Transverse waves vs longitudinal waves",
-        "Amplitude A",
-        "Wavelength λ",
-        "Period T",
-        "Frequency f",
-        "Wave speed v",
-        "Relationship v = fλ",
-        "Relationship f = 1/T",
-        "Snapshot graph: displacement vs position",
-        "History graph: displacement vs time",
-        "Sinusoidal wave model",
-        "Wave number k = 2π/λ",
-        "Angular frequency ω = 2πf",
-        "Phase and phase difference",
-        "Wave speed on a string: v = √(T/μ)",
-        "Same-string tension shortcut: T₂ = T₁(v₂/v₁)²",
-        "Sound waves as longitudinal pressure waves",
-        "Sound speed vs light speed",
-        "Intensity and power spread over area",
-        "Decibel level as a logarithmic scale",
-        "Doppler effect basics",
-      ],
-      problemSkills: [
-        "Given f and λ, solve v",
-        "Given T, solve f",
-        "Given string tension change, solve new speed or new tension",
-        "Given λ and positions, solve phase change",
-        "Read wave graphs without mixing up x-axis and y-axis",
-        "Recognize when a problem is asking about sound, light, or a string wave",
-      ],
-      traps: [
-        "Amplitude is not wavelength",
-        "Frequency is not period",
-        "Tension scales with speed squared",
-        "Phase uses radians",
-        "Sound speed is not light speed",
-      ],
-    },
-    {
-      chapter: 22,
-      title: "Electric Charge and Electric Force",
-      mustKnow: [
-        "Electric charge basics",
-        "Positive and negative charge",
-        "Like charges repel",
-        "Opposite charges attract",
-        "Charge conservation",
-        "Conductors vs insulators",
-        "Charging by contact",
-        "Charging by induction",
-        "Coulomb’s Law: F = kq₁q₂/r²",
-        "Coulomb constant k",
-        "Point charge model",
-        "Inverse-square dependence",
-        "Force direction from sign",
-        "Net electric force from multiple charges",
-        "Vector addition of electric forces",
-        "Unit conversion: μC, nC, mC to C",
-      ],
-      problemSkills: [
-        "Identify q₁, q₂, and r",
-        "Convert charge units before solving",
-        "Square the distance",
-        "Find magnitude first, then direction",
-        "Add multiple force vectors when more than two charges appear",
-      ],
-      traps: [
-        "Forgetting r²",
-        "Using centimeters without converting to meters",
-        "Letting negative signs confuse force magnitude",
-        "Ignoring vector direction",
-      ],
-    },
-    {
-      chapter: 23,
-      title: "Electric Field",
-      mustKnow: [
-        "Electric field definition: E = F/q",
-        "Electric field as force per charge",
-        "Source charge vs test charge",
-        "Field direction uses a positive test charge",
-        "Field of a point charge",
-        "Electric field lines",
-        "Field line spacing shows strength",
-        "Superposition of electric fields",
-        "Uniform electric field",
-        "Force on a charge in a field: F = qE",
-        "Negative charges feel force opposite E",
-        "Motion of charges in uniform fields",
-      ],
-      problemSkills: [
-        "Given F and q, solve E",
-        "Given E and q, solve F",
-        "Determine force direction for positive and negative charges",
-        "Combine fields from multiple charges",
-        "Interpret electric field diagrams",
-      ],
-      traps: [
-        "Confusing electric field with electric force",
-        "Forgetting negative charge flips force direction",
-        "Not treating field as a vector",
-      ],
-    },
-    {
-      chapter: 24,
-      title: "Gauss’s Law and Electric Flux",
-      mustKnow: [
-        "Electric flux concept",
-        "Area vector",
-        "Flux formula ΦE = EAcosθ",
-        "Angle dependence of flux",
-        "Closed surfaces",
-        "Gaussian surfaces",
-        "Enclosed charge q_enc",
-        "Gauss’s Law: ΦE = q_enc/ε₀",
-        "Permittivity of free space ε₀",
-        "Symmetry arguments",
-        "Spherical symmetry",
-        "Cylindrical symmetry",
-        "Planar symmetry",
-        "Electric field of conductors in electrostatic equilibrium",
-        "Charge resides on conductor surfaces",
-      ],
-      problemSkills: [
-        "Decide between Φ = EAcosθ and Φ = q_enc/ε₀",
-        "Find flux through flat surfaces",
-        "Use θ = 0°, 90°, 180° correctly",
-        "Identify enclosed charge",
-        "Choose a Gaussian surface based on symmetry",
-      ],
-      traps: [
-        "Using sin instead of cos",
-        "Counting outside charges for total closed-surface flux",
-        "Forgetting flux can be positive, negative, or zero",
-        "Using Gauss’s Law without symmetry when solving for E",
-      ],
-    },
-  ],
-
-  2: [
-    {
-      chapter: 25,
-      title: "Electric Potential",
-      mustKnow: [
-        "Electric potential energy U",
-        "Electric potential V",
-        "Voltage as energy per charge: V = U/q",
-        "Potential difference ΔV",
-        "Energy change ΔU = qΔV",
-        "Potential is scalar",
-        "Electric field is vector",
-        "Potential from a point charge",
-        "Equipotential lines/surfaces",
-        "Relationship between E and V conceptually",
-        "High potential vs low potential",
-        "Electron behavior vs positive charge behavior",
-      ],
-      problemSkills: [
-        "Given U and q, solve V",
-        "Given q and ΔV, solve ΔU",
-        "Use potential energy conservation",
-        "Interpret equipotential diagrams",
-        "Know when sign matters for charge",
-      ],
-      traps: [
-        "Confusing voltage with electric field",
-        "Forgetting potential is scalar",
-        "Forgetting ΔU depends on q",
-      ],
-    },
-    {
-      chapter: 26,
-      title: "Capacitance and Dielectrics",
-      mustKnow: [
-        "Capacitor purpose: stores charge and energy",
-        "Capacitance definition: C = Q/ΔV",
-        "Charge relationship Q = CΔV",
-        "Parallel-plate capacitor model",
-        "Plate area effect",
-        "Plate separation effect",
-        "Dielectric materials",
-        "Dielectrics increase capacitance",
-        "Energy stored in a capacitor",
-        "Capacitors in series",
-        "Capacitors in parallel",
-        "Voltage and charge rules for capacitor combinations",
-      ],
-      problemSkills: [
-        "Solve for C, Q, or ΔV",
-        "Use units F, μF, C, V",
-        "Know whether charge or voltage is same in series/parallel",
-        "Find equivalent capacitance",
-        "Predict dielectric effects",
-      ],
-      traps: [
-        "Mixing up capacitance and charge",
-        "Using V instead of ΔV without thinking",
-        "Confusing capacitor series rules with resistor series rules",
-      ],
-    },
-    {
-      chapter: 27,
-      title: "Current and Resistance",
-      mustKnow: [
-        "Current as charge flow per time",
-        "Conventional current direction",
-        "Electron flow direction",
-        "Resistance",
-        "Resistivity",
-        "Ohm’s Law: V = IR",
-        "Current density concept",
-        "Conductors vs resistors",
-        "Electrical power",
-        "Power formulas P = IV, P = I²R, P = V²/R",
-        "Energy used by a circuit",
-      ],
-      problemSkills: [
-        "Solve V, I, or R using Ohm’s Law",
-        "Use P = IV",
-        "Choose correct power formula",
-        "Convert units like mA to A",
-        "Reason about what happens when R changes",
-      ],
-      traps: [
-        "Current is not voltage",
-        "Resistance opposes current",
-        "More resistance means less current if voltage is constant",
-        "Forgetting power units are watts",
-      ],
-    },
-    {
-      chapter: 28,
-      title: "DC Circuits",
-      mustKnow: [
-        "Circuit diagrams",
-        "Batteries as voltage sources",
-        "Resistors in series",
-        "Resistors in parallel",
-        "Equivalent resistance",
-        "Series rule: same current",
-        "Parallel rule: same voltage",
-        "Kirchhoff’s junction rule",
-        "Kirchhoff’s loop rule",
-        "Power in circuits",
-        "Multi-loop circuits",
-        "RC circuit basics if included by instructor",
-        "Charging and discharging capacitors if included by instructor",
-      ],
-      problemSkills: [
-        "Identify series vs parallel",
-        "Find equivalent resistance",
-        "Use Kirchhoff’s rules",
-        "Find current through branches",
-        "Find voltage drops",
-        "Calculate power dissipated",
-      ],
-      traps: [
-        "Adding parallel resistors directly",
-        "Thinking series has same voltage",
-        "Thinking parallel has same current",
-        "Not checking current conservation at junctions",
-      ],
-    },
-  ],
-
-  3: [
-    {
-      chapter: 29,
-      title: "Magnetic Fields and Magnetic Force",
-      mustKnow: [
-        "Magnetic field B",
-        "Tesla unit",
-        "Magnetic force on moving charge: F = qvBsinθ",
-        "Angle between v and B",
-        "Right-hand rule",
-        "Circular motion of charged particles in magnetic fields",
-        "Magnetic force on a current-carrying wire",
-        "Force between currents if included",
-        "Mass spectrometer / velocity selector style reasoning if included",
-      ],
-      problemSkills: [
-        "Determine if magnetic force is zero or maximum",
-        "Use sinθ correctly",
-        "Solve F = qvBsinθ",
-        "Use right-hand rule for direction",
-        "Connect magnetic force to circular motion",
-      ],
-      traps: [
-        "Stationary charge has no magnetic force",
-        "Using cos instead of sin",
-        "Forgetting direction is perpendicular",
-        "Ignoring the sign of charge for direction",
-      ],
-    },
-    {
-      chapter: 30,
-      title: "Electromagnetic Induction",
-      mustKnow: [
-        "Magnetic flux ΦB",
-        "Flux depends on B, area, and angle",
-        "Faraday’s Law: ε = -NΔΦB/Δt",
-        "Induced emf",
-        "Lenz’s Law",
-        "Changing flux creates emf",
-        "Changing B",
-        "Changing area",
-        "Changing angle",
-        "Moving conductor/motional emf if included",
-        "Generators and induced current conceptually",
-        "Inductance basics if included",
-      ],
-      problemSkills: [
-        "Identify what is changing",
-        "Calculate flux change",
-        "Use |ε| = NΔΦB/Δt",
-        "Use Lenz’s Law for direction",
-        "Recognize zero-emf situations",
-      ],
-      traps: [
-        "No changing flux means no induced emf",
-        "Negative sign is direction, not magnitude panic",
-        "Forgetting number of turns N",
-        "Confusing electric flux with magnetic flux",
-      ],
-    },
-    {
-      chapter: 31,
-      title: "Electromagnetic Waves",
-      mustKnow: [
-        "EM waves are oscillating electric and magnetic fields",
-        "EM waves can travel through vacuum",
-        "Speed of light c = 3.00 × 10⁸ m/s",
-        "Relationship c = fλ",
-        "Wavelength and frequency relationship",
-        "Electromagnetic spectrum",
-        "Intensity of EM waves if included",
-        "Radiation pressure if included",
-        "Polarization if included",
-      ],
-      problemSkills: [
-        "Given f, solve λ",
-        "Given λ, solve f",
-        "Use c instead of sound speed",
-        "Reason that high frequency means short wavelength",
-        "Identify EM spectrum order conceptually",
-      ],
-      traps: [
-        "Using 343 m/s for light",
-        "Forgetting EM waves do not need a medium",
-        "Mixing up frequency and wavelength trends",
-      ],
-    },
-  ],
-
-  4: [
-    {
-      chapter: 33,
-      title: "Remaining Final Topic / Modern or Optics Topic",
-      mustKnow: [
-        "Use instructor slides and homework objective for this chapter",
-        "Identify chapter-specific clue words",
-        "Add formulas from the assigned lecture",
-        "Practice the Mastering-style problems assigned for this chapter",
-        "Connect the topic back to waves/electricity/magnetism where possible",
-      ],
-      problemSkills: [
-        "Use the same Knight strategy: model, visualize, solve, assess",
-        "Write givens and unknown",
-        "Choose formulas from the lecture",
-        "Check units",
-      ],
-      traps: [
-        "Assuming the formula before reading the wording",
-        "Skipping diagrams or representations",
-        "Not connecting the chapter to previous modules",
-      ],
-    },
-    {
-      chapter: 32,
-      title: "Final Review / Mixed Problems",
-      mustKnow: [
-        "Formula selection by clue words",
-        "Dimensional analysis",
-        "Unit conversions",
-        "Vector vs scalar quantities",
-        "Graph interpretation",
-        "Energy reasoning",
-        "Field reasoning",
-        "Circuit reasoning",
-        "Wave reasoning",
-        "Magnetic-force reasoning",
-        "Induction reasoning",
-      ],
-      problemSkills: [
-        "Recognize the chapter from the wording",
-        "Label variables before solving",
-        "Rearrange before substitution",
-        "Check whether answer units match unknown",
-        "Explain why a formula applies",
-      ],
-      traps: [
-        "Plugging numbers before identifying the model",
-        "Using the wrong speed constant",
-        "Mixing up field, force, voltage, and flux",
-        "Not reviewing old modules before the final",
-      ],
-    },
-  ],
-};
-
-function findConceptSet(chapterNumber) {
-  for (const moduleId of Object.keys(MODULE_CONCEPTS)) {
-    const found = MODULE_CONCEPTS[moduleId].find((item) => item.chapter === chapterNumber);
-    if (found) return found;
-  }
-  return null;
 }
 
 function nice(value) {
@@ -2186,7 +1632,7 @@ export default function App() {
 
         <View style={styles.card}>
           <Box title="Module Mission">
-            {`${module.dates}\n${module.exam}\n\nPick a chapter below, then choose Study Guide, Flashcards, Clips, Formula Map, Knight-Style Game, or Solver.`}
+            {`${module.dates}\n${module.exam}\n\nPick a chapter below, then choose Study Guide, Flashcards, Clips, Formula Map, Teaching Game, or Solver.`}
           </Box>
 
           <Text style={styles.sectionTitle}>Chapters</Text>
@@ -2197,7 +1643,6 @@ export default function App() {
             </Pressable>
           ))}
 
-          <Button label="Module Concept Checklist" type="gold" onPress={() => setScreen("moduleConcepts")} />
           <Button label="Module Formula Map" type="purple" onPress={() => setScreen("moduleFormulas")} />
           <Button label="Back to Modules" type="secondary" onPress={() => setScreen("modules")} />
         </View>
@@ -2245,10 +1690,9 @@ export default function App() {
           </Box>
 
           <Button label="Study Guide" onPress={() => setScreen("study")} />
-          <Button label="Concept Checklist" type="gold" onPress={() => setScreen("conceptChecklist")} />
           <Button label="Tiny Animated Clips" type="gold" onPress={() => { setClipIndex(0); setPlaying(true); setScreen("clips"); }} />
           <Button label="Flashcards" type="purple" onPress={() => { setFlashIndex(0); setShowAnswer(false); setScreen("flashcards"); }} />
-          <Button label="Knight-Style Knight-Style Game" type="gold" onPress={() => { setGameIndex(0); setGameScore(0); setGameMessage(""); setScreen("game"); }} />
+          <Button label="Chapter Teaching Game" type="gold" onPress={() => { setGameIndex(0); setGameScore(0); setGameMessage(""); setScreen("game"); }} />
           <Button label="Chapter Formula Map" type="secondary" onPress={() => setScreen("chapterFormula")} />
           <Button label="Homework Solver" type="purple" onPress={() => setScreen("solver")} />
           <Button label="Back to Module" type="secondary" onPress={() => setScreen("module")} />
@@ -2256,95 +1700,6 @@ export default function App() {
       </ScrollView>
     );
   }
-
-
-  if (screen === "moduleConcepts") {
-    const moduleConcepts = MODULE_CONCEPTS[module.id] || [];
-
-    return (
-      <ScrollView contentContainerStyle={styles.container}>
-        <Text style={styles.title}>{module.title}</Text>
-        <Text style={styles.subtitle}>Complete Concept Checklist</Text>
-
-        <View style={styles.card}>
-          <Box title="Module Coverage Goal">
-            {`This checks whether you have every big concept for ${module.title}: ${module.focus}.`}
-          </Box>
-
-          {moduleConcepts.map((item) => (
-            <View key={item.chapter} style={styles.conceptCard}>
-              <Text style={styles.conceptTitle}>Chapter {item.chapter}: {item.title}</Text>
-
-              <Text style={styles.conceptHeader}>Must Know</Text>
-              {item.mustKnow.map((concept, index) => (
-                <Text key={`m-${index}`} style={styles.conceptItem}>□ {concept}</Text>
-              ))}
-
-              <Text style={styles.conceptHeader}>Problem Skills</Text>
-              {item.problemSkills.map((skill, index) => (
-                <Text key={`s-${index}`} style={styles.conceptItem}>□ {skill}</Text>
-              ))}
-
-              <Text style={styles.conceptHeader}>Traps to Avoid</Text>
-              {item.traps.map((trap, index) => (
-                <Text key={`t-${index}`} style={styles.trapItem}>⚠ {trap}</Text>
-              ))}
-            </View>
-          ))}
-
-          <Button label="Back to Module" type="secondary" onPress={() => setScreen("module")} />
-        </View>
-      </ScrollView>
-    );
-  }
-
-  if (screen === "conceptChecklist") {
-    const conceptSet = findConceptSet(chapter.number);
-
-    return (
-      <ScrollView contentContainerStyle={styles.container}>
-        <Text style={styles.title}>Concept Checklist</Text>
-        <Text style={styles.subtitle}>Chapter {chapter.number}: {chapter.title}</Text>
-
-        <View style={styles.card}>
-          {conceptSet ? (
-            <>
-              <Box title="How to Use This">
-                {"Check these off mentally before a quiz. If any box feels fuzzy, go to Study Guide, Flashcards, then the Knight-Style Game."}
-              </Box>
-
-              <View style={styles.conceptCard}>
-                <Text style={styles.conceptHeader}>Must Know</Text>
-                {conceptSet.mustKnow.map((concept, index) => (
-                  <Text key={`cm-${index}`} style={styles.conceptItem}>□ {concept}</Text>
-                ))}
-
-                <Text style={styles.conceptHeader}>Problem Skills</Text>
-                {conceptSet.problemSkills.map((skill, index) => (
-                  <Text key={`cs-${index}`} style={styles.conceptItem}>□ {skill}</Text>
-                ))}
-
-                <Text style={styles.conceptHeader}>Traps to Avoid</Text>
-                {conceptSet.traps.map((trap, index) => (
-                  <Text key={`ct-${index}`} style={styles.trapItem}>⚠ {trap}</Text>
-                ))}
-              </View>
-            </>
-          ) : (
-            <Box title="No checklist found">
-              {"Use the module checklist or formula map for this chapter."}
-            </Box>
-          )}
-
-          <Button label="Study Guide" onPress={() => setScreen("study")} />
-          <Button label="Flashcards" type="purple" onPress={() => { setFlashIndex(0); setShowAnswer(false); setScreen("flashcards"); }} />
-          <Button label="Knight-Style Game" type="gold" onPress={() => { setGameIndex(0); setGameScore(0); setGameMessage(""); setScreen("game"); }} />
-          <Button label="Back to Chapter" type="secondary" onPress={() => setScreen("chapter")} />
-        </View>
-      </ScrollView>
-    );
-  }
-
 
   if (screen === "study") {
     return (
@@ -2370,7 +1725,7 @@ export default function App() {
           </Box>
 
           <Button label="Flashcards" type="purple" onPress={() => { setFlashIndex(0); setShowAnswer(false); setScreen("flashcards"); }} />
-          <Button label="Knight-Style Game" type="gold" onPress={() => { setGameIndex(0); setGameScore(0); setGameMessage(""); setScreen("game"); }} />
+          <Button label="Teaching Game" type="gold" onPress={() => { setGameIndex(0); setGameScore(0); setGameMessage(""); setScreen("game"); }} />
           <Button label="Back to Chapter" type="secondary" onPress={() => setScreen("chapter")} />
         </View>
       </ScrollView>
@@ -3066,45 +2421,4 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginTop: 14,
   },
-  conceptCard: {
-    backgroundColor: "#f8fafc",
-    borderColor: "#38bdf8",
-    borderWidth: 2,
-    borderRadius: 20,
-    padding: 16,
-    marginTop: 14,
-  },
-  conceptTitle: {
-    color: "#0f172a",
-    fontSize: 22,
-    lineHeight: 31,
-    fontWeight: "900",
-    textAlign: "center",
-    marginBottom: 10,
-  },
-  conceptHeader: {
-    color: "#7c3aed",
-    fontSize: 20,
-    fontWeight: "900",
-    marginTop: 14,
-    marginBottom: 6,
-  },
-  conceptItem: {
-    color: "#0f172a",
-    fontSize: 17,
-    lineHeight: 27,
-    fontWeight: "800",
-    marginTop: 4,
-  },
-  trapItem: {
-    color: "#7f1d1d",
-    backgroundColor: "#fee2e2",
-    borderRadius: 12,
-    padding: 9,
-    fontSize: 16,
-    lineHeight: 24,
-    fontWeight: "900",
-    marginTop: 6,
-  },
-
 });
