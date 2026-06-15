@@ -14,7 +14,7 @@ import {
   Syllabus-based Physics II study app.
 
   Structure:
-  Home → Module → Chapter → Study Guide / Clips / Flashcards / Formula Map / Knight-Style Game / Solver
+  Home → Module → Chapter → Study Guide / Clips / Flashcards / Formula Map / Homework Boss Game / Solver
 
   Built around the course chapter schedule for:
   Physics for Scientists and Engineers: A Strategic Approach with Modern Physics
@@ -924,6 +924,204 @@ const CH16_OPTIMIZED_GAME_ROUNDS = [
 ];
 
 
+
+const CH23_24_HOMEWORK_GAME_ROUNDS = {
+  "23": [
+    {
+      skill: "Charge from Electrons",
+      prompt: "2.0 x 10^10 electrons are added to a plastic rod. What is the sign of the rod's charge?",
+      choices: ["Negative", "Positive", "Neutral", "Impossible to tell"],
+      answer: "Negative",
+      teach: "Electrons carry negative charge. Adding electrons makes the object negative.",
+    },
+    {
+      skill: "Charge from Electrons",
+      prompt: "What formula finds charge from a number of added electrons?",
+      choices: ["Q = N(-e)", "E = kq/r^2", "V = IR", "Q = CV"],
+      answer: "Q = N(-e)",
+      teach: "Multiply the number of electrons by -1.60 x 10^-19 C.",
+    },
+    {
+      skill: "Polarization",
+      prompt: "A positive test charge is weakly attracted to a plastic ball. What is the best model?",
+      choices: ["Neutral insulator polarization", "Positive charged ball", "Strong conductor polarization", "No electric force"],
+      answer: "Neutral insulator polarization",
+      teach: "Neutral insulators can be weakly attracted because their bound charges shift slightly.",
+    },
+    {
+      skill: "Conductors vs Insulators",
+      prompt: "After many negative contacts, where does excess charge go on a conductor?",
+      choices: ["Spreads across the surface", "Stays only at contact point", "Turns positive", "Disappears"],
+      answer: "Spreads across the surface",
+      teach: "In a conductor, free electrons move and spread out.",
+    },
+    {
+      skill: "Conductors vs Insulators",
+      prompt: "After several negative contacts, where does excess charge stay on a plastic insulator?",
+      choices: ["Near the contact end", "Evenly everywhere", "Only on the far end", "It becomes positive"],
+      answer: "Near the contact end",
+      teach: "In an insulator, charges are not free to move through the material.",
+    },
+    {
+      skill: "Coulomb Direction",
+      prompt: "q0 is positive at the origin. q1 is positive at (0,d1,0). What direction is force on q0?",
+      choices: ["Negative j", "Positive j", "Positive i", "Negative k"],
+      answer: "Negative j",
+      teach: "Like charges repel. q1 above q0 pushes q0 downward.",
+    },
+    {
+      skill: "Coulomb Components",
+      prompt: "For q0 at origin and positive q1 at y=d1, what is the j component?",
+      choices: ["-k*q_0*q_1/d_1^2", "k*q_0*q_1/d_1^2", "0", "-k*q_0*q_1/d_1"],
+      answer: "-k*q_0*q_1/d_1^2",
+      teach: "Coulomb magnitude is kq0q1/d1^2 and direction is negative j.",
+    },
+    {
+      skill: "Force Balance",
+      prompt: "For zero net force from q1 and q2 on q0, what ratio appears?",
+      choices: ["d1/d2 = sqrt(q1/q2)", "d1/d2 = q1/q2", "d1/d2 = sqrt(q2/q1)", "d1/d2 = k/q0"],
+      answer: "d1/d2 = sqrt(q1/q2)",
+      teach: "Set kq0q1/d1^2 = kq0q2/d2^2. k and q0 cancel.",
+    },
+    {
+      skill: "Point Charge Field",
+      prompt: "A negative bead creates electric field lines that point:",
+      choices: ["Toward the bead", "Away from the bead", "In circles", "Only upward"],
+      answer: "Toward the bead",
+      teach: "Electric fields point in the direction a positive test charge would move.",
+    },
+    {
+      skill: "Inverse Square Field",
+      prompt: "If E = 9 V/m at 1 m from a point charge, what is E at 3 m?",
+      choices: ["1 V/m", "3 V/m", "9 V/m", "27 V/m"],
+      answer: "1 V/m",
+      teach: "Point-charge fields scale as 1/r^2. Tripling distance makes field 1/9 as large.",
+    },
+    {
+      skill: "Dipole Field",
+      prompt: "A small dipole field far away decreases compared with 1/r^2:",
+      choices: ["More quickly", "Less quickly", "Exactly the same", "It does not decrease"],
+      answer: "More quickly",
+      teach: "Dipoles have cancellation between + and -, so the far field drops roughly as 1/r^3.",
+    },
+  ],
+
+  "24": [
+    {
+      skill: "Finite Charged Wire Symmetry",
+      prompt: "A charged wire lies on the x-axis. Point P is above the midpoint on +y. Which components cancel?",
+      choices: ["x components", "y components", "all components", "z components only"],
+      answer: "x components",
+      teach: "Left/right pieces create opposite x-components. The y-components add.",
+    },
+    {
+      skill: "Finite Charged Wire Direction",
+      prompt: "For a positive finite wire centered on the x-axis, field at point P on +y points:",
+      choices: ["Positive j", "Negative j", "Positive i", "In a circle"],
+      answer: "Positive j",
+      teach: "By symmetry, only the vertical y-component survives.",
+    },
+    {
+      skill: "Finite Charged Wire Formula",
+      prompt: "What is the electric field magnitude above the midpoint of a wire from -L to +L?",
+      choices: [
+        "2*k*lambda*L/(d*sqrt(d^2+L^2))",
+        "k*q*z/(z^2+a^2)^(3/2)",
+        "k*q/r^2",
+        "epsilon0*A*E"
+      ],
+      answer: "2*k*lambda*L/(d*sqrt(d^2+L^2))",
+      teach: "This comes from integrating dE_y across the finite wire.",
+    },
+    {
+      skill: "Charged Ring Direction",
+      prompt: "A uniformly charged ring lies in the xy-plane. At a point on the z-axis, the electric field is:",
+      choices: ["Parallel to the z axis", "Parallel to x", "Parallel to y", "In a circle"],
+      answer: "Parallel to the z axis",
+      teach: "All sideways components cancel by circular symmetry.",
+    },
+    {
+      skill: "Charged Ring Formula",
+      prompt: "Electric field magnitude on the z-axis of a charged ring is:",
+      choices: [
+        "k*q*z/(z^2+a^2)^(3/2)",
+        "k*q/r^2",
+        "2*k*lambda*L/(d*sqrt(d^2+L^2))",
+        "qE"
+      ],
+      answer: "k*q*z/(z^2+a^2)^(3/2)",
+      teach: "Only the z-components add, giving E(z)=kqz/(z^2+a^2)^(3/2).",
+    },
+    {
+      skill: "Mastering Syntax",
+      prompt: "If Mastering rejects (z^2+a^2)^(3/2), what equivalent denominator can help?",
+      choices: [
+        "(z^2+a^2)*sqrt(z^2+a^2)",
+        "sqrt(z^2+a^2)",
+        "(z+a)^3",
+        "z^2*a^2"
+      ],
+      answer: "(z^2+a^2)*sqrt(z^2+a^2)",
+      teach: "(z^2+a^2)^(3/2) equals (z^2+a^2)*sqrt(z^2+a^2).",
+    },
+    {
+      skill: "Ring SHM",
+      prompt: "A negative charge near the center of a positive ring with z << a will:",
+      choices: [
+        "Oscillate along the z axis",
+        "Come to rest at the origin",
+        "Circle around the z axis",
+        "Be repelled forever"
+      ],
+      answer: "Oscillate along the z axis",
+      teach: "Near the center, E is proportional to z, so the force is a restoring force.",
+    },
+    {
+      skill: "Ring SHM Frequency",
+      prompt: "For a negative ball near a positive ring, angular frequency is:",
+      choices: [
+        "sqrt(k*q*q_0/(m*a^3))",
+        "k*q*q_0/(m*a^2)",
+        "sqrt(k*q/(a^2))",
+        "sqrt(m*a^3/(k*q*q_0))"
+      ],
+      answer: "sqrt(k*q*q_0/(m*a^3))",
+      teach: "Near center: E≈kqz/a^3 and F=-(kqq0/a^3)z, so omega=sqrt(kqq0/(ma^3)).",
+    },
+    {
+      skill: "Parallel Plate Charge",
+      prompt: "If E is given inside a parallel plate capacitor, what finds charge on each plate?",
+      choices: ["Q = epsilon0*A*E", "Q = E/(epsilon0*A)", "Q = kq/r^2", "Q = mv/t"],
+      answer: "Q = epsilon0*A*E",
+      teach: "For parallel plates, E = Q/(epsilon0 A), so Q = epsilon0 A E.",
+    },
+    {
+      skill: "Proton Between Plates",
+      prompt: "A proton starts from rest between plates and crosses distance d in time t. First find:",
+      choices: ["a = 2d/t^2", "E = kq/r^2", "v = d/t only", "Q = CV"],
+      answer: "a = 2d/t^2",
+      teach: "Use kinematics first: d = 1/2 at^2, then use E = ma/q.",
+    },
+    {
+      skill: "Proton Between Plates",
+      prompt: "After finding acceleration of a proton in a uniform electric field, field strength is:",
+      choices: ["E = ma/q", "E = q/ma", "E = kq/r^2", "E = epsilon0*A"],
+      answer: "E = ma/q",
+      teach: "Electric force is qE, and Newton's second law gives F=ma.",
+    },
+  ],
+
+  "26": [
+    {
+      skill: "Parallel Plate Charge",
+      prompt: "If E is given inside a parallel plate capacitor, what finds charge on each plate?",
+      choices: ["Q = epsilon0*A*E", "Q = E/(epsilon0*A)", "Q = kq/r^2", "Q = mv/t"],
+      answer: "Q = epsilon0*A*E",
+      teach: "For parallel plates, E = Q/(epsilon0 A), so Q = epsilon0 A E.",
+    }
+  ]
+};
+
 const TEACHING_GAMES = {
   "16": {
     name: "Knight Mode: Wave Model Lab",
@@ -1408,7 +1606,9 @@ const TEACHING_GAMES = {
 };
 
 function getTeachingGame(chapter) {
-  if (String(chapter.number) === "16") {
+  const chapterNumber = String(chapter.number);
+
+  if (chapterNumber === "16" && typeof CH16_OPTIMIZED_GAME_ROUNDS !== "undefined") {
     return {
       name: "Ch. 16 Mastering Physics Boss Game",
       mission: "Train every Ch. 16 homework skill: wave equation, derivatives, string tension, hanging rope proofs, graphs, spherical phase, light, refraction, and unit traps.",
@@ -1416,18 +1616,27 @@ function getTeachingGame(chapter) {
     };
   }
 
-  const base = TEACHING_GAMES[String(chapter.number)] || TEACHING_GAMES["33"];
-  const extras = typeof MASTERING_STYLE_EXTRA_ROUNDS !== "undefined"
-    ? MASTERING_STYLE_EXTRA_ROUNDS[String(chapter.number)]
+  const base = TEACHING_GAMES[chapterNumber] || TEACHING_GAMES["33"];
+  const oldExtras = typeof MASTERING_STYLE_EXTRA_ROUNDS !== "undefined"
+    ? MASTERING_STYLE_EXTRA_ROUNDS[chapterNumber]
+    : null;
+  const electroExtras = typeof CH23_24_HOMEWORK_GAME_ROUNDS !== "undefined"
+    ? CH23_24_HOMEWORK_GAME_ROUNDS[chapterNumber]
     : null;
 
-  if (!extras) return base;
+  const combinedRounds = [
+    ...(base.rounds || []),
+    ...(oldExtras && oldExtras.rounds ? oldExtras.rounds : []),
+    ...(electroExtras || []),
+  ];
 
   return {
     ...base,
-    name: `${base.name}: Mastering-Style Practice`,
-    mission: `${base.mission} Also trains homework-style proof, graph, ratio, and unit traps.`,
-    rounds: [...base.rounds, ...extras.rounds],
+    name: electroExtras ? `${base.name}: Homework Boss Practice` : base.name,
+    mission: electroExtras
+      ? `${base.mission} Also trains your Ch. 23/24 homework patterns: charge transfer, polarization, Coulomb vectors, field symmetry, rings, wires, plates, and proton motion.`
+      : base.mission,
+    rounds: combinedRounds,
   };
 }
 
@@ -2015,316 +2224,1000 @@ function makeResult({ topic, givens, unknown, formula, math, solution, trap, var
   };
 }
 
-function solveProblem(text) {
-  const lower = text.toLowerCase();
-  const givens = allNumbers(text);
-  const variableMap = variableTranslator(text);
 
-  if (!text.trim()) {
+function solveElectrostaticsHomework(text) {
+  const original = text || "";
+  const lower = normalizeHomeworkText(original);
+  const givens = cleanGivensList(original);
+
+  const K = 8.99e9;
+  const E_CHARGE = 1.60e-19;
+  const EPS0 = 8.854e-12;
+  const PROTON_MASS = 1.67e-27;
+  const PROTON_CHARGE = 1.60e-19;
+
+  function hasAny(words) {
+    return words.some((word) => lower.includes(word));
+  }
+
+  function numBefore(unitPattern) {
+    const m = lower.match(new RegExp("([-+]?\\d*\\.?\\d+)\\s*" + unitPattern, "i"));
+    return m ? Number(m[1]) : null;
+  }
+
+  function numsBefore(unitPattern) {
+    return [...lower.matchAll(new RegExp("([-+]?\\d*\\.?\\d+)\\s*" + unitPattern, "gi"))]
+      .map((m) => Number(m[1]))
+      .filter((n) => Number.isFinite(n));
+  }
+
+  function makeElectroResult({ topic, unknown, formula, math, solution, trap, variableMap }) {
     return makeResult({
-      topic: "Paste a problem first",
-      givens: [],
-      unknown: "The variable the problem asks for",
-      formula: "Formula appears here.",
-      math: "Paste the full homework question with numbers and units.",
-      solution: "Answer appears here.",
-      trap: "Paste the entire question.",
+      topic,
+      givens,
+      unknown,
+      formula,
+      math,
+      solution,
+      trap,
       variableMap,
     });
   }
 
-  if (has(lower, ["string"]) && has(lower, ["tension"]) && has(lower, ["speed"])) {
-    const speeds = numsByRegex(text, /([-+]?\d*\.?\d+)\s*m\s*\/\s*s/gi);
-    const tensions = numsByRegex(text, /([-+]?\d*\.?\d+)\s*(?:n|newton|newtons|upper n)\b/gi);
+  // ------------------------------
+  // Charge from electrons
+  // ------------------------------
+  if (hasAny(["electrons are added", "excess electrons", "number of electrons"])) {
+    const N = firstMasteringSci(original) || numBefore("electrons");
+
+    let solution = "Use Q = N(-e). Adding electrons makes the object negative.";
+
+    if (N) {
+      const Q = -N * E_CHARGE;
+      solution =
+        `N = ${N.toExponential(3)} electrons\n` +
+        `e = 1.60 x 10^-19 C\n\n` +
+        `Q = N(-e)\n` +
+        `Q = (${N.toExponential(3)})(-1.60 x 10^-19 C)\n` +
+        `Q = ${Q.toExponential(3)} C\n\n` +
+        `Final Answer: ${Q.toExponential(2)} C`;
+    }
+
+    return makeElectroResult({
+      topic: "Ch. 23/24: Charge from Electrons",
+      unknown: "Net charge Q",
+      formula: "Q = N(-e)",
+      math: "Multiply the number of added electrons by the charge of one electron.",
+      solution,
+      trap: "Added electrons make the charge negative.",
+      variableMap: "N = number of electrons\ne = 1.60 x 10^-19 C\nQ = net charge",
+    });
+  }
+
+  // ------------------------------
+  // Conductors / insulators / polarization
+  // ------------------------------
+  if (hasAny(["plastic balls", "copper ball", "test charge", "weakly attracted", "strongly attracted", "strongly repelled"])) {
+    return makeElectroResult({
+      topic: "Ch. 23/24: Conductors, Insulators, and Polarization",
+      unknown: "Attractive, repulsive, or neither",
+      formula: "Like repel, opposites attract, neutral objects can attract by polarization.",
+      math:
+        "Use the positive test charge to identify the objects:\n\n" +
+        "Strongly repelled by positive test charge -> positive.\n" +
+        "Strongly attracted to positive test charge and plastic -> negative.\n" +
+        "Weakly attracted -> neutral insulator.\n" +
+        "Neutral conductor near charge -> strong attraction by induced charge separation.",
+      solution:
+        "A strongly attracts positive T and is plastic -> A is negative.\n" +
+        "B strongly repels positive T -> B is positive.\n" +
+        "C weakly attracts positive T -> C is neutral plastic.\n" +
+        "D is uncharged copper -> neutral conductor.\n\n" +
+        "A-B: attractive.\n" +
+        "A-C: attractive, smaller than A-B.\n" +
+        "A-D: attractive.\n" +
+        "C-D: neither attractive nor repulsive.",
+      trap: "Neutral does not always mean no force. Neutral objects can be attracted by polarization.",
+      variableMap: "A = negative plastic\nB = positive plastic\nC = neutral plastic\nD = neutral copper conductor\nT = positive test charge",
+    });
+  }
+
+  if (hasAny(["small metal ball", "negative charge", "end a", "end b", "rod", "great many contacts", "several contacts"])) {
+    return makeElectroResult({
+      topic: "Ch. 23/24: Charging Rods by Induction and Contact",
+      unknown: "Attracted, repelled, or charge distribution",
+      formula: "Conductor: charges spread. Insulator: charges stay local.",
+      math:
+        "First approach to neutral object:\n" +
+        "charged ball polarizes rod -> near end is attracted.\n\n" +
+        "After contact with negative ball:\n" +
+        "electrons transfer to rod.\n\n" +
+        "Plastic/insulator: negative charge stays near contact end.\n" +
+        "Conductor: negative charge spreads over the rod.",
+      solution:
+        "Insulating/plastic rod:\n" +
+        "First approach -> weakly attracted.\n" +
+        "After several contacts -> negative on end A, end B almost neutral.\n" +
+        "Approach end A again -> strongly repelled.\n\n" +
+        "Conducting rod:\n" +
+        "First approach -> attracted.\n" +
+        "After many contacts -> negative charge spread evenly.\n" +
+        "Approach end A or B again -> repelled.",
+      trap: "The answer depends on whether the rod is an insulator or conductor.",
+      variableMap: "End A = contact/near end\nEnd B = far end\nnegative ball = adds electrons",
+    });
+  }
+
+  // ------------------------------
+  // Coulomb force vector patterns
+  // ------------------------------
+  if (hasAny(["particle 0", "q_0", "q subscript 0", "i", "j", "k", "d_1"])) {
+    if (hasAny(["particle 3", "q_3", "(0, d_2, d_2)", "d 2, d 2"])) {
+      return makeElectroResult({
+        topic: "Ch. 23/24: Coulomb Vector from Particle 3",
+        unknown: "Force components from particle 3 only",
+        formula: "F = kq0q3/r^2, split into y and z components",
+        math:
+          "Particle 3 is at (0,d2,d2).\n" +
+          "r = sqrt(d2^2+d2^2) = sqrt(2)d2\n" +
+          "r^2 = 2d2^2\n\n" +
+          "Magnitude = kq0q3/(2d2^2)\n" +
+          "Components are equal in -j and -k directions.",
+        solution:
+          "i component: 0\n" +
+          "j component: -k*q_0*q_3/(2*sqrt(2)*d_2^2)\n" +
+          "k component: -k*q_0*q_3/(2*sqrt(2)*d_2^2)",
+        trap: "Do not forget the sqrt(2) from the 45-degree component split.",
+        variableMap: "q0 = origin charge\nq3 = positive charge at (0,d2,d2)",
+      });
+    }
+
+    if (hasAny(["ratio", "d_1 divided by d_2", "no net force", "balance"])) {
+      return makeElectroResult({
+        topic: "Ch. 23/24: Balance Coulomb Forces",
+        unknown: "d1/d2",
+        formula: "kq0q1/d1^2 = kq0q2/d2^2",
+        math:
+          "Set magnitudes equal:\n" +
+          "kq0q1/d1^2 = kq0q2/d2^2\n\n" +
+          "Cancel k and q0:\n" +
+          "q1/d1^2 = q2/d2^2\n\n" +
+          "Take square root.",
+        solution: "Final Answer: d1/d2 = sqrt(q_1/q_2)",
+        trap: "k and q0 cancel out.",
+        variableMap: "q1 = positive charge causing repulsion\nq2 = magnitude of negative charge causing attraction",
+      });
+    }
+
+    if (hasAny(["particle 2", "q_2", "negative q 2", "third"])) {
+      return makeElectroResult({
+        topic: "Ch. 23/24: Net Coulomb Force from Two y-axis Charges",
+        unknown: "i, j, k components",
+        formula: "Fnet = F1 + F2",
+        math:
+          "Positive q1 above q0 repels q0 downward: negative j.\n" +
+          "Negative q2 above q0 attracts q0 upward: positive j.",
+        solution:
+          "i component: 0\n" +
+          "j component: -k*q_0*q_1/d_1^2 + k*q_0*q_2/d_2^2\n" +
+          "k component: 0",
+        trap: "q2 is written as a magnitude. The direction gives the positive j sign.",
+        variableMap: "q0 = origin charge\nq1 = positive charge at y=d1\n-q2 = negative charge at y=d2",
+      });
+    }
+
+    return makeElectroResult({
+      topic: "Ch. 23/24: Coulomb Force Vector",
+      unknown: "i, j, k components",
+      formula: "F = kq0q1/r^2 with direction from attraction/repulsion",
+      math:
+        "q0 is positive at origin.\n" +
+        "q1 is positive on +y.\n" +
+        "Like charges repel, so q0 is pushed downward along -j.",
+      solution:
+        "i component: 0\n" +
+        "j component: -k*q_0*q_1/d_1^2\n" +
+        "k component: 0",
+      trap: "The force on q0 points away from q1.",
+      variableMap: "q0 = origin charge\nq1 = charge at y=d1",
+    });
+  }
+
+  // ------------------------------
+  // Two charged masses: force + acceleration
+  // ------------------------------
+  if (hasAny(["kg masses", "frictionless table", "each has"]) && hasAny(["μc", "uc", "charge"])) {
+    const mass = numBefore("kg");
+    const qMicro = numBefore("(?:μc|uc)");
+    const distance = numBefore("m\\b") || 1.0;
+
+    let solution = "Use F = kq^2/r^2, then a = F/m.";
+
+    if (mass && qMicro && distance) {
+      const q = qMicro * 1e-6;
+      const F = K * q * q / (distance * distance);
+      const a = F / mass;
+      solution =
+        `q = ${qMicro} μC = ${q.toExponential(3)} C\n` +
+        `r = ${distance} m\n\n` +
+        `F = kq^2/r^2 = ${nice(F)} N\n\n` +
+        `a = F/m = ${nice(a)} m/s^2`;
+    }
+
+    return makeElectroResult({
+      topic: "Ch. 23/24: Coulomb Force and Acceleration",
+      unknown: "Electric force and/or initial acceleration",
+      formula: "F = kq^2/r^2 and a = F/m",
+      math: "First find electric force. Then use Newton's Second Law.",
+      solution,
+      trap: "Convert μC to C. Mass is only used for acceleration.",
+      variableMap: "q = charge\nr = distance\nm = mass\nF = force\na = acceleration",
+    });
+  }
+
+  // ------------------------------
+  // Soot / drag / electric field balance
+  // ------------------------------
+  if (hasAny(["electrostatic precipitator", "drag force", "constant speed", "soot", "charged particle"])) {
+    return makeElectroResult({
+      topic: "Ch. 23/24: Electric Force Balanced by Drag",
+      unknown: "Particle charge or field from isolated particle",
+      formula: "qE = F_drag and E = k|q|/r^2",
+      math:
+        "Constant speed means net force is zero.\n" +
+        "So electric force balances drag:\n" +
+        "qE = F_drag\n" +
+        "q = F_drag/E",
+      solution:
+        "For your homework numbers:\n" +
+        "q = (7.25 x 10^-11)/(1.00 x 10^5)\n" +
+        "q = 7.25 x 10^-16 C\n\n" +
+        "At r = 1.00 m:\n" +
+        "E = kq/r^2 = 6.52 x 10^-6 N/C",
+      trap: "Constant speed means net force is zero, not that every force is zero.",
+      variableMap: "F_drag = drag force\nE = applied field\nq = charge",
+    });
+  }
+
+  // ------------------------------
+  // Point charge electric field
+  // ------------------------------
+  if (hasAny(["electric field", "plastic bead", "charged to", "nc", "cm from"])) {
+    const qNc = numBefore("nc");
+    const cm = numBefore("cm");
+
+    let solution = "Use E = k|q|/r^2. Direction is away from positive and toward negative.";
+
+    if (qNc && cm) {
+      const q = Math.abs(qNc) * 1e-9;
+      const r = cm / 100;
+      const E = K * q / (r * r);
+      const direction = hasAny(["minus", "-"]) ? "toward the bead" : "away from the bead";
+      solution =
+        `q = ${qNc} nC = ${q.toExponential(3)} C\n` +
+        `r = ${cm} cm = ${r} m\n\n` +
+        `E = k|q|/r^2\n` +
+        `E = ${E.toExponential(3)} N/C\n\n` +
+        `Direction: ${direction}`;
+    }
+
+    return makeElectroResult({
+      topic: "Ch. 23/24: Electric Field of a Point Charge",
+      unknown: "Field magnitude and/or direction",
+      formula: "E = k|q|/r^2",
+      math: "Convert nC to C and cm to m.",
+      solution,
+      trap: "Electric field points toward negative charges and away from positive charges.",
+      variableMap: "q = source charge\nr = distance\nE = field strength",
+    });
+  }
+
+  // ------------------------------
+  // PhET / dipole concept questions
+  // ------------------------------
+  if (hasAny(["e-field sensor", "positive charge", "negative charge", "dipole", "grid", "field strength"])) {
+    return makeElectroResult({
+      topic: "Ch. 23/24: Electric Field Simulation and Dipoles",
+      unknown: "Direction, relative strength, or zero-field location",
+      formula: "Point charge: E = k|q|/r^2. Dipole far field drops faster than 1/r^2.",
+      math:
+        "Positive charge field points radially away.\n" +
+        "Negative charge field points radially inward.\n" +
+        "Same distance from same |q| -> same magnitude.\n" +
+        "Point charge field follows inverse square.\n" +
+        "Dipole field drops faster because + and - partially cancel.",
+      solution:
+        "Common answers:\n" +
+        "Positive charge: radially away.\n" +
+        "Negative charge: radially inward, same strength if |q| same.\n" +
+        "At 1 m vs 2 m: 1 m field is four times stronger.\n" +
+        "If E=9 V/m at 1 m, E=1 V/m at 3 m.\n" +
+        "Two positives: field roughly zero near midpoint.\n" +
+        "0.5 m above midpoint with each field 18 V/m: total ≈ 25 V/m.\n" +
+        "Dipole midpoint: field points from + toward -, so to the right.\n" +
+        "Small dipole: field decreases more quickly than 1/r^2.",
+      trap: "Electric field is a vector. Add components, not just magnitudes.",
+      variableMap: "E = electric field\nr = distance\npositive source -> away\nnegative source -> inward",
+    });
+  }
+
+  // ------------------------------
+  // Finite charged wire
+  // ------------------------------
+  if (hasAny(["finite charged wire", "wire of length", "linear charge density", "point p", "midpoint of the wire"])) {
+    return makeElectroResult({
+      topic: "Ch. 23/24: Electric Field of a Finite Charged Wire",
+      unknown: "Direction and magnitude of E",
+      formula: "E = 2*k*lambda*L/(d*sqrt(d^2+L^2))",
+      math:
+        "Wire lies from -L to +L on x-axis.\n" +
+        "Point P is at distance d on +y.\n\n" +
+        "By symmetry:\n" +
+        "x-components cancel.\n" +
+        "y-components add.\n\n" +
+        "Integrate dE_y = k*lambda*d*dx/(x^2+d^2)^(3/2).",
+      solution:
+        "Direction: positive j axis\n\n" +
+        "Magnitude:\n" +
+        "E = 2*k*lambda*L/(d*sqrt(d^2+L^2))",
+      trap: "Do not include x-components; they cancel by symmetry.",
+      variableMap: "lambda = linear charge density\nL = half length\nd = distance above midpoint",
+    });
+  }
+
+  // ------------------------------
+  // Charged ring + SHM
+  // ------------------------------
+  if (hasAny(["uniformly charged ring", "ring in the xy", "z axis", "radius a"])) {
+    return makeElectroResult({
+      topic: "Ch. 23/24: Charged Ring Field and SHM",
+      unknown: "Direction, magnitude, trajectory, or angular frequency",
+      formula: "E(z)=k*q*z/(z^2+a^2)^(3/2)",
+      math:
+        "Circular symmetry cancels all x/y components.\n" +
+        "Only z-components survive.\n\n" +
+        "E(z)=k*q*z/(z^2+a^2)^(3/2)\n\n" +
+        "Mastering-safe version:\n" +
+        "k*q*z/((z^2+a^2)*sqrt(z^2+a^2))\n\n" +
+        "Near center, z << a:\n" +
+        "E ≈ kqz/a^3\n" +
+        "For charge -q0: F = -(kqq0/a^3)z -> SHM.",
+      solution:
+        "Direction: parallel to z axis.\n\n" +
+        "Magnitude:\n" +
+        "E(z)=k*q*z/((z^2+a^2)*sqrt(z^2+a^2))\n\n" +
+        "Negative ball near center:\n" +
+        "oscillates along z between d and -d.\n\n" +
+        "Angular frequency:\n" +
+        "omega = sqrt(k*q*q_0/(m*a^3))",
+      trap: "If Mastering rejects ^(3/2), use the sqrt denominator form.",
+      variableMap: "q = ring charge\na = ring radius\nz = axis position\nq0 = ball charge magnitude\nm = mass",
+    });
+  }
+
+  // ------------------------------
+  // Parallel plate capacitor charge
+  // ------------------------------
+  if (hasAny(["parallel-plate capacitor", "diameter electrodes", "electric field strength inside", "charge on each electrode"])) {
+    return makeElectroResult({
+      topic: "Ch. 23/24: Parallel-Plate Capacitor Charge",
+      unknown: "Charge Q on each electrode",
+      formula: "Q = epsilon0*A*E",
+      math:
+        "A = pi*r^2\n" +
+        "E = Q/(epsilon0*A)\n" +
+        "Q = epsilon0*A*E",
+      solution:
+        "For your homework numbers:\n" +
+        "diameter = 6.0 cm -> radius = 0.030 m\n" +
+        "A = pi(0.030)^2 = 0.002827 m^2\n" +
+        "E = 6.0 x 10^6 N/C\n\n" +
+        "Q = epsilon0*A*E = 1.50 x 10^-7 C = 150 nC",
+      trap: "Plate spacing is not needed if E is already given.",
+      variableMap: "E = field\nA = plate area\nepsilon0 = 8.85 x 10^-12\nQ = charge",
+    });
+  }
+
+  // ------------------------------
+  // Proton between plates
+  // ------------------------------
+  if (hasAny(["proton", "oppositely charged parallel plates", "released from rest", "strikes", "time interval"])) {
+    return makeElectroResult({
+      topic: "Ch. 23/24: Proton Between Parallel Plates",
+      unknown: "Electric field E or final speed v",
+      formula: "d = 1/2 at^2, E = ma/q, v = at",
+      math:
+        "The proton starts from rest.\n\n" +
+        "a = 2d/t^2\n" +
+        "E = ma/q\n" +
+        "v = at",
+      solution:
+        "For your homework numbers:\n" +
+        "d = 1.50 cm = 0.0150 m\n" +
+        "t = 1.46 x 10^-6 s\n\n" +
+        "a = 2d/t^2 = 1.41 x 10^10 m/s^2\n" +
+        "E = ma/q = 147 N/C\n" +
+        "v = at = 2.05 x 10^4 m/s",
+      trap: "Correct E is 147 N/C. Watch powers of ten when dividing by proton charge.",
+      variableMap: "d = plate spacing\nt = time\nm_p = proton mass\nq_p = proton charge",
+    });
+  }
+
+  return null;
+}
+
+
+function normalizeHomeworkText(text) {
+  return (text || "")
+    .toLowerCase()
+    .replaceAll("upper n divided by upper c", "n/c")
+    .replaceAll("n divided by c", "n/c")
+    .replaceAll("upper v divided by m", "v/m")
+    .replaceAll("v divided by m", "v/m")
+    .replaceAll("m divided by s", "m/s")
+    .replaceAll("meters per second", "m/s")
+    .replaceAll("meter per second", "m/s")
+    .replaceAll("upper n", " n")
+    .replaceAll("newtons", " n")
+    .replaceAll("newton", " n")
+    .replaceAll("upper c", " c")
+    .replaceAll("mu upper c", "μc")
+    .replaceAll("mu c", "μc")
+    .replaceAll("micro c", "μc")
+    .replaceAll("microc", "μc")
+    .replaceAll("nothingnc", "nc")
+    .replaceAll("nothing nc", "nc")
+    .replaceAll("startroot", "sqrt")
+    .replaceAll("endroot", "")
+    .replaceAll("lambda", "wavelength")
+    .replaceAll("modifyingabove", "")
+    .replaceAll("with right arrow", "vector")
+    .replaceAll("i with caret", "i")
+    .replaceAll("j with caret", "j")
+    .replaceAll("k with caret", "k")
+    .replaceAll("left parenthesis", "(")
+    .replaceAll("right parenthesis", ")")
+    .replaceAll("subscript", "_")
+    .replaceAll("superscript negative", "superscript minus")
+    .replaceAll("π", "pi")
+    .replaceAll("μ", "mu");
+}
+
+function firstMasteringSci(text) {
+  const raw = text || "";
+
+  const patterns = [
+    /([-+]?\d*\.?\d+)\s*(?:times|\*|x)\s*10\s*superscript\s*(minus\s*)?([-+]?\d+)/i,
+    /([-+]?\d*\.?\d+)\s*(?:times|\*|x)\s*10\s*\^\s*([-+]?\d+)/i,
+    /([-+]?\d*\.?\d+)e([-+]?\d+)/i,
+  ];
+
+  for (const pattern of patterns) {
+    const m = raw.match(pattern);
+    if (!m) continue;
+
+    const base = Number(m[1]);
+
+    let exp;
+    if (m.length >= 4) {
+      exp = (m[2] ? -1 : 1) * Number(m[3]);
+    } else {
+      exp = Number(m[2]);
+    }
+
+    if (Number.isFinite(base) && Number.isFinite(exp)) {
+      return base * Math.pow(10, exp);
+    }
+  }
+
+  return null;
+}
+
+function allMasteringSci(text) {
+  const raw = text || "";
+  const out = [];
+
+  const re = /([-+]?\d*\.?\d+)\s*(?:times|\*|x)\s*10\s*superscript\s*(minus\s*)?([-+]?\d+)/gi;
+  let m;
+  while ((m = re.exec(raw)) !== null) {
+    const base = Number(m[1]);
+    const exp = (m[2] ? -1 : 1) * Number(m[3]);
+    if (Number.isFinite(base) && Number.isFinite(exp)) {
+      out.push(base * Math.pow(10, exp));
+    }
+  }
+
+  const re2 = /([-+]?\d*\.?\d+)\s*(?:times|\*|x)\s*10\s*\^\s*([-+]?\d+)/gi;
+  while ((m = re2.exec(raw)) !== null) {
+    const base = Number(m[1]);
+    const exp = Number(m[2]);
+    if (Number.isFinite(base) && Number.isFinite(exp)) {
+      out.push(base * Math.pow(10, exp));
+    }
+  }
+
+  return out;
+}
+
+function cleanGivensList(text) {
+  const raw = text || "";
+  const sci = allMasteringSci(raw);
+  const cleaned = raw
+    .replace(/([-+]?\d*\.?\d+)\s*(?:times|\*|x)\s*10\s*superscript\s*(?:minus\s*)?([-+]?\d+)/gi, "")
+    .replace(/([-+]?\d*\.?\d+)\s*(?:times|\*|x)\s*10\s*\^\s*([-+]?\d+)/gi, "");
+  const nums = allNumbers(cleaned);
+  return [...sci.map((n) => n.toExponential(3)), ...nums];
+}
+
+function solveProblem(text) {
+  const electroHomework = solveElectrostaticsHomework(text);
+  if (electroHomework) return electroHomework;
+
+  const original = text || "";
+  const lower = original.toLowerCase();
+  const normalized = lower
+    .replaceAll("upper n", " n")
+    .replaceAll("newtons", " n")
+    .replaceAll("newton", " n")
+    .replaceAll("m divided by s", "m/s")
+    .replaceAll("meters per second", "m/s")
+    .replaceAll("meter per second", "m/s")
+    .replaceAll("startroot", "sqrt")
+    .replaceAll("endroot", "")
+    .replaceAll("lambda", "wavelength")
+    .replaceAll("π", "pi")
+    .replaceAll("μ", "mu");
+
+  const givens = allNumbers(original);
+  const variableMap = variableTranslator(original);
+
+  function numList(regex) {
+    return [...normalized.matchAll(regex)]
+      .map((m) => Number(m[1]))
+      .filter((n) => Number.isFinite(n));
+  }
+
+  function contains(words) {
+    return words.some((w) => normalized.includes(w));
+  }
+
+  function result({ topic, givensOverride, unknown, formula, math, solution, trap, vars }) {
+    return makeResult({
+      topic,
+      givens: givensOverride || givens,
+      unknown,
+      formula,
+      math,
+      solution,
+      trap,
+      variableMap: vars || variableMap || "I will label variables when the problem has enough clue words.",
+    });
+  }
+
+  function universal(topic, formula, plan, trap) {
+    return result({
+      topic,
+      unknown: "The variable or answer choice the problem asks for",
+      formula,
+      math:
+        "1. Read the question and circle clue words.\n" +
+        "2. List all givens with units.\n" +
+        "3. Identify the unknown.\n" +
+        "4. Pick the formula family.\n" +
+        "5. Rearrange before substituting.\n" +
+        "6. Plug in values with units.\n" +
+        "7. Check units and sanity.",
+      solution: plan,
+      trap,
+      vars: variableMap || "Paste full problem text plus answer choices for best breakdown.",
+    });
+  }
+
+  if (!original.trim()) {
+    return result({
+      topic: "Paste Any Homework Question",
+      givensOverride: [],
+      unknown: "Whatever the problem asks for",
+      formula: "The solver chooses this from clue words.",
+      math:
+        "Paste the full homework problem here.\n\n" +
+        "Include numbers, units, and answer choices if it is multiple choice.",
+      solution:
+        "I will break it into: topic, givens, variables, formula, math setup, answer, and trap check.",
+      trap:
+        "Do not paste only numbers. The sentence tells the solver which physics model to use.",
+      vars: "Waiting for problem.",
+    });
+  }
+
+  const speeds = numList(/([-+]?\d*\.?\d+)\s*m\s*\/\s*s/g);
+  const tensions = numList(/([-+]?\d*\.?\d+)\s*n\b/g);
+  const nm = numList(/([-+]?\d*\.?\d+)\s*nm\b/g);
+  const hz = numList(/([-+]?\d*\.?\d+)\s*(?:hz|hertz)\b/g);
+  const meters = numList(/([-+]?\d*\.?\d+)\s*m\b/g);
+  const seconds = numList(/([-+]?\d*\.?\d+)\s*(?:s|sec|second|seconds)\b/g);
+  const rVals = numList(/r\s*(?:=|equals)\s*([-+]?\d*\.?\d+)/g);
+
+  // ============================================================
+  // EXACT / HIGH-PRIORITY CH 16 MASTERING PATTERNS
+  // ============================================================
+
+  // 1. String tension ratio
+  if (contains(["string"]) && contains(["tension"]) && contains(["speed", "wave speed"])) {
     const v1 = speeds[0];
     const v2 = speeds[1];
     const T1 = tensions[0];
 
-    let math =
-      "v = √(T/μ)\n" +
-      "same string → μ constant\n" +
-      "T ∝ v²\n" +
-      "T₂ = T₁(v₂/v₁)²";
-
-    let solution = "Need v₁, T₁, and v₂.";
+    let solution =
+      "I need three values: old speed v1, old tension T1, and new speed v2.\n\n" +
+      "Use: T2 = T1(v2/v1)^2";
 
     if (v1 && v2 && T1) {
       const T2 = T1 * Math.pow(v2 / v1, 2);
       solution =
-        `T₂ = ${T1}(${v2}/${v1})²\n` +
-        `T₂ = ${nice(T2)} N\n\n` +
-        `Answer: ${nice(T2)} N`;
+        "Same string means linear density mu stays constant.\n\n" +
+        "v = sqrt(T/mu)\n" +
+        "v is proportional to sqrt(T)\n" +
+        "T is proportional to v^2\n\n" +
+        "T2 = T1(v2/v1)^2\n" +
+        `T2 = ${T1}(${v2}/${v1})^2\n` +
+        `T2 = ${nice(T2)} N\n\n` +
+        `Final Answer: ${nice(T2)} N`;
     }
 
-    return makeResult({
+    return result({
       topic: "Chapter 16: Wave Speed on a String",
-      givens,
-      unknown: "T₂",
-      formula: "v = √(T/μ)",
-      math,
+      unknown: "New tension T2",
+      formula: "v = sqrt(T/mu), so T2 = T1(v2/v1)^2",
+      math:
+        "Because the string is the same, mu is constant.\n" +
+        "Use the ratio form so you do not need mu.",
       solution,
-      trap: "Tension uses speed squared, not direct speed ratio.",
-      variableMap,
+      trap:
+        "Do not use a direct ratio. The speed ratio must be squared.",
+      vars:
+        `v1 = ${v1 || "?"} m/s\n` +
+        `T1 = ${T1 || "?"} N\n` +
+        `v2 = ${v2 || "?"} m/s\n` +
+        "T2 = unknown new tension\n" +
+        "mu = constant because same string",
     });
   }
 
-  if (has(lower, ["phase"]) && has(lower, ["wavelength", "spherical wave", "r equals", "r ="])) {
-    const wavelength = contextNumber(text, ["wavelength"]) || firstUnit(text, "m\\b");
-    const rValues = numsByRegex(text, /r\s*(?:=|equals)\s*([-+]?\d*\.?\d+)/gi);
-    const r1 = rValues[0];
-    const r2 = rValues[1];
-    const phaseIsPi = has(lower, ["pi rad", "π rad", "is pi", "= pi"]);
+  // 2. Blue/red light frequency and index of refraction multipart
+  if (
+    contains(["blue light", "red light", "index of refraction"]) ||
+    (contains(["light"]) && contains(["450 nm", "650 nm"])) ||
+    (contains(["frequency"]) && contains(["nm"]))
+  ) {
+    let solution = "Use c = f lambda. Convert nm to m first.";
+    let vars =
+      "c = 3.00 x 10^8 m/s\n" +
+      "f = frequency\n" +
+      "lambda = wavelength\n" +
+      "n = index of refraction";
 
-    let math = "k = 2π/λ\nφ₂ = φ₁ - k(r₁ - r₂)";
-    let solution = "Need wavelength, starting phase, starting r, and new r.";
+    // Exact common homework pattern: blue 450, red 650, material 450
+    if (normalized.includes("450") && normalized.includes("650") && contains(["index", "refraction", "material"])) {
+      const fBlue = 3.00e8 / (450e-9);
+      const fRed = 3.00e8 / (650e-9);
+      const n = 650 / 450;
 
-    if (wavelength && r1 !== undefined && r2 !== undefined && phaseIsPi) {
-      const phi2 = Math.PI - ((2 * Math.PI) / wavelength) * (r1 - r2);
       solution =
-        `λ = ${wavelength} m\n` +
-        `φ₁ = π rad at r₁ = ${r1} m\n` +
-        `r₂ = ${r2} m\n` +
-        `φ₂ = π - (2π/${wavelength})(${r1} - ${r2})\n` +
-        `φ₂ = ${nice(phi2)} rad\n\n` +
-        `Answer: ${nice(phi2)} rad`;
+        "Part A: Blue light\n" +
+        "lambda_blue = 450 nm = 450 x 10^-9 m\n" +
+        "f = c/lambda\n" +
+        `f = ${fBlue.toExponential(3)} Hz\n\n` +
+        "Part B: Red light\n" +
+        "lambda_red = 650 nm = 650 x 10^-9 m\n" +
+        "f = c/lambda\n" +
+        `f = ${fRed.toExponential(3)} Hz\n\n` +
+        "Part C: Index of refraction\n" +
+        "Frequency stays the same in a material.\n" +
+        "n = lambda_vacuum / lambda_material\n" +
+        "n = 650/450\n" +
+        `n = ${nice(n)}\n\n` +
+        "Final Answers:\n" +
+        "Blue frequency = 6.67 x 10^14 Hz\n" +
+        "Red frequency = 4.62 x 10^14 Hz\n" +
+        "Index of refraction = 1.44";
+    } else if (nm.length >= 1) {
+      const f = 3.00e8 / (nm[0] * 1e-9);
+      solution =
+        `${nm[0]} nm = ${nm[0]} x 10^-9 m\n\n` +
+        "f = c/lambda\n" +
+        `f = (3.00 x 10^8)/(${nm[0]} x 10^-9)\n` +
+        `f = ${f.toExponential(3)} Hz`;
     }
 
-    return makeResult({
+    return result({
+      topic: "Chapter 16: Light Frequency and Refraction",
+      unknown: "Frequency f or index of refraction n",
+      formula: "c = f lambda, so f = c/lambda. Also n = lambda_vacuum/lambda_material.",
+      math:
+        "For frequency: convert nm to m, then use f = c/lambda.\n" +
+        "For refraction: frequency stays constant, wavelength changes.",
+      solution,
+      trap:
+        "The biggest trap is units: nm must become meters. Index of refraction has no units.",
+      vars,
+    });
+  }
+
+  // 3. Hanging rope proof
+  if (
+    contains(["rope", "hangs", "ceiling"]) ||
+    contains(["lower end", "sqrt(gy)", "sqrt gy", "2sqrt", "2 sqrt", "2√"])
+  ) {
+    return result({
+      topic: "Chapter 16: Hanging Rope Wave Speed Proof",
+      unknown: "Correct proof choice for v = sqrt(gy) and/or delta t = 2sqrt(L/g)",
+      formula: "v = sqrt(T/mu), T(y) = mu y g, dt = dy/v",
+      math:
+        "At height y above the lower end, the tension supports the rope below that point.\n\n" +
+        "mass below = mu y\n" +
+        "weight below = mu y g\n" +
+        "T(y) = mu y g\n\n" +
+        "v = sqrt(T/mu)\n" +
+        "v = sqrt(mu y g / mu)\n" +
+        "v = sqrt(g y)\n\n" +
+        "For travel time:\n" +
+        "dt = dy/v\n" +
+        "dt = dy/sqrt(g y)\n" +
+        "Delta t = integral from 0 to L of dy/sqrt(g y)\n" +
+        "Delta t = 2sqrt(L/g)",
+      solution:
+        "Part A: Select the option with T = mu y g and v = sqrt(T/mu) = sqrt(g y).\n\n" +
+        "Part B: Select the option with dt = dy/v = dy/sqrt(g y), then integral 0 to L gives 2sqrt(L/g).",
+      trap:
+        "Reject options with mu^2, sqrt(T mu), v dy, or one-half v dy. Time is distance divided by speed.",
+      vars:
+        "y = distance above lower end\n" +
+        "mu = linear mass density\n" +
+        "T(y) = tension at height y\n" +
+        "L = rope length\n" +
+        "g = gravitational acceleration",
+    });
+  }
+
+  // 4. Snapshot graph to history graph
+  if (
+    contains(["snapshot graph", "history graph"]) ||
+    (contains(["leftward", "travels left", "moving left"]) && contains(["x = 0", "x equals 0"]))
+  ) {
+    return result({
+      topic: "Chapter 16: Snapshot Graph to History Graph",
+      unknown: "Which history graph matches the snapshot graph",
+      formula: "arrival time = distance / speed",
+      math:
+        "Snapshot graph = D versus x at one instant.\n" +
+        "History graph = D versus t at one fixed position.\n\n" +
+        "For a left-moving wave heading toward x = 0, the features closest to x = 0 arrive first.\n" +
+        "Use arrival time = position distance / wave speed.",
+      solution:
+        "For the common left-moving triangular pulse at 1.0 m/s:\n\n" +
+        "The feature at x = 1 m arrives at t = 1 s.\n" +
+        "The feature at x = 5 m arrives at t = 5 s.\n\n" +
+        "Correct history graph:\n" +
+        "D = 0 until t = 1 s,\n" +
+        "instant jump to +1 cm,\n" +
+        "linear decrease to 0 by t = 5 s,\n" +
+        "then stays 0.",
+      trap:
+        "Do not simply copy the snapshot shape. Direction of travel controls the time order.",
+      vars:
+        "D = displacement\n" +
+        "x = position\n" +
+        "t = time\n" +
+        "v = wave speed",
+    });
+  }
+
+  // 5. Traveling-wave equation / partial derivatives
+  if (
+    contains(["partial", "derivative", "wave equation", "traveling wave function"]) ||
+    normalized.includes("d(x,t)") ||
+    normalized.includes("cx^2") ||
+    normalized.includes("cx²") ||
+    normalized.includes("∂")
+  ) {
+    let solution =
+      "Use the traveling-wave equation:\n\n" +
+      "partial^2 D / partial x^2 = (1/v^2)(partial^2 D / partial t^2)\n\n" +
+      "Steps:\n" +
+      "1. Take the second derivative with respect to x. Treat t as constant.\n" +
+      "2. Take the second derivative with respect to t. Treat x as constant.\n" +
+      "3. Substitute into the wave equation.\n" +
+      "4. Solve for v.";
+
+    if (contains(["cx^2", "cx²", "c x^2", "c x²"]) || (normalized.includes("cx") && normalized.includes("dt"))) {
+      solution =
+        "If D = c x^2 + d t^2:\n\n" +
+        "partial^2 D / partial x^2 = 2c\n" +
+        "partial^2 D / partial t^2 = 2d\n\n" +
+        "Wave equation:\n" +
+        "2c = (1/v^2)(2d)\n\n" +
+        "v^2 = d/c\n" +
+        "v = sqrt(d/c)\n\n" +
+        "Final Answer: v = sqrt(d/c)";
+    }
+
+    return result({
+      topic: "Chapter 16: Traveling Wave Equation / Partial Derivatives",
+      unknown: "Whether the function is a traveling wave, or the wave speed v",
+      formula: "partial^2 D / partial x^2 = (1/v^2)(partial^2 D / partial t^2)",
+      math:
+        "This is a calculus-model problem. Use second partial derivatives.",
+      solution,
+      trap:
+        "Do not use first derivatives. For x derivatives, t is constant. For t derivatives, x is constant.",
+      vars:
+        "D(x,t) = wave function\n" +
+        "x = position\n" +
+        "t = time\n" +
+        "v = wave speed\n" +
+        "c,d = constants if given",
+    });
+  }
+
+  // 6. Spherical phase
+  if (contains(["phase"]) && contains(["wavelength", "spherical wave", "r = ", "r equals"])) {
+    const wavelength =
+      contextNumber(original, ["wavelength", "lambda"]) ||
+      meters[0];
+
+    const r1 = rVals[0];
+    const r2 = rVals[1];
+
+    let solution =
+      "Use k = 2pi/lambda.\n" +
+      "Then use phase change:\n" +
+      "phi(r) = phi_ref +/- k(r - r_ref)\n\n" +
+      "Check the sign convention and whether the system wants phase wrapped into (-pi, pi] or (0, 2pi].";
+
+    if (wavelength && r1 !== undefined && r2 !== undefined && contains(["pi rad", "pi radians", "= pi", "is pi"])) {
+      const phiMinus = Math.PI - ((2 * Math.PI) / wavelength) * (r1 - r2);
+      const phiPlus = Math.PI + ((2 * Math.PI) / wavelength) * Math.abs(r2 - r1);
+
+      solution =
+        `lambda = ${wavelength} m\n` +
+        `k = 2pi/${wavelength}\n\n` +
+        "Possible convention 1:\n" +
+        `phi = pi - (2pi/${wavelength})(${r1} - ${r2})\n` +
+        `phi = ${nice(phiMinus)} rad\n\n` +
+        "Possible convention 2:\n" +
+        `phi = pi + (2pi/${wavelength})|${r2} - ${r1}|\n` +
+        `phi = ${nice(phiPlus)} rad\n\n` +
+        "If one is marked wrong, wrap modulo 2pi into the required range.";
+    }
+
+    return result({
       topic: "Chapter 16: Spherical Wave Phase",
-      givens,
-      unknown: "φ₂",
-      formula: "Δφ = (2π/λ)Δr",
-      math,
+      unknown: "Phase at a new radius",
+      formula: "k = 2pi/lambda and phi(r) = phi_ref +/- k(r-r_ref)",
+      math:
+        "Find k first, then multiply by distance change.",
       solution,
-      trap: "This is phase, not wave speed.",
-      variableMap,
+      trap:
+        "Phase problems are sign-convention sensitive. Equivalent phases may differ by 2pi.",
+      vars:
+        "lambda = wavelength\n" +
+        "k = wave number\n" +
+        "r_ref = reference radius\n" +
+        "phi_ref = reference phase\n" +
+        "r = new radius",
     });
   }
 
-  if (has(lower, ["log", "ln", "logarithm", "exponent"])) {
-    const exact =
-      lower.includes("x") &&
-      lower.includes("3") &&
-      lower.includes("log") &&
-      lower.includes("y") &&
-      (lower.includes("squared") || lower.includes("y²") || lower.includes("y^2"));
+  // ============================================================
+  // GENERAL MODULE FALLBACKS
+  // ============================================================
 
-    if (exact) {
-      return makeResult({
-        topic: "Math Primer: Logarithms",
-        givens: ["x = 3 log(y²)", "log means base 10"],
-        unknown: "y",
-        formula: "log(A)=B → A=10ᴮ",
-        math:
-          "x = 3log(y²)\n" +
-          "x/3 = log(y²)\n" +
-          "10^(x/3) = y²\n" +
-          "y = √(10^(x/3))\n" +
-          "y = 10^(x/6)",
-        solution: "Answer: y = 10^(x/6)",
-        trap: "Plain log is base 10. ln is base e.",
-        variableMap,
-      });
-    }
-
-    return makeResult({
-      topic: "Math Primer: Logs and Exponents",
-      givens,
-      unknown: "Variable inside log or exponent",
-      formula: "b = aˣ ↔ logₐ(b)=x",
-      math: "Isolate the log/exponential part, then rewrite or take logs.",
-      solution: "Use the exact equation to isolate the variable.",
-      trap: "Logs undo exponents.",
-      variableMap,
-    });
+  if (contains(["wave", "frequency", "wavelength", "period", "hz", "hertz"])) {
+    return universal(
+      "Chapter 16: General Waves",
+      "v = f lambda and f = 1/T",
+      "Identify whether the problem gives speed, frequency, wavelength, or period. Use v = f lambda or f = 1/T.",
+      "Amplitude is not wavelength. Frequency and period are reciprocals."
+    );
   }
 
-  if (has(lower, ["wave", "frequency", "wavelength", "period", "hz", "hertz"])) {
-    const f = firstUnit(text, "(hz|hertz)");
-    const wavelength = contextNumber(text, ["wavelength", "lambda"]) || firstUnit(text, "m\\b");
-    const speed = firstUnit(text, "m\\/s");
-    const period = contextNumber(text, ["period"]);
-
-    let unknown = "wave variable";
-    let math = "v = fλ\nf = 1/T";
-    let solution = "Need enough values to solve.";
-
-    if (has(lower, ["speed", "velocity"]) && f && wavelength) {
-      const v = f * wavelength;
-      unknown = "v";
-      solution = `v = fλ\nv = ${f} × ${wavelength}\nv = ${nice(v)} m/s\n\nAnswer: ${nice(v)} m/s`;
-    } else if (has(lower, ["frequency"]) && speed && wavelength) {
-      const ans = speed / wavelength;
-      unknown = "f";
-      math = "f = v/λ";
-      solution = `f = ${speed}/${wavelength}\nf = ${nice(ans)} Hz\n\nAnswer: ${nice(ans)} Hz`;
-    } else if (has(lower, ["wavelength"]) && speed && f) {
-      const ans = speed / f;
-      unknown = "λ";
-      math = "λ = v/f";
-      solution = `λ = ${speed}/${f}\nλ = ${nice(ans)} m\n\nAnswer: ${nice(ans)} m`;
-    } else if (has(lower, ["period"]) && f) {
-      const ans = 1 / f;
-      unknown = "T";
-      math = "T = 1/f";
-      solution = `T = 1/${f}\nT = ${nice(ans)} s\n\nAnswer: ${nice(ans)} s`;
-    } else if (has(lower, ["frequency"]) && period) {
-      const ans = 1 / period;
-      unknown = "f";
-      math = "f = 1/T";
-      solution = `f = 1/${period}\nf = ${nice(ans)} Hz\n\nAnswer: ${nice(ans)} Hz`;
-    }
-
-    return makeResult({
-      topic: "Chapter 16: Waves",
-      givens,
-      unknown,
-      formula: "v = fλ and f = 1/T",
-      math,
-      solution,
-      trap: "Amplitude is not wavelength.",
-      variableMap,
-    });
+  if (contains(["charge", "coulomb", "repel", "attract", "electric force"])) {
+    return universal(
+      "Chapter 22: Electric Charges and Coulomb's Law",
+      "F = kq1q2/r^2",
+      "Identify q1, q2, and r. Convert charges to coulombs. Square the distance. Use signs only for direction.",
+      "Most common trap: forgetting r^2 or unit prefixes like micro/nano."
+    );
   }
 
-  if (has(lower, ["charge", "coulomb", "repel", "attract", "electric force"])) {
-    const charges = numsByRegex(text, /([-+]?\d*\.?\d+(?:e[-+]?\d+)?)\s*c\b/gi);
-    const q1 = charges[0];
-    const q2 = charges[1];
-    const r = contextNumber(text, ["distance", "apart", "separated"]) || firstUnit(text, "m\\b");
-    let solution = "Need q₁, q₂, and r.";
-
-    if (q1 && q2 && r) {
-      const F = (9e9 * Math.abs(q1) * Math.abs(q2)) / (r * r);
-      solution = `F = kq₁q₂/r²\nF = ${nice(F)} N\n\nAnswer: ${nice(F)} N`;
-    }
-
-    return makeResult({
-      topic: "Chapter 22: Coulomb’s Law",
-      givens,
-      unknown: "F",
-      formula: "F = kq₁q₂/r²",
-      math: "Use k = 9 × 10⁹ and square r.",
-      solution,
-      trap: "Same repel, opposite attract.",
-      variableMap,
-    });
+  if (contains(["electric field", "n/c", "force per charge"])) {
+    return universal(
+      "Chapter 23: Electric Field",
+      "E = F/q and F = qE",
+      "Electric field means force per charge. Identify whether you need E, F, or q.",
+      "Negative charges feel force opposite the field direction."
+    );
   }
 
-  if (has(lower, ["electric field", "field", "n/c", "force per charge"])) {
-    return makeResult({
-      topic: "Chapter 23: Electric Field",
-      givens,
-      unknown: "E, F, or q",
-      formula: "E = F/q",
-      math: "Use E = F/q or F = qE.",
-      solution: "Plug in two known values to find the third.",
-      trap: "Field is force per charge.",
-      variableMap,
-    });
+  if (contains(["flux", "gauss", "surface", "area", "enclosed"])) {
+    return universal(
+      "Chapter 24: Flux and Gauss's Law",
+      "Phi = EAcos(theta) or Phi = q_enc/epsilon0",
+      "Use EAcos(theta) for area/angle problems. Use q_enc/epsilon0 for closed surface/enclosed charge.",
+      "Only enclosed charge counts for total flux through a closed surface."
+    );
   }
 
-  if (has(lower, ["flux", "gauss", "surface", "area", "enclosed"])) {
-    return makeResult({
-      topic: "Chapter 24: Flux and Gauss’s Law",
-      givens,
-      unknown: "Flux, field, or enclosed charge",
-      formula: "Φ = EAcosθ or Φ = q_enc/ε₀",
-      math: "Use area/angle formula or Gauss formula depending on wording.",
-      solution: "Plug into the matching formula.",
-      trap: "Only enclosed charge matters for closed-surface total flux.",
-      variableMap,
-    });
+  if (contains(["voltage", "potential", "potential energy", "volt"])) {
+    return universal(
+      "Chapter 25: Electric Potential",
+      "V = U/q and U = qV",
+      "Voltage means energy per charge. Identify U, q, and V.",
+      "Voltage is scalar; electric field is vector."
+    );
   }
 
-  if (has(lower, ["voltage", "potential", "potential energy", "volt"])) {
-    return makeResult({
-      topic: "Chapter 25: Electric Potential",
-      givens,
-      unknown: "V, U, or q",
-      formula: "V = U/q",
-      math: "Use V = U/q, U = qV, or q = U/V.",
-      solution: "Voltage is energy per charge.",
-      trap: "Voltage is not electric field.",
-      variableMap,
-    });
+  if (contains(["capacitor", "capacitance", "farad", "dielectric"])) {
+    return universal(
+      "Chapter 26: Capacitance",
+      "C = Q/DeltaV and Q = C DeltaV",
+      "Capacitance is charge stored per voltage difference.",
+      "Capacitance is not the same as charge."
+    );
   }
 
-  if (has(lower, ["capacitor", "capacitance", "farad", "dielectric"])) {
-    return makeResult({
-      topic: "Chapter 26: Capacitance",
-      givens,
-      unknown: "C, Q, or ΔV",
-      formula: "C = Q/ΔV",
-      math: "Use C = Q/ΔV, Q = CΔV, or ΔV = Q/C.",
-      solution: "Capacitance is charge per volt.",
-      trap: "Capacitance is not the same as charge.",
-      variableMap,
-    });
+  if (contains(["current", "resistance", "resistor", "ohm", "amp", "battery", "circuit", "power", "series", "parallel"])) {
+    return universal(
+      "Chapter 27/28: Circuits",
+      "V = IR, P = IV, series add, parallel reciprocals",
+      "First identify series or parallel. Then use Ohm's Law, power, and equivalent resistance rules.",
+      "Series has same current. Parallel has same voltage."
+    );
   }
 
-  if (has(lower, ["current", "resistance", "resistor", "ohm", "ohms", "amp", "battery", "circuit", "power", "watts"])) {
-    return makeResult({
-      topic: "Chapter 27/28: Circuits",
-      givens,
-      unknown: "V, I, R, or P",
-      formula: "V = IR and P = IV",
-      math: "Use Ohm’s Law, power formulas, and series/parallel rules.",
-      solution: "Label circuit type first: series or parallel.",
-      trap: "Series: same current. Parallel: same voltage.",
-      variableMap,
-    });
+  if (contains(["magnetic", "tesla", "moving charge", "b field"])) {
+    return universal(
+      "Chapter 29: Magnetic Force",
+      "F = qvBsin(theta)",
+      "Check whether the charge is moving. Identify q, v, B, and theta.",
+      "Stationary charge has no magnetic force."
+    );
   }
 
-  if (has(lower, ["magnetic", "tesla", "moving charge", "b field"])) {
-    return makeResult({
-      topic: "Chapter 29: Magnetic Force",
-      givens,
-      unknown: "F",
-      formula: "F = qvBsinθ",
-      math: "Use q, v, B, and angle.",
-      solution: "Plug into F = qvBsinθ.",
-      trap: "Stationary charge has no magnetic force.",
-      variableMap,
-    });
+  if (contains(["induction", "emf", "faraday", "lenz", "coil", "turns", "magnetic flux"])) {
+    return universal(
+      "Chapter 30: Electromagnetic Induction",
+      "emf = -N DeltaPhiB / Deltat",
+      "Identify what changes: magnetic field, area, angle, or time. Use Lenz's Law for direction.",
+      "No changing flux means no induced emf."
+    );
   }
 
-  if (has(lower, ["induction", "emf", "faraday", "lenz", "flux", "coil", "turns"])) {
-    return makeResult({
-      topic: "Chapter 30: Induction",
-      givens,
-      unknown: "ε",
-      formula: "ε = -NΔΦB/Δt",
-      math: "Use magnitude |ε| = NΔΦB/Δt.",
-      solution: "Changing flux creates emf.",
-      trap: "No changing flux = no induced emf.",
-      variableMap,
-    });
+  if (contains(["electromagnetic", "em wave", "speed of light"])) {
+    return universal(
+      "Chapter 31: Electromagnetic Waves",
+      "c = f lambda",
+      "Use c = 3.00 x 10^8 m/s. Solve for f or lambda.",
+      "Do not use 343 m/s for light. That is sound in air."
+    );
   }
 
-  if (has(lower, ["light", "electromagnetic", "em wave", "speed of light"])) {
-    return makeResult({
-      topic: "Chapter 31: Electromagnetic Waves",
-      givens,
-      unknown: "c, f, or λ",
-      formula: "c = fλ",
-      math: "Use c = 3.00 × 10⁸ m/s.",
-      solution: "Use λ = c/f or f = c/λ.",
-      trap: "Do not use sound speed for light.",
-      variableMap,
-    });
+  if (contains(["log", "ln", "logarithm", "exponent"])) {
+    return universal(
+      "Math Helper: Logs and Exponents",
+      "log(A)=B means A=10^B; ln(A)=B means A=e^B",
+      "Isolate the log or exponential part first, then undo it.",
+      "log usually means base 10. ln means base e."
+    );
   }
 
-  return makeResult({
-    topic: "Universal Physics Problem",
-    givens,
-    unknown: "Whatever the question asks for",
-    formula: "Use clue words to pick the formula.",
-    math: "GIVEN → VARIABLES → UNKNOWN → FORMULA → MATH → SOLUTION.",
-    solution: "Paste more wording if the solver cannot classify it.",
-    trap: "Do not skip units.",
-    variableMap,
-  });
+  return universal(
+    "Universal Physics Breakdown",
+    "Formula not confidently classified yet",
+    "Paste the complete wording and answer choices. I can still list givens, identify clue words, and suggest the likely formula family.",
+    "If the output seems wrong, the problem probably needs more wording or has a clue word not added yet."
+  );
 }
 
 function getChapter(number) {
@@ -2374,7 +3267,10 @@ export default function App() {
   const clip = chapter.clips[clipIndex % chapter.clips.length];
   const card = chapter.flashcards[flashIndex % chapter.flashcards.length];
   const teachingGame = getTeachingGame(chapter);
-  const gameCard = teachingGame.rounds[gameIndex % teachingGame.rounds.length];
+  const safeRounds = teachingGame.rounds && safeRounds.length
+    ? teachingGame.rounds
+    : [{ skill: "Start Here", prompt: "What is the first move?", choices: ["Circle clue words", "Guess", "Ignore units", "Panic"], answer: "Circle clue words", teach: "Circle clue words, list givens, pick the formula." }];
+  const gameCard = safeRounds[gameIndex % safeRounds.length];
 
   const movingArrow = motion.interpolate({
     inputRange: [0, 1],
@@ -2441,10 +3337,10 @@ export default function App() {
             Built around your Physics II syllabus: modules, chapters, homework solver, study guides, flashcards, clips, and brainrot games.
           </Text>
 
-          <Button label="Start: Pick a Module" onPress={() => setScreen("modules")} />
+          <Button label="Pick a Module" onPress={() => setScreen("modules")} />
           <Button label="Homework Problem Solver" type="purple" onPress={() => setScreen("solver")} />
           <Button label="Full Schedule" type="gold" onPress={() => setScreen("schedule")} />
-          <Button label="All Formula Map" type="secondary" onPress={() => setScreen("formulas")} />
+          <Button label="Formula Map" type="secondary" onPress={() => setScreen("formulas")} />
         </View>
       </ScrollView>
     );
@@ -2517,7 +3413,7 @@ export default function App() {
 
         <View style={styles.card}>
           <Box title="Module Mission">
-            {`${module.dates}\n${module.exam}\n\nPick a chapter below, then choose Study Guide, Flashcards, Clips, Formula Map, Knight-Style Game, or Solver.`}
+            {`${module.dates}\n${module.exam}\n\nPick a chapter below, then choose Study Guide, Flashcards, Clips, Formula Map, Homework Boss Game, or Solver.`}
           </Box>
 
           <Text style={styles.sectionTitle}>Chapters</Text>
@@ -2579,7 +3475,7 @@ export default function App() {
           <Button label="Concept Checklist" type="gold" onPress={() => setScreen("conceptChecklist")} />
           <Button label="Tiny Animated Clips" type="gold" onPress={() => { setClipIndex(0); setPlaying(true); setScreen("clips"); }} />
           <Button label="Flashcards" type="purple" onPress={() => { setFlashIndex(0); setShowAnswer(false); setScreen("flashcards"); }} />
-          <Button label="Knight-Style Knight-Style Game" type="gold" onPress={() => { setGameIndex(0); setGameScore(0); setGameMessage(""); setScreen("game"); }} />
+          <Button label="Knight-Style Homework Boss Game" type="gold" onPress={() => { setGameIndex(0); setGameScore(0); setGameMessage(""); setScreen("game"); }} />
           <Button label="Chapter Formula Map" type="secondary" onPress={() => setScreen("chapterFormula")} />
           <Button label="Homework Solver" type="purple" onPress={() => setScreen("solver")} />
           <Button label="Back to Module" type="secondary" onPress={() => setScreen("module")} />
@@ -2641,7 +3537,7 @@ export default function App() {
           {conceptSet ? (
             <>
               <Box title="How to Use This">
-                {"Check these off mentally before a quiz. If any box feels fuzzy, go to Study Guide, Flashcards, then the Knight-Style Game."}
+                {"Check these off mentally before a quiz. If any box feels fuzzy, go to Study Guide, Flashcards, then the Homework Boss Game."}
               </Box>
 
               <View style={styles.conceptCard}>
@@ -2669,7 +3565,7 @@ export default function App() {
 
           <Button label="Study Guide" onPress={() => setScreen("study")} />
           <Button label="Flashcards" type="purple" onPress={() => { setFlashIndex(0); setShowAnswer(false); setScreen("flashcards"); }} />
-          <Button label="Knight-Style Game" type="gold" onPress={() => { setGameIndex(0); setGameScore(0); setGameMessage(""); setScreen("game"); }} />
+          <Button label="Homework Boss Game" type="gold" onPress={() => { setGameIndex(0); setGameScore(0); setGameMessage(""); setScreen("game"); }} />
           <Button label="Back to Chapter" type="secondary" onPress={() => setScreen("chapter")} />
         </View>
       </ScrollView>
@@ -2701,7 +3597,7 @@ export default function App() {
           </Box>
 
           <Button label="Flashcards" type="purple" onPress={() => { setFlashIndex(0); setShowAnswer(false); setScreen("flashcards"); }} />
-          <Button label="Knight-Style Game" type="gold" onPress={() => { setGameIndex(0); setGameScore(0); setGameMessage(""); setScreen("game"); }} />
+          <Button label="Homework Boss Game" type="gold" onPress={() => { setGameIndex(0); setGameScore(0); setGameMessage(""); setScreen("game"); }} />
           <Button label="Back to Chapter" type="secondary" onPress={() => setScreen("chapter")} />
         </View>
       </ScrollView>
@@ -2796,7 +3692,7 @@ export default function App() {
           <Text style={styles.gameScore}>Score: {gameScore}</Text>
 
           <View style={styles.gameQuestionBox}>
-            <Text style={styles.gameLabel}>ROUND {gameIndex + 1} of {teachingGame.rounds.length}</Text>
+            <Text style={styles.gameLabel}>ROUND {gameIndex + 1} of {safeRounds.length}</Text>
             {gameCard.skill ? <Text style={styles.skillBadge}>{gameCard.skill}</Text> : null}
             <Text style={styles.gameQuestion}>{gameCard.prompt}</Text>
           </View>
@@ -2824,7 +3720,7 @@ export default function App() {
             </Text>
           ) : null}
 
-          <Button label="Next Question" type="gold" onPress={() => { setGameIndex(gameIndex + 1 < teachingGame.rounds.length ? gameIndex + 1 : 0); setGameMessage(""); }} />
+          <Button label="Next Question" type="gold" onPress={() => { setGameIndex(gameIndex + 1 < safeRounds.length ? gameIndex + 1 : 0); setGameMessage(""); }} />
           <Button label="Back to Chapter" type="secondary" onPress={() => setScreen("chapter")} />
         </View>
       </ScrollView>
@@ -2894,7 +3790,7 @@ export default function App() {
   if (screen === "formulas") {
     return (
       <ScrollView contentContainerStyle={styles.container}>
-        <Text style={styles.title}>All Formula Map</Text>
+        <Text style={styles.title}>Formula Map</Text>
         <Text style={styles.subtitle}>Every chapter formula in one place.</Text>
 
         <View style={styles.card}>

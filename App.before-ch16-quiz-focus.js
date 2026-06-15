@@ -70,21 +70,12 @@ const CHAPTERS = [
       "For the same string, μ is constant, so T₂ = T₁(v₂/v₁)².",
       "If the problem gives wavelength, phase, and radius/position, use phase change: Δφ = (2π/λ)Δr.",
       "Label every number before solving: v, f, λ, T, tension, r, phase, or k.",
-      "For Ch. 16 quiz proof questions, check dimensions: time must be distance/speed, so dt = dy/v.",
-      "For hanging rope questions, tension at height y supports the rope below that point: T = μyg.",
-      "For snapshot/history graph questions, track which part of the wave reaches the observer first.",
-      "For light questions, use c = fλ and convert nm to m before calculating.",
-      "For refraction questions, frequency stays the same but speed and wavelength change.",
     ],
     traps: [
       "Amplitude is height. Wavelength is horizontal cycle length.",
       "Frequency and period are reciprocals.",
       "Tension problems use speed squared.",
       "Phase answers are in radians.",
-      "For hanging rope proofs, do not select options with μ² or v dy.",
-      "For time integrals, use dt = dy/v, never v dy.",
-      "For light, 450 nm means 450 × 10⁻⁹ m.",
-      "For refraction, n = λ₀/λ_material.",
     ],
     clips: [
       ["🌊", "Wave Motion", "String particles wiggle.", "Energy travels forward.", "Waves carry energy, not matter."],
@@ -105,16 +96,6 @@ const CHAPTERS = [
       ["Phase is measured in what?", "Radians."],
       ["Big phase-problem clue?", "Phase at r equals something, wavelength given."],
       ["Big string-problem clue?", "Wave speed on a string and tension."],
-      ["Hanging rope tension at height y?", "T = μyg."],
-      ["Hanging rope wave speed?", "v = √(gy)."],
-      ["Pulse travel time down/up hanging rope?", "Δt = 2√(L/g)."],
-      ["Correct tiny time step?", "dt = dy/v."],
-      ["Snapshot graph means?", "D versus x at one instant."],
-      ["History graph means?", "D versus t at one position."],
-      ["For light, frequency formula?", "f = c/λ."],
-      ["Convert 450 nm to meters.", "450 × 10⁻⁹ m."],
-      ["What stays same in refraction?", "Frequency."],
-      ["Index using wavelengths?", "n = λ₀/λ_material."],
     ],
     brainrot: [
       {
@@ -632,298 +613,6 @@ const CHAPTERS = [
 ];
 
 
-
-const CH16_OPTIMIZED_GAME_ROUNDS = [
-  {
-    skill: "Traveling Wave Equation",
-    prompt: "You are given a wave function D(x,t). What is the test for whether it can represent a traveling wave?",
-    choices: [
-      "Check whether ∂²D/∂x² = (1/v²)∂²D/∂t²",
-      "Check whether V = IR",
-      "Check whether F = qE",
-      "Check whether C = Q/ΔV"
-    ],
-    answer: "Check whether ∂²D/∂x² = (1/v²)∂²D/∂t²",
-    teach: "This is the wave-equation test. If the function satisfies it, the disturbance can travel with speed v.",
-  },
-  {
-    skill: "Partial Derivatives",
-    prompt: "When taking ∂²D/∂x², what variable do you treat like a constant?",
-    choices: ["t", "x", "D", "v"],
-    answer: "t",
-    teach: "For x-derivatives, time t is frozen. You only look at how the wave changes across position.",
-  },
-  {
-    skill: "Partial Derivatives",
-    prompt: "When taking ∂²D/∂t², what variable do you treat like a constant?",
-    choices: ["x", "t", "λ", "f"],
-    answer: "x",
-    teach: "For time-derivatives, position x is frozen. You only look at how one location changes over time.",
-  },
-  {
-    skill: "Wave Speed From Function",
-    prompt: "If D = cx² + dt², then ∂²D/∂x² = 2c and ∂²D/∂t² = 2d. What speed comes from the wave equation?",
-    choices: ["v = √(d/c)", "v = √(c/d)", "v = d/c", "v = c/d"],
-    answer: "v = √(d/c)",
-    teach: "Plug into 2c = (1/v²)(2d). Then v² = d/c, so v = √(d/c).",
-  },
-  {
-    skill: "Wave Equation Trap",
-    prompt: "A student takes only first derivatives to test a traveling wave. What is wrong?",
-    choices: [
-      "The wave equation uses second derivatives",
-      "The wave equation uses Ohm’s Law",
-      "The wave equation only works for light",
-      "Nothing is wrong"
-    ],
-    answer: "The wave equation uses second derivatives",
-    teach: "Mastering-style proof questions often test whether you know it is ∂²/∂x² and ∂²/∂t², not first derivatives.",
-  },
-  {
-    skill: "String Wave Speed",
-    prompt: "A transverse wave travels on a string. Which quantities control the wave speed?",
-    choices: [
-      "Tension T and linear density μ",
-      "Frequency and color",
-      "Voltage and resistance",
-      "Charge and distance"
-    ],
-    answer: "Tension T and linear density μ",
-    teach: "For a string, v = √(T/μ). More tension makes waves faster; more linear density makes waves slower.",
-  },
-  {
-    skill: "String Tension Ratio",
-    prompt: "Same string: speed changes from v₁ to v₂. Why does tension use a squared ratio?",
-    choices: [
-      "Because v = √(T/μ)",
-      "Because v = fλ",
-      "Because c = fλ",
-      "Because frequency stays constant"
-    ],
-    answer: "Because v = √(T/μ)",
-    teach: "If v depends on √T, then T depends on v². That is why T₂ = T₁(v₂/v₁)².",
-  },
-  {
-    skill: "String Tension Ratio",
-    prompt: "Same string: v₁ = 148 m/s, T₁ = 73.0 N, v₂ = 179 m/s. Which setup is correct?",
-    choices: [
-      "T₂ = 73.0(179/148)²",
-      "T₂ = 73.0(148/179)²",
-      "T₂ = 73.0(179/148)",
-      "T₂ = 148(179/73.0)²"
-    ],
-    answer: "T₂ = 73.0(179/148)²",
-    teach: "Use T₂ = T₁(v₂/v₁)². New speed over old speed, then square.",
-  },
-  {
-    skill: "String Tension Ratio",
-    prompt: "Same string: speed increases from 148 m/s to 179 m/s. What should happen to tension?",
-    choices: [
-      "It increases by more than the speed ratio",
-      "It increases by exactly the speed ratio",
-      "It decreases",
-      "It stays the same"
-    ],
-    answer: "It increases by more than the speed ratio",
-    teach: "Because the speed ratio gets squared. A moderate speed increase needs a bigger tension increase.",
-  },
-  {
-    skill: "Hanging Rope Model",
-    prompt: "A rope hangs from the ceiling. At height y above the bottom, what creates the tension there?",
-    choices: [
-      "The weight of the rope below that point",
-      "The weight of the rope above that point",
-      "The wave speed only",
-      "The full ceiling force only"
-    ],
-    answer: "The weight of the rope below that point",
-    teach: "At height y from the bottom, the lower segment has mass μy, so T = μyg.",
-  },
-  {
-    skill: "Hanging Rope Model",
-    prompt: "For a hanging rope, T(y) = μyg. Put that into v = √(T/μ). What do you get?",
-    choices: ["v = √(gy)", "v = μgy", "v = √(μgy)", "v = gy/μ"],
-    answer: "v = √(gy)",
-    teach: "The μ cancels: v = √(μyg/μ) = √(gy).",
-  },
-  {
-    skill: "Hanging Rope Proof Trap",
-    prompt: "Which proof choice is automatically suspicious?",
-    choices: [
-      "One that uses μ² or v dy",
-      "One that uses T = μyg",
-      "One that uses v = √(T/μ)",
-      "One that uses dt = dy/v"
-    ],
-    answer: "One that uses μ² or v dy",
-    teach: "The correct proof uses T = μyg, v = √(T/μ), and dt = dy/v. μ² and v dy are trap moves.",
-  },
-  {
-    skill: "Hanging Rope Integration",
-    prompt: "If v(y)=√(gy), what is the correct tiny time step?",
-    choices: ["dt = dy/√(gy)", "dt = √(gy)dy", "dt = dy/(2√gy)", "dt = ½√(gy)dy"],
-    answer: "dt = dy/√(gy)",
-    teach: "Time = distance/speed. Since speed changes with y, use dt = dy/v(y).",
-  },
-  {
-    skill: "Hanging Rope Integration",
-    prompt: "The travel time integral ∫₀ᴸ dy/√(gy) becomes:",
-    choices: ["2√(L/g)", "√(Lg)", "L/g", "2L/g"],
-    answer: "2√(L/g)",
-    teach: "Pull out 1/√g and integrate y^-1/2. You get 2√(L/g).",
-  },
-  {
-    skill: "Snapshot vs History Graph",
-    prompt: "A graph of displacement D versus position x at one instant is a:",
-    choices: ["Snapshot graph", "History graph", "Circuit graph", "Flux graph"],
-    answer: "Snapshot graph",
-    teach: "Snapshot graph = what the whole wave looks like in space at one frozen time.",
-  },
-  {
-    skill: "Snapshot vs History Graph",
-    prompt: "A graph of displacement D versus time t at one fixed position is a:",
-    choices: ["History graph", "Snapshot graph", "Voltage graph", "Refraction graph"],
-    answer: "History graph",
-    teach: "History graph = what one point does as the wave passes by.",
-  },
-  {
-    skill: "Left-Moving Wave Graphs",
-    prompt: "A wave pulse is moving left toward x = 0. Which feature reaches x = 0 first?",
-    choices: [
-      "The feature closest to x = 0 on the left side",
-      "The feature farthest right",
-      "The highest point always",
-      "The lowest point always"
-    ],
-    answer: "The feature closest to x = 0 on the left side",
-    teach: "For left-moving waves heading toward x = 0, features with smaller x arrive first.",
-  },
-  {
-    skill: "Left-Moving Wave Graphs",
-    prompt: "A sharp vertical edge in a snapshot graph passes a fixed point. What can the history graph show?",
-    choices: [
-      "An instant jump",
-      "Only a smooth sine wave",
-      "Only a negative displacement",
-      "No motion"
-    ],
-    answer: "An instant jump",
-    teach: "Sharp spatial edges can become sudden time jumps when they pass the observer.",
-  },
-  {
-    skill: "Arrival Time",
-    prompt: "A wave feature at x = 5 m travels left to x = 0 at 1.0 m/s. When does it arrive?",
-    choices: ["5 s", "1 s", "0.2 s", "10 s"],
-    answer: "5 s",
-    teach: "Use t = distance/speed = 5 m / 1.0 m/s = 5 s.",
-  },
-  {
-    skill: "Spherical Wave Number",
-    prompt: "For spherical wave phase problems, what should you calculate first from wavelength?",
-    choices: ["k = 2π/λ", "f = 1/T", "P = IV", "R = V/I"],
-    answer: "k = 2π/λ",
-    teach: "Wave number k tells how fast phase changes with distance.",
-  },
-  {
-    skill: "Spherical Phase",
-    prompt: "You know phase φ_ref at r_ref and need phase at r. What is the main structure?",
-    choices: [
-      "φ(r) = φ_ref ± k(r - r_ref)",
-      "φ = EAcosθ",
-      "φ = IR",
-      "φ = qV"
-    ],
-    answer: "φ(r) = φ_ref ± k(r - r_ref)",
-    teach: "Phase changes with position. The sign depends on the wave convention and coordinate direction.",
-  },
-  {
-    skill: "Phase Modulo Trap",
-    prompt: "Your phase answer is 1.75π, but the system wants (-π,π]. What equivalent answer should you try?",
-    choices: ["-0.25π", "0.25π", "3.75π", "1.75π²"],
-    answer: "-0.25π",
-    teach: "Subtract 2π: 1.75π - 2π = -0.25π. Same physical phase, different allowed range.",
-  },
-  {
-    skill: "Light Wave Equation",
-    prompt: "Blue light has wavelength 450 nm. What equation finds its frequency?",
-    choices: ["f = c/λ", "f = λ/c", "n = λ_material/λ_vacuum", "V = IR"],
-    answer: "f = c/λ",
-    teach: "For light in vacuum/air, c = fλ, so f = c/λ.",
-  },
-  {
-    skill: "Unit Conversion",
-    prompt: "Before using 450 nm in c = fλ, convert it to:",
-    choices: ["450 × 10⁻⁹ m", "450 × 10⁹ m", "450 m", "450 s"],
-    answer: "450 × 10⁻⁹ m",
-    teach: "Nanometers must become meters. This is a huge Mastering-style unit trap.",
-  },
-  {
-    skill: "Light Frequency",
-    prompt: "450 nm blue light has frequency closest to:",
-    choices: ["6.67 × 10¹⁴ Hz", "4.62 × 10¹⁴ Hz", "1.44 Hz", "450 Hz"],
-    answer: "6.67 × 10¹⁴ Hz",
-    teach: "f = (3.00×10⁸)/(450×10⁻⁹) = 6.67×10¹⁴ Hz.",
-  },
-  {
-    skill: "Light Frequency",
-    prompt: "650 nm red light has frequency closest to:",
-    choices: ["4.62 × 10¹⁴ Hz", "6.67 × 10¹⁴ Hz", "1.44 × 10¹⁴ Hz", "650 Hz"],
-    answer: "4.62 × 10¹⁴ Hz",
-    teach: "f = (3.00×10⁸)/(650×10⁻⁹) = 4.62×10¹⁴ Hz.",
-  },
-  {
-    skill: "Refraction",
-    prompt: "When light enters a material, what stays the same?",
-    choices: ["Frequency", "Wavelength", "Speed", "Index of refraction"],
-    answer: "Frequency",
-    teach: "Frequency is set by the source. Speed and wavelength change inside the material.",
-  },
-  {
-    skill: "Index of Refraction",
-    prompt: "Red light has λ_vacuum = 650 nm and λ_material = 450 nm. What formula gives n?",
-    choices: [
-      "n = λ_vacuum/λ_material",
-      "n = λ_material/λ_vacuum",
-      "n = fλ",
-      "n = λf/c"
-    ],
-    answer: "n = λ_vacuum/λ_material",
-    teach: "Index measures wavelength shrinkage: n = 650/450 = 1.44.",
-  },
-  {
-    skill: "Index of Refraction",
-    prompt: "If wavelength gets shorter inside a material, the index of refraction is:",
-    choices: ["Greater than 1", "Less than 1", "Always 0", "Measured in Hz"],
-    answer: "Greater than 1",
-    teach: "Normal materials have n > 1. Shorter wavelength means slower light in the material.",
-  },
-  {
-    skill: "Problem-Solving Strategy",
-    prompt: "What is the first move when a problem mixes nm, m/s, cm, or ms?",
-    choices: [
-      "Convert to SI units",
-      "Round immediately",
-      "Ignore units",
-      "Use the longest formula"
-    ],
-    answer: "Convert to SI units",
-    teach: "Convert nm → m, ms → s, cm → m. Most wrong answers come from unit powers of ten.",
-  },
-  {
-    skill: "Problem-Solving Strategy",
-    prompt: "If a phase answer looks right but is marked wrong, what should you check?",
-    choices: [
-      "Sign convention and modulo range",
-      "Only significant figures",
-      "Only tension",
-      "Only graph labels"
-    ],
-    answer: "Sign convention and modulo range",
-    teach: "Phase answers can be equivalent modulo 2π. Also check whether the system expects phase to increase or decrease with r.",
-  }
-];
-
-
 const TEACHING_GAMES = {
   "16": {
     name: "Knight Mode: Wave Model Lab",
@@ -1408,27 +1097,7 @@ const TEACHING_GAMES = {
 };
 
 function getTeachingGame(chapter) {
-  if (String(chapter.number) === "16") {
-    return {
-      name: "Ch. 16 Mastering Physics Boss Game",
-      mission: "Train every Ch. 16 homework skill: wave equation, derivatives, string tension, hanging rope proofs, graphs, spherical phase, light, refraction, and unit traps.",
-      rounds: CH16_OPTIMIZED_GAME_ROUNDS,
-    };
-  }
-
-  const base = TEACHING_GAMES[String(chapter.number)] || TEACHING_GAMES["33"];
-  const extras = typeof MASTERING_STYLE_EXTRA_ROUNDS !== "undefined"
-    ? MASTERING_STYLE_EXTRA_ROUNDS[String(chapter.number)]
-    : null;
-
-  if (!extras) return base;
-
-  return {
-    ...base,
-    name: `${base.name}: Mastering-Style Practice`,
-    mission: `${base.mission} Also trains homework-style proof, graph, ratio, and unit traps.`,
-    rounds: [...base.rounds, ...extras.rounds],
-  };
+  return TEACHING_GAMES[String(chapter.number)] || TEACHING_GAMES["33"];
 }
 
 
@@ -2796,8 +2465,7 @@ export default function App() {
           <Text style={styles.gameScore}>Score: {gameScore}</Text>
 
           <View style={styles.gameQuestionBox}>
-            <Text style={styles.gameLabel}>ROUND {gameIndex + 1} of {teachingGame.rounds.length}</Text>
-            {gameCard.skill ? <Text style={styles.skillBadge}>{gameCard.skill}</Text> : null}
+            <Text style={styles.gameLabel}>ROUND {gameIndex + 1}: {teachingGame.mission}</Text>
             <Text style={styles.gameQuestion}>{gameCard.prompt}</Text>
           </View>
 
@@ -3437,19 +3105,6 @@ const styles = StyleSheet.create({
     lineHeight: 24,
     fontWeight: "900",
     marginTop: 6,
-  },
-
-  skillBadge: {
-    color: "#111827",
-    backgroundColor: "#fbbf24",
-    borderRadius: 999,
-    paddingVertical: 8,
-    paddingHorizontal: 12,
-    overflow: "hidden",
-    fontSize: 16,
-    fontWeight: "900",
-    textAlign: "center",
-    marginBottom: 14,
   },
 
 });

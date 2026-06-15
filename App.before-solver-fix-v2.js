@@ -2020,37 +2020,70 @@ function solveProblem(text) {
   const givens = allNumbers(text);
   const variableMap = variableTranslator(text);
 
-  if (!text.trim()) {
+  function universalBreakdown(topic, formulaFamily, strategy, trap) {
     return makeResult({
-      topic: "Paste a problem first",
-      givens: [],
-      unknown: "The variable the problem asks for",
-      formula: "Formula appears here.",
-      math: "Paste the full homework question with numbers and units.",
-      solution: "Answer appears here.",
-      trap: "Paste the entire question.",
-      variableMap,
+      topic,
+      givens,
+      unknown: "The thing the question asks you to find or select",
+      formula: formulaFamily,
+      math:
+        "1. Circle clue words.\n" +
+        "2. List givens with units.\n" +
+        "3. Identify the unknown.\n" +
+        "4. Pick the formula family.\n" +
+        "5. Rearrange before plugging in.\n" +
+        "6. Substitute numbers with units.\n" +
+        "7. Check if the answer makes physical sense.",
+      solution:
+        strategy + "\n\n" +
+        "If this is multiple choice, compare each option against the formula, units, and direction rules.",
+      trap,
+      variableMap: variableMap || "Paste the full problem and I will label the variables here.",
     });
   }
 
+  if (!text.trim()) {
+    return makeResult({
+      topic: "Paste Any Homework Question",
+      givens: [],
+      unknown: "Whatever the question asks for",
+      formula: "The solver chooses the formula from clue words.",
+      math:
+        "Paste the whole problem, including answer choices if it is multiple choice.\n\n" +
+        "Best format:\n" +
+        '“A wave speed on a string is 148 m/s when tension is 73.0 N. What tension gives 179 m/s?”',
+      solution:
+        "The solver will return: topic, givens, variable labels, formula, math setup, answer strategy, and traps.",
+      trap:
+        "Do not paste only the numbers. Paste the whole sentence so the solver can detect the chapter.",
+      variableMap:
+        "Waiting for homework problem.",
+    });
+  }
+
+  const nmValues = [...text.matchAll(/([-+]?\d*\.?\d+)\s*nm\b/gi)].map((m) => Number(m[1]));
+  const speeds = numsByRegex(text, /([-+]?\d*\.?\d+)\s*m\s*\/\s*s/gi);
+  const tensions = numsByRegex(text, /([-+]?\d*\.?\d+)\s*(?:n|newton|newtons|upper n)\b/gi);
+  const hz = numsByRegex(text, /([-+]?\d*\.?\d+)\s*(?:hz|hertz)\b/gi);
+  const volts = numsByRegex(text, /([-+]?\d*\.?\d+)\s*(?:v|volt|volts)\b/gi);
+  const amps = numsByRegex(text, /([-+]?\d*\.?\d+)\s*(?:a|amp|amps)\b/gi);
+  const ohms = numsByRegex(text, /([-+]?\d*\.?\d+)\s*(?:ohm|ohms|Ω)\b/gi);
+  const rValues = numsByRegex(text, /r\s*(?:=|equals)\s*([-+]?\d*\.?\d+)/gi);
+
+  // ---------------------------
+  // CH 16: string tension ratio
+  // ---------------------------
   if (has(lower, ["string"]) && has(lower, ["tension"]) && has(lower, ["speed"])) {
-    const speeds = numsByRegex(text, /([-+]?\d*\.?\d+)\s*m\s*\/\s*s/gi);
-    const tensions = numsByRegex(text, /([-+]?\d*\.?\d+)\s*(?:n|newton|newtons|upper n)\b/gi);
     const v1 = speeds[0];
     const v2 = speeds[1];
     const T1 = tensions[0];
 
-    let math =
-      "v = √(T/μ)\n" +
-      "same string → μ constant\n" +
-      "T ∝ v²\n" +
-      "T₂ = T₁(v₂/v₁)²";
-
-    let solution = "Need v₁, T₁, and v₂.";
-
+    let solution = "Need old speed v₁, old tension T₁, and new speed v₂.";
     if (v1 && v2 && T1) {
       const T2 = T1 * Math.pow(v2 / v1, 2);
       solution =
+        "Same string means μ stays constant.\n\n" +
+        "T₂ = T₁(v₂/v₁)²\n" +
         `T₂ = ${T1}(${v2}/${v1})²\n` +
         `T₂ = ${nice(T2)} N\n\n` +
         `Answer: ${nice(T2)} N`;
@@ -2059,272 +2092,389 @@ function solveProblem(text) {
     return makeResult({
       topic: "Chapter 16: Wave Speed on a String",
       givens,
-      unknown: "T₂",
-      formula: "v = √(T/μ)",
-      math,
+      unknown: "New tension T₂",
+      formula: "v = √(T/μ), so T₂ = T₁(v₂/v₁)²",
+      math:
+        "Because the string is the same, μ is constant.\n" +
+        "v is proportional to √T.\n" +
+        "So T is proportional to v².",
       solution,
-      trap: "Tension uses speed squared, not direct speed ratio.",
-      variableMap,
+      trap:
+        "Do not use T₂ = T₁(v₂/v₁). You must square the speed ratio.",
+      variableMap:
+        variableMap || "v₁ = old speed\nT₁ = old tension\nv₂ = new speed\nT₂ = new tension\nμ = linear density",
     });
   }
 
+  // ---------------------------
+  // CH 16: wave equation / partial derivatives
+  // ---------------------------
+  if (
+    has(lower, ["partial", "derivative", "wave equation", "traveling wave function"]) ||
+    lower.includes("∂") ||
+    lower.includes("d(x,t)") ||
+    lower.includes("cx²") ||
+    lower.includes("cx^2")
+  ) {
+    let solution =
+      "Use the traveling wave equation:\n\n" +
+      "∂²D/∂x² = (1/v²)∂²D/∂t²\n\n" +
+      "Take second partial derivatives.\n" +
+      "For x derivatives, treat t as constant.\n" +
+      "For t derivatives, treat x as constant.\n" +
+      "Then solve for v.";
+
+    if (lower.includes("cx") || lower.includes("cx²") || lower.includes("cx^2")) {
+      solution =
+        "For D = c x² + d t²:\n\n" +
+        "∂²D/∂x² = 2c\n" +
+        "∂²D/∂t² = 2d\n\n" +
+        "Plug into the wave equation:\n" +
+        "2c = (1/v²)(2d)\n\n" +
+        "v² = d/c\n" +
+        "v = √(d/c)\n\n" +
+        "Answer: v = √(d/c)";
+    }
+
+    return makeResult({
+      topic: "Chapter 16: Traveling Wave Equation",
+      givens,
+      unknown: "Whether the function is a traveling wave, or wave speed v",
+      formula: "∂²D/∂x² = (1/v²)∂²D/∂t²",
+      math:
+        "Take second derivatives with respect to x and t, then compare sides.",
+      solution,
+      trap:
+        "Use second derivatives, not first derivatives.",
+      variableMap:
+        "D(x,t) = displacement\nx = position\nt = time\nv = wave speed",
+    });
+  }
+
+  // ---------------------------
+  // CH 16: hanging rope proof
+  // ---------------------------
+  if (
+    has(lower, ["rope", "hangs", "ceiling", "lower end"]) ||
+    has(lower, ["sqrt gy", "√gy", "2sqrt", "2√"])
+  ) {
+    return makeResult({
+      topic: "Chapter 16: Hanging Rope Proof",
+      givens,
+      unknown: "Correct proof choice for v = √(gy) or Δt = 2√(L/g)",
+      formula: "v = √(T/μ), T(y) = μyg, dt = dy/v",
+      math:
+        "At height y above the bottom, the tension supports the rope below that point.\n\n" +
+        "Mass below = μy\n" +
+        "Tension = weight below = μyg\n\n" +
+        "v = √(T/μ)\n" +
+        "v = √(μyg/μ)\n" +
+        "v = √(gy)\n\n" +
+        "For travel time:\n" +
+        "dt = dy/v = dy/√(gy)\n" +
+        "Δt = ∫₀ᴸ dy/√(gy)\n" +
+        "Δt = 2√(L/g)",
+      solution:
+        "Select the proof option with T = μyg and v = √(T/μ).\n\n" +
+        "For the travel-time proof, select the option with dt = dy/v = dy/√(gy).",
+      trap:
+        "Reject options with μ², √(Tμ), v dy, or ½v dy.",
+      variableMap:
+        "y = distance above lower end\nμ = linear density\nT = tension\nL = rope length\ng = gravity",
+    });
+  }
+
+  // ---------------------------
+  // CH 16: snapshot/history graph
+  // ---------------------------
+  if (
+    has(lower, ["snapshot graph", "history graph"]) ||
+    (has(lower, ["leftward", "travels left"]) && has(lower, ["x = 0", "x equals 0"]))
+  ) {
+    return makeResult({
+      topic: "Chapter 16: Snapshot Graph to History Graph",
+      givens,
+      unknown: "Correct history graph",
+      formula: "arrival time = distance / speed",
+      math:
+        "Snapshot graph = displacement D versus position x at one instant.\n" +
+        "History graph = displacement D versus time t at one fixed position.\n\n" +
+        "For a left-moving wave going toward x = 0, the feature closest to x = 0 arrives first.",
+      solution:
+        "Track arrival times using t = distance/speed.\n\n" +
+        "For the example where the wave moves left at 1.0 m/s:\n" +
+        "x = 1 m arrives at t = 1 s.\n" +
+        "x = 5 m arrives at t = 5 s.\n\n" +
+        "So the correct history graph is zero until t = 1 s, jumps up, then slopes down to zero by t = 5 s.",
+      trap:
+        "Do not copy the snapshot shape directly. Direction of travel determines the time order.",
+      variableMap:
+        "D = displacement\nx = position\nt = time\nv = wave speed",
+    });
+  }
+
+  // ---------------------------
+  // CH 16: spherical phase
+  // ---------------------------
   if (has(lower, ["phase"]) && has(lower, ["wavelength", "spherical wave", "r equals", "r ="])) {
-    const wavelength = contextNumber(text, ["wavelength"]) || firstUnit(text, "m\\b");
-    const rValues = numsByRegex(text, /r\s*(?:=|equals)\s*([-+]?\d*\.?\d+)/gi);
+    const wavelength =
+      contextNumber(text, ["wavelength", "lambda"]) ||
+      firstUnit(text, "m\\b");
     const r1 = rValues[0];
     const r2 = rValues[1];
     const phaseIsPi = has(lower, ["pi rad", "π rad", "is pi", "= pi"]);
 
-    let math = "k = 2π/λ\nφ₂ = φ₁ - k(r₁ - r₂)";
-    let solution = "Need wavelength, starting phase, starting r, and new r.";
+    let solution =
+      "Use k = 2π/λ.\n" +
+      "Then use φ(r) = φ_ref ± k(r - r_ref).\n" +
+      "Check whether the system wants phase increasing or decreasing with r.";
 
     if (wavelength && r1 !== undefined && r2 !== undefined && phaseIsPi) {
-      const phi2 = Math.PI - ((2 * Math.PI) / wavelength) * (r1 - r2);
+      const phiMinus = Math.PI - ((2 * Math.PI) / wavelength) * (r1 - r2);
+      const phiPlus = Math.PI + ((2 * Math.PI) / wavelength) * Math.abs(r2 - r1);
+
       solution =
         `λ = ${wavelength} m\n` +
-        `φ₁ = π rad at r₁ = ${r1} m\n` +
-        `r₂ = ${r2} m\n` +
-        `φ₂ = π - (2π/${wavelength})(${r1} - ${r2})\n` +
-        `φ₂ = ${nice(phi2)} rad\n\n` +
-        `Answer: ${nice(phi2)} rad`;
+        `k = 2π/${wavelength}\n\n` +
+        `Common convention:\n` +
+        `φ = π - (2π/${wavelength})(${r1} - ${r2})\n` +
+        `φ = ${nice(phiMinus)} rad\n\n` +
+        `If the system uses absolute phase shift:\n` +
+        `φ = π + (2π/${wavelength})|${r2} - ${r1}|\n` +
+        `φ = ${nice(phiPlus)} rad\n\n` +
+        "If marked wrong, wrap modulo 2π into the required range.";
     }
 
     return makeResult({
       topic: "Chapter 16: Spherical Wave Phase",
       givens,
-      unknown: "φ₂",
-      formula: "Δφ = (2π/λ)Δr",
-      math,
+      unknown: "New phase φ",
+      formula: "k = 2π/λ and φ(r) = φ_ref ± k(r-r_ref)",
+      math:
+        "Find k first. Then multiply k by the distance change.",
       solution,
-      trap: "This is phase, not wave speed.",
-      variableMap,
+      trap:
+        "Phase answers may need sign convention or modulo 2π adjustment.",
+      variableMap:
+        variableMap || "λ = wavelength\nk = wave number\nr = radius\nφ = phase",
     });
   }
 
-  if (has(lower, ["log", "ln", "logarithm", "exponent"])) {
-    const exact =
-      lower.includes("x") &&
-      lower.includes("3") &&
-      lower.includes("log") &&
-      lower.includes("y") &&
-      (lower.includes("squared") || lower.includes("y²") || lower.includes("y^2"));
+  // ---------------------------
+  // Light / optics, Ch 16 quiz or Ch 31
+  // ---------------------------
+  if (
+    has(lower, ["blue light", "red light", "light", "wavelength", "nm", "frequency", "index of refraction", "material wavelength"]) &&
+    nmValues.length > 0
+  ) {
+    let solution = "Use c = fλ. Convert nm to meters first.";
 
-    if (exact) {
-      return makeResult({
-        topic: "Math Primer: Logarithms",
-        givens: ["x = 3 log(y²)", "log means base 10"],
-        unknown: "y",
-        formula: "log(A)=B → A=10ᴮ",
-        math:
-          "x = 3log(y²)\n" +
-          "x/3 = log(y²)\n" +
-          "10^(x/3) = y²\n" +
-          "y = √(10^(x/3))\n" +
-          "y = 10^(x/6)",
-        solution: "Answer: y = 10^(x/6)",
-        trap: "Plain log is base 10. ln is base e.",
-        variableMap,
-      });
+    if (nmValues.length === 1 && has(lower, ["frequency"])) {
+      const f = 3.00e8 / (nmValues[0] * 1e-9);
+      solution =
+        `${nmValues[0]} nm = ${nmValues[0]} × 10⁻⁹ m\n\n` +
+        "f = c/λ\n" +
+        `f = (3.00×10⁸)/(${nmValues[0]}×10⁻⁹)\n` +
+        `f = ${f.toExponential(3)} Hz`;
+    }
+
+    if (nmValues.length >= 2 && has(lower, ["blue", "red"]) && has(lower, ["frequency"])) {
+      const f1 = 3.00e8 / (nmValues[0] * 1e-9);
+      const f2 = 3.00e8 / (nmValues[1] * 1e-9);
+
+      solution =
+        `Part A:\n` +
+        `${nmValues[0]} nm = ${nmValues[0]}×10⁻⁹ m\n` +
+        `f = c/λ = ${f1.toExponential(3)} Hz\n\n` +
+        `Part B:\n` +
+        `${nmValues[1]} nm = ${nmValues[1]}×10⁻⁹ m\n` +
+        `f = c/λ = ${f2.toExponential(3)} Hz`;
+
+      if (has(lower, ["index", "refraction", "material"]) && nmValues.length >= 3) {
+        const n = nmValues[1] / nmValues[2];
+        solution +=
+          `\n\nPart C:\n` +
+          `n = λ_vacuum/λ_material\n` +
+          `n = ${nmValues[1]}/${nmValues[2]}\n` +
+          `n = ${nice(n)}`;
+      } else if (lower.includes("650") && lower.includes("450") && has(lower, ["index", "refraction", "material"])) {
+        solution +=
+          `\n\nPart C:\n` +
+          `n = λ_vacuum/λ_material\n` +
+          `n = 650/450\n` +
+          `n = 1.44`;
+      }
     }
 
     return makeResult({
-      topic: "Math Primer: Logs and Exponents",
+      topic: "Chapter 16/31: Light Frequency and Refraction",
       givens,
-      unknown: "Variable inside log or exponent",
-      formula: "b = aˣ ↔ logₐ(b)=x",
-      math: "Isolate the log/exponential part, then rewrite or take logs.",
-      solution: "Use the exact equation to isolate the variable.",
-      trap: "Logs undo exponents.",
-      variableMap,
+      unknown: "Frequency f or index of refraction n",
+      formula: "c = fλ and n = λ_vacuum/λ_material",
+      math:
+        "For frequency, convert nm to m and use f = c/λ.\n" +
+        "For refraction, frequency stays constant and wavelength changes.",
+      solution,
+      trap:
+        "nm must become meters. Index of refraction has no units. Frequency stays constant in a material.",
+      variableMap:
+        "c = 3.00×10⁸ m/s\nf = frequency\nλ = wavelength\nn = index of refraction",
     });
   }
 
+  // ---------------------------
+  // General waves
+  // ---------------------------
   if (has(lower, ["wave", "frequency", "wavelength", "period", "hz", "hertz"])) {
-    const f = firstUnit(text, "(hz|hertz)");
-    const wavelength = contextNumber(text, ["wavelength", "lambda"]) || firstUnit(text, "m\\b");
-    const speed = firstUnit(text, "m\\/s");
+    const f = hz[0];
+    const wavelength =
+      contextNumber(text, ["wavelength", "lambda"]) ||
+      firstUnit(text, "m\\b");
+    const speed = speeds[0];
     const period = contextNumber(text, ["period"]);
 
     let unknown = "wave variable";
+    let solution = "Use v = fλ or f = 1/T depending on the given variables.";
     let math = "v = fλ\nf = 1/T";
-    let solution = "Need enough values to solve.";
 
-    if (has(lower, ["speed", "velocity"]) && f && wavelength) {
+    if (f && wavelength && has(lower, ["speed", "velocity"])) {
       const v = f * wavelength;
       unknown = "v";
-      solution = `v = fλ\nv = ${f} × ${wavelength}\nv = ${nice(v)} m/s\n\nAnswer: ${nice(v)} m/s`;
-    } else if (has(lower, ["frequency"]) && speed && wavelength) {
+      solution = `v = fλ\nv = ${f} × ${wavelength}\nv = ${nice(v)} m/s`;
+    } else if (speed && wavelength && has(lower, ["frequency"])) {
       const ans = speed / wavelength;
       unknown = "f";
       math = "f = v/λ";
-      solution = `f = ${speed}/${wavelength}\nf = ${nice(ans)} Hz\n\nAnswer: ${nice(ans)} Hz`;
-    } else if (has(lower, ["wavelength"]) && speed && f) {
+      solution = `f = ${speed}/${wavelength}\nf = ${nice(ans)} Hz`;
+    } else if (speed && f && has(lower, ["wavelength"])) {
       const ans = speed / f;
       unknown = "λ";
       math = "λ = v/f";
-      solution = `λ = ${speed}/${f}\nλ = ${nice(ans)} m\n\nAnswer: ${nice(ans)} m`;
-    } else if (has(lower, ["period"]) && f) {
+      solution = `λ = ${speed}/${f}\nλ = ${nice(ans)} m`;
+    } else if (f && has(lower, ["period"])) {
       const ans = 1 / f;
       unknown = "T";
       math = "T = 1/f";
-      solution = `T = 1/${f}\nT = ${nice(ans)} s\n\nAnswer: ${nice(ans)} s`;
-    } else if (has(lower, ["frequency"]) && period) {
+      solution = `T = 1/${f}\nT = ${nice(ans)} s`;
+    } else if (period && has(lower, ["frequency"])) {
       const ans = 1 / period;
       unknown = "f";
       math = "f = 1/T";
-      solution = `f = 1/${period}\nf = ${nice(ans)} Hz\n\nAnswer: ${nice(ans)} Hz`;
+      solution = `f = 1/${period}\nf = ${nice(ans)} Hz`;
     }
 
     return makeResult({
-      topic: "Chapter 16: Waves",
+      topic: "Chapter 16: General Waves",
       givens,
       unknown,
       formula: "v = fλ and f = 1/T",
       math,
       solution,
-      trap: "Amplitude is not wavelength.",
+      trap:
+        "Amplitude is not wavelength. Frequency and period are reciprocals.",
       variableMap,
     });
   }
 
+  // ---------------------------
+  // Electricity / later modules fallback categories
+  // ---------------------------
   if (has(lower, ["charge", "coulomb", "repel", "attract", "electric force"])) {
-    const charges = numsByRegex(text, /([-+]?\d*\.?\d+(?:e[-+]?\d+)?)\s*c\b/gi);
-    const q1 = charges[0];
-    const q2 = charges[1];
-    const r = contextNumber(text, ["distance", "apart", "separated"]) || firstUnit(text, "m\\b");
-    let solution = "Need q₁, q₂, and r.";
-
-    if (q1 && q2 && r) {
-      const F = (9e9 * Math.abs(q1) * Math.abs(q2)) / (r * r);
-      solution = `F = kq₁q₂/r²\nF = ${nice(F)} N\n\nAnswer: ${nice(F)} N`;
-    }
-
-    return makeResult({
-      topic: "Chapter 22: Coulomb’s Law",
-      givens,
-      unknown: "F",
-      formula: "F = kq₁q₂/r²",
-      math: "Use k = 9 × 10⁹ and square r.",
-      solution,
-      trap: "Same repel, opposite attract.",
-      variableMap,
-    });
+    return universalBreakdown(
+      "Chapter 22: Electric Charges and Coulomb’s Law",
+      "F = kq₁q₂/r²",
+      "Identify q₁, q₂, and r. Convert charge units to coulombs. Square the distance. Decide attraction/repulsion from signs.",
+      "Most common trap: forgetting r² or forgetting μC/nC conversions."
+    );
   }
 
   if (has(lower, ["electric field", "field", "n/c", "force per charge"])) {
-    return makeResult({
-      topic: "Chapter 23: Electric Field",
-      givens,
-      unknown: "E, F, or q",
-      formula: "E = F/q",
-      math: "Use E = F/q or F = qE.",
-      solution: "Plug in two known values to find the third.",
-      trap: "Field is force per charge.",
-      variableMap,
-    });
+    return universalBreakdown(
+      "Chapter 23: Electric Field",
+      "E = F/q and F = qE",
+      "Decide whether the problem asks for field, force, or charge. Remember field direction is based on a positive test charge.",
+      "Trap: negative charges feel force opposite the electric field."
+    );
   }
 
   if (has(lower, ["flux", "gauss", "surface", "area", "enclosed"])) {
-    return makeResult({
-      topic: "Chapter 24: Flux and Gauss’s Law",
-      givens,
-      unknown: "Flux, field, or enclosed charge",
-      formula: "Φ = EAcosθ or Φ = q_enc/ε₀",
-      math: "Use area/angle formula or Gauss formula depending on wording.",
-      solution: "Plug into the matching formula.",
-      trap: "Only enclosed charge matters for closed-surface total flux.",
-      variableMap,
-    });
+    return universalBreakdown(
+      "Chapter 24: Electric Flux and Gauss’s Law",
+      "Φ = EAcosθ or Φ = q_enc/ε₀",
+      "Use EAcosθ for flat-surface area/angle problems. Use q_enc/ε₀ for closed-surface/enclosed-charge problems.",
+      "Trap: only enclosed charge counts for total flux through a closed surface."
+    );
   }
 
   if (has(lower, ["voltage", "potential", "potential energy", "volt"])) {
-    return makeResult({
-      topic: "Chapter 25: Electric Potential",
-      givens,
-      unknown: "V, U, or q",
-      formula: "V = U/q",
-      math: "Use V = U/q, U = qV, or q = U/V.",
-      solution: "Voltage is energy per charge.",
-      trap: "Voltage is not electric field.",
-      variableMap,
-    });
+    return universalBreakdown(
+      "Chapter 25: Electric Potential",
+      "V = U/q and U = qV",
+      "Voltage means energy per charge. Identify U, q, and V.",
+      "Trap: voltage is scalar; electric field is vector."
+    );
   }
 
   if (has(lower, ["capacitor", "capacitance", "farad", "dielectric"])) {
-    return makeResult({
-      topic: "Chapter 26: Capacitance",
-      givens,
-      unknown: "C, Q, or ΔV",
-      formula: "C = Q/ΔV",
-      math: "Use C = Q/ΔV, Q = CΔV, or ΔV = Q/C.",
-      solution: "Capacitance is charge per volt.",
-      trap: "Capacitance is not the same as charge.",
-      variableMap,
-    });
+    return universalBreakdown(
+      "Chapter 26: Capacitance",
+      "C = Q/ΔV and Q = CΔV",
+      "Identify capacitance, charge, and voltage difference. Watch microfarads.",
+      "Trap: capacitance is not the same thing as charge."
+    );
   }
 
-  if (has(lower, ["current", "resistance", "resistor", "ohm", "ohms", "amp", "battery", "circuit", "power", "watts"])) {
-    return makeResult({
-      topic: "Chapter 27/28: Circuits",
-      givens,
-      unknown: "V, I, R, or P",
-      formula: "V = IR and P = IV",
-      math: "Use Ohm’s Law, power formulas, and series/parallel rules.",
-      solution: "Label circuit type first: series or parallel.",
-      trap: "Series: same current. Parallel: same voltage.",
-      variableMap,
-    });
+  if (has(lower, ["current", "resistance", "resistor", "ohm", "ohms", "amp", "battery", "circuit", "power", "watts", "series", "parallel"])) {
+    return universalBreakdown(
+      "Chapter 27/28: Current, Resistance, and Circuits",
+      "V = IR, P = IV, series add, parallel reciprocals",
+      "First identify series or parallel. Then use Ohm’s Law, power formulas, and equivalent resistance rules.",
+      "Trap: series has same current; parallel has same voltage."
+    );
   }
 
   if (has(lower, ["magnetic", "tesla", "moving charge", "b field"])) {
-    return makeResult({
-      topic: "Chapter 29: Magnetic Force",
-      givens,
-      unknown: "F",
-      formula: "F = qvBsinθ",
-      math: "Use q, v, B, and angle.",
-      solution: "Plug into F = qvBsinθ.",
-      trap: "Stationary charge has no magnetic force.",
-      variableMap,
-    });
+    return universalBreakdown(
+      "Chapter 29: Magnetic Force",
+      "F = qvBsinθ",
+      "Check if the charge is moving. Identify q, v, B, and θ.",
+      "Trap: no motion means no magnetic force."
+    );
   }
 
-  if (has(lower, ["induction", "emf", "faraday", "lenz", "flux", "coil", "turns"])) {
-    return makeResult({
-      topic: "Chapter 30: Induction",
-      givens,
-      unknown: "ε",
-      formula: "ε = -NΔΦB/Δt",
-      math: "Use magnitude |ε| = NΔΦB/Δt.",
-      solution: "Changing flux creates emf.",
-      trap: "No changing flux = no induced emf.",
-      variableMap,
-    });
+  if (has(lower, ["induction", "emf", "faraday", "lenz", "coil", "turns", "magnetic flux"])) {
+    return universalBreakdown(
+      "Chapter 30: Electromagnetic Induction",
+      "ε = -NΔΦB/Δt",
+      "Identify what changes: magnetic field, area, angle, or time. Use Lenz’s Law for direction.",
+      "Trap: no changing flux means no induced emf."
+    );
   }
 
-  if (has(lower, ["light", "electromagnetic", "em wave", "speed of light"])) {
-    return makeResult({
-      topic: "Chapter 31: Electromagnetic Waves",
-      givens,
-      unknown: "c, f, or λ",
-      formula: "c = fλ",
-      math: "Use c = 3.00 × 10⁸ m/s.",
-      solution: "Use λ = c/f or f = c/λ.",
-      trap: "Do not use sound speed for light.",
-      variableMap,
-    });
+  if (has(lower, ["electromagnetic", "em wave", "speed of light"])) {
+    return universalBreakdown(
+      "Chapter 31: Electromagnetic Waves",
+      "c = fλ",
+      "Use c = 3.00×10⁸ m/s. Solve for frequency or wavelength.",
+      "Trap: do not use 343 m/s for light. That is sound in air."
+    );
   }
 
-  return makeResult({
-    topic: "Universal Physics Problem",
-    givens,
-    unknown: "Whatever the question asks for",
-    formula: "Use clue words to pick the formula.",
-    math: "GIVEN → VARIABLES → UNKNOWN → FORMULA → MATH → SOLUTION.",
-    solution: "Paste more wording if the solver cannot classify it.",
-    trap: "Do not skip units.",
-    variableMap,
-  });
+  if (has(lower, ["log", "ln", "logarithm", "exponent"])) {
+    return universalBreakdown(
+      "Math Helper: Logs and Exponents",
+      "log(A)=B means A=10ᴮ; ln(A)=B means A=eᴮ",
+      "Isolate the log or exponential part first, then undo it.",
+      "Trap: log usually means base 10; ln means base e."
+    );
+  }
+
+  return universalBreakdown(
+    "Universal Physics Breakdown",
+    "Unknown formula family yet",
+    "I can still help: list the givens, identify the unknown, and match clue words to the formula map. If this is multiple choice, paste every answer choice too.",
+    "Trap: the solver needs the full wording, not just numbers."
+  );
 }
 
 function getChapter(number) {
