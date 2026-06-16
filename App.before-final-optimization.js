@@ -2691,24 +2691,6 @@ export default function App() {
           A module-based tutor that teaches concepts first, then drills memory, then solves homework.
         </Text>
 
-        <Card color={COLORS.green}>
-          <Text style={styles.sectionTitle}>Best Study Flow</Text>
-          <Text style={styles.body}>1. Pick the module you are on.</Text>
-          <Text style={styles.body}>2. Open Learn This Module.</Text>
-          <Text style={styles.body}>3. Read one concept card slowly.</Text>
-          <Text style={styles.body}>4. Do that chapter's flashcards out loud.</Text>
-          <Text style={styles.body}>5. Paste one homework problem into the solver.</Text>
-          <Text style={styles.body}>6. Finish with the Boss Game.</Text>
-          <Text style={styles.memory}>Rule: learn it, recall it, solve it, then boss fight it.</Text>
-        </Card>
-
-        <Card color={COLORS.red}>
-          <Text style={styles.sectionTitle}>Panic Button</Text>
-          <Text style={styles.body}>When stuck, write this first:</Text>
-          <Text style={styles.formulaText}>GIVEN → UNKNOWN → MODEL → FORMULA → UNITS → CHECK</Text>
-          <Text style={styles.trap}>Do not start with the calculator. Start with clue words.</Text>
-        </Card>
-
         <Button title="Paste Homework Solver" onPress={() => setScreen("solver")} color={COLORS.green} />
         <Button title="Filter Flashcards by Chapter" onPress={() => setScreen("flashcardFilter")} color={COLORS.yellow} />
         <Button title="Full Formula Map" onPress={() => setScreen("formulas")} color={COLORS.purple} />
@@ -2762,7 +2744,7 @@ export default function App() {
               }}
             >
               <Text style={styles.chapterTitle}>{ch.title}</Text>
-              <Text style={styles.formulaText}>{ch.formula}</Text>
+              <Text style={styles.answer}>{ch.formula}</Text>
             </Pressable>
           );
         })}
@@ -2798,14 +2780,12 @@ export default function App() {
 
         <Card color={selectedChapter.color}>
           <Text style={styles.label}>Core Formula</Text>
-          <Text style={styles.formulaText}>{selectedChapter.formula}</Text>
+          <Text style={styles.answer}>{selectedChapter.formula}</Text>
 
-          <Text style={styles.label}>Chapter Checklist</Text>
+          <Text style={styles.label}>You need to know</Text>
           {selectedChapter.goals.map((g) => (
-            <Text key={g} style={styles.checkItem}>□ {g}</Text>
+            <Text key={g} style={styles.body}>- {g}</Text>
           ))}
-
-          <Text style={styles.memory}>Goal: do not move on until you can explain each box out loud.</Text>
         </Card>
 
         <Button title="Learn This Chapter" onPress={() => setScreen("chapterLearn")} color={COLORS.green} />
@@ -2863,7 +2843,7 @@ export default function App() {
           <Text style={styles.body}>{solved.unknown}</Text>
 
           <Text style={styles.label}>Formula</Text>
-          <Text style={styles.formulaText}>{solved.formula}</Text>
+          <Text style={styles.body}>{solved.formula}</Text>
 
           <Text style={styles.label}>Steps</Text>
           <Text style={styles.body}>{solved.steps}</Text>
@@ -2874,7 +2854,7 @@ export default function App() {
           <Text style={styles.label}>Trap Check</Text>
           <Text style={styles.trap}>{solved.trap}</Text>
 
-          <Text style={styles.label}>6. Memory Hook</Text>
+          <Text style={styles.label}>Memory Hook</Text>
           <Text style={styles.memory}>{solved.memory}</Text>
         </Card>
 
@@ -2887,7 +2867,7 @@ export default function App() {
     return (
       <ScrollView style={styles.container} contentContainerStyle={styles.content}>
         <Text style={styles.title}>{screen === "chapterMemory" ? selectedChapter.short : selectedModule.title} Memory Cards</Text>
-        <Text style={styles.subtitle}>Say the answer out loud before pressing show. If you hesitate, mark it Again.</Text>
+        <Text style={styles.subtitle}>Say the answer out loud before pressing show.</Text>
 
         <Card color={COLORS.yellow}>
           <Text style={styles.label}>Ch. {currentCard?.chapter}</Text>
@@ -2963,7 +2943,7 @@ export default function App() {
             >
               <Text style={styles.chapterTitle}>{ch.title}</Text>
               <Text style={styles.body}>{count} flashcards</Text>
-              <Text style={styles.formulaText}>{ch.formula}</Text>
+              <Text style={styles.answer}>{ch.formula}</Text>
             </Pressable>
           );
         })}
@@ -2981,7 +2961,7 @@ export default function App() {
       <ScrollView style={styles.container} contentContainerStyle={styles.content}>
         <Text style={styles.title}>{selectedChapter.short} Flashcards</Text>
         <Text style={styles.subtitle}>
-          Ch. {selectedChapter.id} only. Say the answer out loud before pressing show. If you hesitate, mark it Again.
+          Ch. {selectedChapter.id} only. Say the answer out loud before pressing show.
         </Text>
 
         <Card color={selectedChapter.color}>
@@ -3053,7 +3033,7 @@ export default function App() {
               return (
                 <View key={id} style={styles.formulaLine}>
                   <Text style={styles.chapterTitle}>{ch.title}</Text>
-                  <Text style={styles.formulaText}>{ch.formula}</Text>
+                  <Text style={styles.answer}>{ch.formula}</Text>
                   {ch.goals.map((g) => <Text key={g} style={styles.body}>- {g}</Text>)}
                 </View>
               );
@@ -3085,16 +3065,6 @@ export default function App() {
           <Text style={styles.body}>Formula | clue words | units | trap | example</Text>
         </Card>
 
-        <Card color={COLORS.red}>
-          <Text style={styles.sectionTitle}>Final Exam Survival Checklist</Text>
-          <Text style={styles.checkItem}>□ I can identify the chapter from clue words.</Text>
-          <Text style={styles.checkItem}>□ I can write givens and unknown before solving.</Text>
-          <Text style={styles.checkItem}>□ I can convert nC, μC, cm, mm, and nm.</Text>
-          <Text style={styles.checkItem}>□ I can tell scalar vs vector problems apart.</Text>
-          <Text style={styles.checkItem}>□ I can explain the formula before plugging in.</Text>
-          <Text style={styles.checkItem}>□ I can do a reasonableness check.</Text>
-        </Card>
-
         <Button title="Back Home" onPress={() => setScreen("home")} />
       </ScrollView>
     );
@@ -3102,7 +3072,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Tiny app hiccup — go home and keep studying.</Text>
+      <Text style={styles.title}>Screen not found.</Text>
       <Button title="Back Home" onPress={() => setScreen("home")} />
     </View>
   );
@@ -3114,25 +3084,25 @@ function LessonCard({ lesson, chapter }) {
       <Text style={styles.label}>{chapter?.title}</Text>
       <Text style={styles.sectionTitle}>{lesson.name}</Text>
 
-      <Text style={styles.label}>1. Plain-English Meaning</Text>
+      <Text style={styles.label}>Plain-English Meaning</Text>
       <Text style={styles.body}>{lesson.explain}</Text>
 
-      <Text style={styles.label}>2. Formula / Rule</Text>
-      <Text style={styles.formulaText}>{lesson.formula}</Text>
+      <Text style={styles.label}>Formula / Rule</Text>
+      <Text style={styles.answer}>{lesson.formula}</Text>
 
-      <Text style={styles.label}>3. Clue Words That Trigger This</Text>
+      <Text style={styles.label}>Clue Words</Text>
       <Text style={styles.body}>{lesson.clues}</Text>
 
-      <Text style={styles.label}>4. Example Pattern</Text>
+      <Text style={styles.label}>Example</Text>
       <Text style={styles.body}>{lesson.example}</Text>
 
-      <Text style={styles.label}>5. Common Trap</Text>
+      <Text style={styles.label}>Common Trap</Text>
       <Text style={styles.trap}>{lesson.trap}</Text>
 
-      <Text style={styles.label}>6. Memory Hook</Text>
+      <Text style={styles.label}>Memory Hook</Text>
       <Text style={styles.memory}>{lesson.memory}</Text>
 
-      <Text style={styles.label}>7. Mini Check</Text>
+      <Text style={styles.label}>Mini Check</Text>
       <Text style={styles.bigQuestion}>{lesson.check}</Text>
       <Text style={styles.answer}>{lesson.checkAnswer}</Text>
     </Card>

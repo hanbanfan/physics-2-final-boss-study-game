@@ -53,8 +53,8 @@ function normalize(text) {
     .replaceAll("superscript negative", "superscript minus")
     .replaceAll("startroot", "sqrt")
     .replaceAll("endroot", "")
-    .replaceAll("pi", "pi")
-    .replaceAll("mu", "mu");
+    .replaceAll("π", "pi")
+    .replaceAll("μ", "mu");
 }
 
 function allNumbers(text) {
@@ -104,7 +104,7 @@ const CHAPTERS = {
     title: "Ch. 16 — Waves, Sound, Doppler",
     short: "Waves",
     color: COLORS.blue,
-    formula: "v=flambda, v = sqrt(T/mu), y=A sin(kx-omegat+φ)",
+    formula: "v=fλ, v=√(T/μ), y=A sin(kx−ωt+φ)",
     goals: [
       "Transverse vs longitudinal waves",
       "Wave speed on strings",
@@ -119,7 +119,7 @@ const CHAPTERS = {
     title: "Ch. 22 — Charge and Coulomb Force",
     short: "Charge",
     color: COLORS.yellow,
-    formula: "Q=Ne, F=kq_1q_2/r^2",
+    formula: "Q=Ne, F=kq₁q₂/r²",
     goals: [
       "Charge from electrons",
       "Attraction vs repulsion",
@@ -133,7 +133,7 @@ const CHAPTERS = {
     title: "Ch. 23 — Electric Fields",
     short: "Fields",
     color: COLORS.green,
-    formula: "E=F/q, E=k|q|/r^2",
+    formula: "E=F/q, E=k|q|/r²",
     goals: [
       "Electric field direction",
       "Point charge fields",
@@ -147,7 +147,7 @@ const CHAPTERS = {
     title: "Ch. 24 — Flux and Gauss's Law",
     short: "Flux",
     color: COLORS.purple,
-    formula: "Phi=EAcostheta, Phi=qenc/epsilon_0",
+    formula: "Φ=EAcosθ, Φ=qenc/ε₀",
     goals: [
       "Electric flux",
       "Gauss's Law",
@@ -174,7 +174,7 @@ const CHAPTERS = {
     title: "Ch. 26 — Capacitance",
     short: "Capacitors",
     color: COLORS.green,
-    formula: "C=Q/ΔV, Q=epsilon_0AE",
+    formula: "C=Q/ΔV, Q=ε₀AE",
     goals: [
       "Capacitance",
       "Parallel plates",
@@ -187,7 +187,7 @@ const CHAPTERS = {
     title: "Ch. 27 — Current and Resistance",
     short: "Current",
     color: COLORS.red,
-    formula: "I=ΔQ/Δt, V = I*R, P = I*V",
+    formula: "I=ΔQ/Δt, V=IR, P=IV",
     goals: [
       "Current",
       "Resistance",
@@ -213,7 +213,7 @@ const CHAPTERS = {
     title: "Ch. 29 — Magnetic Fields",
     short: "Magnetism",
     color: COLORS.blue,
-    formula: "F=qvBsintheta",
+    formula: "F=qvBsinθ",
     goals: [
       "Magnetic force",
       "Right-hand rule",
@@ -226,7 +226,7 @@ const CHAPTERS = {
     title: "Ch. 30 — Electromagnetic Induction",
     short: "Induction",
     color: COLORS.purple,
-    formula: "ε=-NΔPhiB/Δt",
+    formula: "ε=−NΔΦB/Δt",
     goals: [
       "Changing magnetic flux",
       "Faraday's Law",
@@ -239,7 +239,7 @@ const CHAPTERS = {
     title: "Ch. 31 — Electromagnetic Waves",
     short: "EM Waves",
     color: COLORS.green,
-    formula: "c=flambda, n=lambdavacuum/lambdamaterial",
+    formula: "c=fλ, n=λvacuum/λmaterial",
     goals: [
       "Light frequency",
       "Wavelength",
@@ -326,29 +326,29 @@ const LESSONS = {
       name: "Wave Speed on a String",
       explain:
         "A wave on a string moves faster when the string is tighter and slower when the string is heavier per meter.",
-      formula: "v = √(T/mu)",
+      formula: "v = √(T/μ)",
       clues: "string, tension, linear density, mass per length, wave speed",
       example:
-        "If the same string changes speed, use T_2 = T_1(v_2/v_1)² because speed depends on the square root of tension.",
+        "If the same string changes speed, use T₂ = T₁(v₂/v₁)² because speed depends on the square root of tension.",
       trap:
         "Do not forget to square the speed ratio when solving for new tension.",
       memory: "Tighter string = faster wave. Heavier string = slower wave.",
-      check: "If tension increases and mu stays the same, does wave speed increase or decrease?",
+      check: "If tension increases and μ stays the same, does wave speed increase or decrease?",
       checkAnswer: "Increase.",
     },
     {
       name: "Sinusoidal Wave Equation",
       explain:
         "The wave equation tells you the displacement of the wave at any position x and time t.",
-      formula: "y(x,t)=A sin(kx-omegat+φ)",
+      formula: "y(x,t)=A sin(kx−ωt+φ)",
       clues: "amplitude, k, omega, phase, wavelength, frequency",
       example:
-        "A is height, k is spatial frequency, omega is time frequency, and φ shifts the wave.",
+        "A is height, k is spatial frequency, ω is time frequency, and φ shifts the wave.",
       trap:
-        "k belongs to position. omega belongs to time.",
+        "k belongs to position. ω belongs to time.",
       memory: "A = height. k = space. omega = time. phi = shift.",
       check: "What formula connects k and wavelength?",
-      checkAnswer: "k = 2pi/lambda.",
+      checkAnswer: "k = 2π/λ.",
     },
     {
       name: "Snapshot vs History Graphs",
@@ -368,7 +368,7 @@ const LESSONS = {
       name: "Sound Intensity",
       explain:
         "Sound spreads through space. As it spreads, the same power is shared over a larger area.",
-      formula: "I = P/(4pir^2)",
+      formula: "I = P/(4πr²)",
       clues: "intensity, power, distance, spherical, decibel",
       example:
         "Double distance means intensity becomes one-fourth.",
@@ -402,7 +402,7 @@ const LESSONS = {
       formula: "Q = N e",
       clues: "electrons added, electrons removed, charge on rod, plastic rubbed with wool",
       example:
-        "If 2.0x10¹⁰ electrons are added, Q=(2.0x10¹⁰)(-1.60x10^-19 C)=-3.2x10^-9 C.",
+        "If 2.0×10¹⁰ electrons are added, Q=(2.0×10¹⁰)(−1.60×10⁻¹⁹ C)=−3.2×10⁻⁹ C.",
       trap:
         "Added electrons means negative charge. Removed electrons means positive charge.",
       memory: "Electrons added = negative.",
@@ -413,10 +413,10 @@ const LESSONS = {
       name: "Coulomb's Law",
       explain:
         "Electric charges push or pull on each other. The force gets weaker with distance squared.",
-      formula: "F = k|q_1q_2|/r^2",
+      formula: "F = k|q₁q₂|/r²",
       clues: "two charges, separated by distance, electric force, magnitude",
       example:
-        "Two + charges repel. A + and - charge attract.",
+        "Two + charges repel. A + and − charge attract.",
       trap:
         "Use absolute value for magnitude, then decide direction separately.",
       memory: "Like repel. Opposites attract.",
@@ -427,10 +427,10 @@ const LESSONS = {
       name: "Coulomb Vectors",
       explain:
         "Forces are vectors. You must decide the direction, then write components in i, j, k.",
-      formula: "F_net = F_1 + F_2 + ...",
+      formula: "F⃗net = F⃗1 + F⃗2 + ...",
       clues: "i, j, k, particle at origin, q0, q1, components",
       example:
-        "A positive charge above another positive charge pushes it downward, so the force is in the -j direction.",
+        "A positive charge above another positive charge pushes it downward, so the force is in the −j direction.",
       trap:
         "Do not make every force positive. Direction determines signs.",
       memory: "Draw arrows before writing equations.",
@@ -472,7 +472,7 @@ const LESSONS = {
       name: "Point Charge Field",
       explain:
         "A point charge creates an electric field that weakens with distance squared.",
-      formula: "E = k|q|/r^2",
+      formula: "E = k|q|/r²",
       clues: "point charge, bead, distance from charge, N/C",
       example:
         "A negative bead has field lines pointing toward it.",
@@ -486,7 +486,7 @@ const LESSONS = {
       name: "Electric Field Superposition",
       explain:
         "Fields add as vectors. Add x-components with x-components and y-components with y-components.",
-      formula: "E_net = E_1 + E_2 + ...",
+      formula: "E⃗net = E⃗1 + E⃗2 + ...",
       clues: "two charges, midpoint, net field, vector sum",
       example:
         "Between two equal positive charges, the midpoint field is zero because the fields oppose.",
@@ -517,7 +517,7 @@ const LESSONS = {
       name: "Electric Flux",
       explain:
         "Flux measures how much electric field passes through a surface.",
-      formula: "Phi = EAcostheta",
+      formula: "Φ = EAcosθ",
       clues: "flux, area, angle, field through surface",
       example:
         "If the field is perpendicular to the surface, flux is maximum.",
@@ -531,7 +531,7 @@ const LESSONS = {
       name: "Gauss's Law",
       explain:
         "Gauss's Law relates total flux through a closed surface to the charge inside.",
-      formula: "Phi = qenc/epsilon_0",
+      formula: "Φ = qenc/ε₀",
       clues: "closed surface, enclosed charge, Gauss, total flux",
       example:
         "Charges outside a closed surface may affect local field, but not net flux.",
@@ -596,7 +596,7 @@ const LESSONS = {
       name: "Current and Resistance",
       explain:
         "Current is moving charge. Resistance is how much the material resists current.",
-      formula: "I=ΔQ/Δt, V = I*R",
+      formula: "I=ΔQ/Δt, V=IR",
       clues: "current, resistance, ohm, voltage",
       example:
         "If voltage increases across the same resistor, current increases.",
@@ -630,7 +630,7 @@ const LESSONS = {
       name: "Magnetic Force",
       explain:
         "A magnetic field pushes moving charges sideways. A charge at rest feels no magnetic force.",
-      formula: "F = qvBsintheta",
+      formula: "F = qvBsinθ",
       clues: "magnetic field, moving charge, Tesla, right-hand rule",
       example:
         "Force is maximum when velocity is perpendicular to the magnetic field.",
@@ -647,7 +647,7 @@ const LESSONS = {
       name: "Faraday's Law and Lenz's Law",
       explain:
         "Changing magnetic flux creates induced emf. Lenz's Law gives the direction: the induced effect opposes the change.",
-      formula: "ε = -NΔPhiB/Δt",
+      formula: "ε = −NΔΦB/Δt",
       clues: "induction, emf, changing flux, coil, Lenz",
       example:
         "Moving a magnet into a coil changes magnetic flux and induces current.",
@@ -663,8 +663,8 @@ const LESSONS = {
     {
       name: "Electromagnetic Waves and Light",
       explain:
-        "Light is an electromagnetic wave. In vacuum, it travels at c = 3.00x10^8 m/s.",
-      formula: "c = flambda",
+        "Light is an electromagnetic wave. In vacuum, it travels at c = 3.00×10⁸ m/s.",
+      formula: "c = fλ",
       clues: "light, frequency, wavelength, nm, speed of light",
       example:
         "Blue light has shorter wavelength and higher frequency than red light.",
@@ -672,13 +672,13 @@ const LESSONS = {
         "Convert nanometers to meters before calculating frequency.",
       memory: "Short wavelength means high frequency.",
       check: "What formula connects light speed, frequency, and wavelength?",
-      checkAnswer: "c = flambda.",
+      checkAnswer: "c = fλ.",
     },
     {
       name: "Index of Refraction",
       explain:
         "Index of refraction tells how much light slows in a material.",
-      formula: "n = lambdavacuum/lambdamaterial",
+      formula: "n = λvacuum/λmaterial",
       clues: "index of refraction, material, wavelength in material",
       example:
         "If red light has 650 nm in vacuum and 450 nm in material, n = 650/450 = 1.44.",
@@ -736,7 +736,7 @@ const PROBLEM_SOLVING_RECIPES = {
       "3. Write GIVEN: list every number with units.",
       "4. Write UNKNOWN: what is the problem asking for?",
       "5. Pick the formula using clue words, not vibes.",
-      "6. Convert units before plugging in: cm to m, mm to m, nC to C, muC to C, nm to m.",
+      "6. Convert units before plugging in: cm to m, mm to m, nC to C, μC to C, nm to m.",
       "7. Solve algebraically first if possible.",
       "8. Plug numbers in carefully.",
       "9. Check units.",
@@ -809,7 +809,7 @@ const PROBLEM_SOLVING_RECIPES = {
       "Fnet = F1 + F2 + ..."
     ],
     traps: [
-      "Use C, not nC or muC, inside Coulomb's Law.",
+      "Use C, not nC or μC, inside Coulomb's Law.",
       "Magnitude is positive; direction comes separately.",
       "Do not make every vector component positive.",
       "For balance problems, k and q0 often cancel."
@@ -850,7 +850,7 @@ const PROBLEM_SOLVING_RECIPES = {
     steps: [
       "Step 1: Ask: flat surface or closed surface?",
       "Flat surface with area and angle → use Phi = EA cos(theta).",
-      "Closed surface with enclosed charge → use Phi = q_enclosed/epsilon_0.",
+      "Closed surface with enclosed charge → use Phi = qenc/epsilon0.",
       "Step 2: If the problem says enclosed charge, ignore outside charges for net flux.",
       "Step 3: If the problem has symmetry, identify what cancels.",
       "Ring on z-axis → sideways components cancel; only z remains.",
@@ -860,7 +860,7 @@ const PROBLEM_SOLVING_RECIPES = {
     ],
     formulas: [
       "Phi = EA cos(theta)",
-      "Phi = q_enclosed/epsilon_0",
+      "Phi = qenc/epsilon0",
       "Ewire = 2*k*lambda*L/(d*sqrt(d^2+L^2))",
       "Ering = k*q*z/((z^2+a^2)*sqrt(z^2+a^2))",
       "Q = epsilon0 A E"
@@ -1246,17 +1246,17 @@ const STUDY_GUIDES = {
     ],
     formulas: [
       "Phi = EA cos(theta)",
-      "Phi = q_enclosed/epsilon_0",
+      "Phi = qenc/epsilon0",
       "Ewire = 2*k*lambda*L/(d*sqrt(d^2+L^2))",
       "Ering = k*q*z/((z^2+a^2)*sqrt(z^2+a^2))",
       "Q = epsilon0*A*E",
     ],
     clueWords: [
-      "flux, area, angle -> Phi = E*A*cos(theta)",
+      "flux, area, angle -> Phi=EAcos(theta)",
       "closed surface, enclosed charge -> Gauss's Law",
       "wire, midpoint, linear charge density -> finite wire field",
       "ring, z-axis, radius a -> charged ring field",
-      "parallel plates and field given -> Q = epsilon_0*A*E",
+      "parallel plates and field given -> Q=epsilon0AE",
     ],
     traps: [
       "Only enclosed charge counts for net flux.",
@@ -1320,7 +1320,7 @@ const STUDY_GUIDES = {
     clueWords: [
       "capacitor, capacitance, farad -> C",
       "parallel plate, area, spacing -> C=epsilon0A/d",
-      "field inside plates and charge -> Q = epsilon_0*A*E",
+      "field inside plates and charge -> Q=epsilon0AE",
     ],
     traps: [
       "Capacitance is not charge.",
@@ -1329,7 +1329,7 @@ const STUDY_GUIDES = {
     ],
     examMoves: [
       "Identify whether the problem gives voltage, field, area, or spacing.",
-      "Choose Q=CV or Q = epsilon_0*A*E accordingly.",
+      "Choose Q=CV or Q=epsilon0AE accordingly.",
     ],
   },
 
@@ -1351,8 +1351,8 @@ const STUDY_GUIDES = {
     ],
     clueWords: [
       "current, charge per time -> I=DeltaQ/DeltaT",
-      "ohm, resistance, voltage -> V = I*R",
-      "power, watts -> P = I*V",
+      "ohm, resistance, voltage -> V=IR",
+      "power, watts -> P=IV",
     ],
     traps: [
       "Current is not voltage.",
@@ -1396,7 +1396,7 @@ const STUDY_GUIDES = {
     examMoves: [
       "Simplify the circuit step by step.",
       "Label series vs parallel.",
-      "Use V = I*R after finding equivalent resistance.",
+      "Use V=IR after finding equivalent resistance.",
     ],
   },
 
@@ -1842,148 +1842,7 @@ Object.entries(ELECTRIC_CHARGE_LECTURE_LESSONS).forEach(([chapter, newLessons]) 
   });
 });
 
-
-function uniqueByKey(items, keyFn) {
-  const seen = new Set();
-  const out = [];
-
-  items.forEach((item) => {
-    const key = keyFn(item);
-    if (!seen.has(key)) {
-      seen.add(key);
-      out.push(item);
-    }
-  });
-
-  return out;
-}
-
-const BASE_MEMORY_CARDS = [
-  // Ch. 16
-  { chapter: 16, front: "Transverse wave?", back: "Medium moves perpendicular to wave direction." },
-  { chapter: 16, front: "Longitudinal wave?", back: "Medium moves parallel to wave direction." },
-  { chapter: 16, front: "String wave speed formula?", back: "v = sqrt(T/mu)." },
-  { chapter: 16, front: "If tension increases, string wave speed does what?", back: "Increases." },
-  { chapter: 16, front: "If linear density mu increases, wave speed does what?", back: "Decreases." },
-  { chapter: 16, front: "Wave speed using frequency and wavelength?", back: "v = f*lambda." },
-  { chapter: 16, front: "Wave number k?", back: "k = 2*pi/lambda." },
-  { chapter: 16, front: "Angular frequency omega?", back: "omega = 2*pi*f." },
-  { chapter: 16, front: "Wave speed from omega and k?", back: "v = omega/k." },
-  { chapter: 16, front: "Snapshot graph?", back: "Displacement vs position at one instant." },
-  { chapter: 16, front: "History graph?", back: "Displacement vs time at one position." },
-  { chapter: 16, front: "Sound intensity vs distance?", back: "I is proportional to 1/r^2." },
-  { chapter: 16, front: "Doppler moving toward?", back: "Observed frequency increases." },
-  { chapter: 16, front: "Doppler moving away?", back: "Observed frequency decreases." },
-  { chapter: 16, front: "Sonic boom condition?", back: "Source speed exceeds wave speed, Mach > 1." },
-
-  // Ch. 22
-  { chapter: 22, front: "Charge of one electron?", back: "-1.60 x 10^-19 C." },
-  { chapter: 22, front: "Electrons added means object becomes?", back: "Negative." },
-  { chapter: 22, front: "Electrons removed means object becomes?", back: "Positive." },
-  { chapter: 22, front: "Coulomb force formula?", back: "F = k*|q_1*q_2|/r^2." },
-  { chapter: 22, front: "Coulomb constant k?", back: "8.99 x 10^9 N*m^2/C^2." },
-  { chapter: 22, front: "Like charges do what?", back: "Repel." },
-  { chapter: 22, front: "Opposite charges do what?", back: "Attract." },
-  { chapter: 22, front: "If distance doubles, Coulomb force becomes?", back: "One-fourth as large." },
-  { chapter: 22, front: "For Coulomb force magnitude, should the answer be negative?", back: "No. Magnitude is positive; direction handles signs." },
-  { chapter: 22, front: "First step for Coulomb vector problems?", back: "Draw charges and force arrows." },
-  { chapter: 22, front: "q_1 above q_0, both positive: force on q_0 points?", back: "Down, negative j direction." },
-  { chapter: 22, front: "Newton's Third Law for two charges?", back: "Forces are equal in size and opposite in direction." },
-
-  // Ch. 23
-  { chapter: 23, front: "Electric field meaning?", back: "Force per charge." },
-  { chapter: 23, front: "Electric field formula from force?", back: "E = F/q." },
-  { chapter: 23, front: "Point charge field formula?", back: "E = k*|q|/r^2." },
-  { chapter: 23, front: "Field direction from positive charge?", back: "Away from the charge." },
-  { chapter: 23, front: "Field direction from negative charge?", back: "Toward the charge." },
-  { chapter: 23, front: "Fields from multiple charges combine by?", back: "Vector addition / superposition." },
-  { chapter: 23, front: "Neutral object attracted by charge because of?", back: "Polarization." },
-  { chapter: 23, front: "Conductor polarization is strong because?", back: "Charges move freely." },
-  { chapter: 23, front: "Insulator charges mostly do what?", back: "Stay local / shift slightly." },
-  { chapter: 23, front: "Dipole definition?", back: "Equal and opposite charges separated by distance." },
-  { chapter: 23, front: "Can a dipole have zero net charge?", back: "Yes." },
-  { chapter: 23, front: "Field at midpoint between equal positive charges?", back: "Zero." },
-
-  // Ch. 24
-  { chapter: 24, front: "Electric flux formula for flat surface?", back: "Phi = E*A*cos(theta)." },
-  { chapter: 24, front: "Gauss's Law?", back: "Phi = q_enclosed/epsilon_0." },
-  { chapter: 24, front: "Gauss's Law cares about what charge?", back: "Only enclosed charge." },
-  { chapter: 24, front: "Outside charges change net flux?", back: "No." },
-  { chapter: 24, front: "Maximum flux happens when field is?", back: "Perpendicular to surface." },
-  { chapter: 24, front: "Zero flux happens when field is?", back: "Parallel to surface." },
-  { chapter: 24, front: "Ring field on z-axis points where?", back: "Along the z-axis." },
-  { chapter: 24, front: "Finite wire above midpoint: which components cancel?", back: "x-components cancel." },
-  { chapter: 24, front: "Parallel plate charge from field?", back: "Q = epsilon_0*A*E." },
-  { chapter: 24, front: "Best first move in symmetry problems?", back: "Cancel components before choosing formula." },
-
-  // Ch. 25
-  { chapter: 25, front: "Voltage means?", back: "Electric potential energy per charge." },
-  { chapter: 25, front: "Potential formula?", back: "V = U/q." },
-  { chapter: 25, front: "Potential energy from voltage?", back: "U = q*V." },
-  { chapter: 25, front: "Electric potential is scalar or vector?", back: "Scalar." },
-  { chapter: 25, front: "Electric field is scalar or vector?", back: "Vector." },
-
-  // Ch. 26
-  { chapter: 26, front: "Capacitance formula?", back: "C = Q/DeltaV." },
-  { chapter: 26, front: "Charge on capacitor?", back: "Q = C*DeltaV." },
-  { chapter: 26, front: "Parallel plate capacitance?", back: "C = epsilon_0*A/d." },
-  { chapter: 26, front: "Circular plate area?", back: "A = pi*r^2." },
-  { chapter: 26, front: "For circular plates, diameter must become?", back: "Radius." },
-  { chapter: 26, front: "Dielectric usually does what to capacitance?", back: "Increases capacitance." },
-
-  // Ch. 27
-  { chapter: 27, front: "Current definition?", back: "I = DeltaQ/DeltaT." },
-  { chapter: 27, front: "Ohm's Law?", back: "V = I*R." },
-  { chapter: 27, front: "Power formula using current and voltage?", back: "P = I*V." },
-  { chapter: 27, front: "Power formula using current and resistance?", back: "P = I^2*R." },
-  { chapter: 27, front: "Voltage does what?", back: "Pushes current." },
-  { chapter: 27, front: "Resistance does what?", back: "Fights current." },
-  { chapter: 27, front: "High resistivity is like?", back: "A clogged hose." },
-
-  // Ch. 28
-  { chapter: 28, front: "Series resistors combine how?", back: "Add directly." },
-  { chapter: 28, front: "Parallel resistors combine how?", back: "Add reciprocals." },
-  { chapter: 28, front: "Same current happens in?", back: "Series." },
-  { chapter: 28, front: "Same voltage happens in?", back: "Parallel." },
-  { chapter: 28, front: "Parallel equivalent resistance is compared to smallest branch?", back: "Smaller than the smallest branch resistor." },
-  { chapter: 28, front: "Kirchhoff junction rule?", back: "Current in = current out." },
-  { chapter: 28, front: "Kirchhoff loop rule?", back: "Voltage changes around a loop sum to zero." },
-
-  // Ch. 29
-  { chapter: 29, front: "Magnetic force formula?", back: "F = q*v*B*sin(theta)." },
-  { chapter: 29, front: "Magnetic force requires what?", back: "Moving charge." },
-  { chapter: 29, front: "Stationary charge in magnetic field feels?", back: "No magnetic force." },
-  { chapter: 29, front: "Magnetic force max angle?", back: "90 degrees." },
-  { chapter: 29, front: "Magnetic force zero angle?", back: "0 degrees or 180 degrees." },
-  { chapter: 29, front: "Negative charge and right-hand rule?", back: "Reverse the direction." },
-  { chapter: 29, front: "Magnetic force does work?", back: "No, because it is perpendicular to motion." },
-
-  // Ch. 30
-  { chapter: 30, front: "Magnetic flux formula?", back: "Phi_B = B*A*cos(theta)." },
-  { chapter: 30, front: "Faraday's Law?", back: "epsilon = -N*DeltaPhi_B/DeltaT." },
-  { chapter: 30, front: "Lenz's Law says induced effect does what?", back: "Opposes the change." },
-  { chapter: 30, front: "No changing flux means?", back: "No induced emf." },
-  { chapter: 30, front: "Flux can change if what changes?", back: "B, area, angle, or time." },
-
-  // Ch. 31
-  { chapter: 31, front: "Light equation?", back: "c = f*lambda." },
-  { chapter: 31, front: "Speed of light in vacuum?", back: "3.00 x 10^8 m/s." },
-  { chapter: 31, front: "Frequency from wavelength?", back: "f = c/lambda." },
-  { chapter: 31, front: "Index of refraction using wavelength?", back: "n = lambda_vacuum/lambda_material." },
-  { chapter: 31, front: "Frequency during refraction does what?", back: "Stays constant." },
-  { chapter: 31, front: "Blue light vs red light frequency?", back: "Blue has higher frequency." },
-  { chapter: 31, front: "Nanometers must be converted to?", back: "Meters." },
-
-  // Ch. 32 and 33
-  { chapter: 32, front: "First move in mixed review?", back: "Circle clue words." },
-  { chapter: 32, front: "Units help identify what?", back: "The formula/model." },
-  { chapter: 32, front: "Before plugging numbers, pick the?", back: "Model." },
-  { chapter: 33, front: "Final Boss method?", back: "Givens -> Unknown -> Model -> Formula -> Units -> Check." },
-  { chapter: 33, front: "What comes before formula?", back: "Givens, unknown, and model." },
-  { chapter: 33, front: "If stuck, what should you write first?", back: "GIVEN and UNKNOWN." },
-];
-
-const LESSON_MEMORY_CARDS = Object.entries(LESSONS).flatMap(([chapter, lessons]) =>
+const MEMORY_CARDS = Object.entries(LESSONS).flatMap(([chapter, lessons]) =>
   lessons.map((lesson) => ({
     chapter: Number(chapter),
     front: lesson.check,
@@ -1991,257 +1850,124 @@ const LESSON_MEMORY_CARDS = Object.entries(LESSONS).flatMap(([chapter, lessons])
   }))
 );
 
-const MEMORY_CARDS = uniqueByKey(
-  [...BASE_MEMORY_CARDS, ...LESSON_MEMORY_CARDS],
-  (card) => `${card.chapter}-${card.front.trim().toLowerCase()}-${card.back.trim().toLowerCase()}`
-);
 
-const RAW_BOSS_QUESTIONS = [
-  // Module 1
+const LECTURE_NOTE_GUIDES = {
+  22: {
+    title: "Lecture Notes — Charge, Atoms, and Coulomb Force",
+    items: [
+      "Electric charge has two types: positive protons and negative electrons.",
+      "Atoms contain protons and neutrons in the nucleus with electrons around them.",
+      "Net atomic charge depends on the balance between protons and electrons.",
+      "Neutrons are neutral and stabilize the nucleus.",
+      "Valence electrons are outer-shell electrons and matter for conductivity.",
+      "Metals conduct because they have free-moving electrons.",
+      "Rubber and plastic insulate because electrons are tightly bound.",
+      "Like charges repel and opposite charges attract.",
+      "Charge transfer can build static electricity.",
+      "Coulomb's Law gives force between point charges: F = k|q1q2|/r^2.",
+      "The sign of q1q2 tells attraction or repulsion.",
+      "Forces between two charges are equal and opposite by Newton's Third Law.",
+      "Use e = 1.60 x 10^-19 C for the elementary charge.",
+      "Use k = 8.99 x 10^9 N m^2/C^2.",
+      "k = 1/(4 pi epsilon0), where epsilon0 = 8.85 x 10^-12 C^2/(N m^2).",
+      "For vector problems, draw arrows before writing components."
+    ]
+  },
+  23: {
+    title: "Lecture Notes — Electric Fields, Polarization, and Dipoles",
+    items: [
+      "An electric field models how a charge influences space around it.",
+      "Electric field is force per charge: E = F/q.",
+      "A point charge creates E = k|Q|/r^2.",
+      "Field lines radiate outward from positive charges.",
+      "Field lines point inward toward negative charges.",
+      "Fields from multiple charges superpose as vector sums.",
+      "Electric fields can be broken into Cartesian components.",
+      "Insulators can polarize when charges shift slightly inside them.",
+      "Conductors allow free charges to redistribute strongly.",
+      "A dipole is two equal and opposite charges separated by distance.",
+      "Dipoles can experience torque and align with external electric fields.",
+      "Neutral objects can be attracted by polarization.",
+      "Sanity checks: verify field direction and whether magnitude decreases with r^2."
+    ]
+  },
+  27: {
+    title: "Lecture Notes — Conductivity and Resistivity Bridge",
+    items: [
+      "Conductivity depends on availability and mobility of valence electrons.",
+      "Resistivity is like a clog in a hose: more obstacles mean less current flow.",
+      "Metals have high conductivity because they have mobile electrons.",
+      "Insulators have low conductivity because electrons are tightly bound.",
+      "Current flow depends on how easily charges can move through the material."
+    ]
+  }
+};
+
+const BOSS_QUESTIONS = [
   {
     module: 1,
-    chapter: 22,
-    q: "2.0 x 10^10 electrons are added. What is Q?",
-    choices: ["-3.2 x 10^-9 C", "+3.2 x 10^-9 C", "-3.2 x 10^9 C", "0 C"],
-    a: "-3.2 x 10^-9 C",
-    teach: "Q = N(-e). Added electrons make the charge negative.",
+    q: "2.0×10¹⁰ electrons are added. What is Q?",
+    choices: ["−3.2×10⁻⁹ C", "+3.2×10⁻⁹ C", "−3.2×10⁹ C", "0 C"],
+    a: "−3.2×10⁻⁹ C",
+    teach: "Q=N(-e). Added electrons make the charge negative.",
   },
   {
     module: 1,
-    chapter: 22,
-    q: "Two positive charges are near each other. What happens?",
-    choices: ["They repel", "They attract", "They become neutral", "Nothing"],
-    a: "They repel",
-    teach: "Like charges repel.",
-  },
-  {
-    module: 1,
-    chapter: 22,
-    q: "If distance between two charges doubles, force becomes:",
-    choices: ["1/4 as large", "1/2 as large", "2 times larger", "4 times larger"],
-    a: "1/4 as large",
-    teach: "Coulomb force follows 1/r^2.",
-  },
-  {
-    module: 1,
-    chapter: 22,
-    q: "For Coulomb force direction, what should you do first?",
-    choices: ["Draw arrows", "Plug numbers", "Ignore signs", "Add masses"],
-    a: "Draw arrows",
-    teach: "Direction mistakes usually come from skipping the diagram.",
-  },
-  {
-    module: 1,
-    chapter: 23,
-    q: "Electric field from a positive charge points:",
-    choices: ["Away", "Toward", "In circles", "Nowhere"],
-    a: "Away",
-    teach: "Field direction is where a positive test charge would go.",
-  },
-  {
-    module: 1,
-    chapter: 23,
-    q: "Electric field from a negative charge points:",
-    choices: ["Toward", "Away", "Only up", "Only left"],
-    a: "Toward",
-    teach: "A positive test charge is attracted toward a negative source.",
-  },
-  {
-    module: 1,
-    chapter: 23,
-    q: "A neutral conductor can be attracted to a charged object because of:",
-    choices: ["Polarization", "Gravity only", "Magnetism only", "Friction only"],
-    a: "Polarization",
-    teach: "Charges redistribute inside the conductor.",
-  },
-  {
-    module: 1,
-    chapter: 24,
-    q: "Gauss's Law net flux depends on:",
-    choices: ["Enclosed charge", "Only outside charge", "Mass", "Speed"],
-    a: "Enclosed charge",
-    teach: "Phi = q_enclosed/epsilon_0.",
-  },
-  {
-    module: 1,
-    chapter: 24,
-    q: "A charge outside a closed surface changes net flux?",
-    choices: ["No", "Yes always", "Only if positive", "Only if negative"],
-    a: "No",
-    teach: "Outside charges can affect local field but not net flux.",
-  },
-  {
-    module: 1,
-    chapter: 16,
     q: "String wave speed uses:",
-    choices: ["v = sqrt(T/mu)", "V = I*R", "E = kq/r^2", "Phi = EAcos(theta)"],
-    a: "v = sqrt(T/mu)",
+    choices: ["v=√(T/μ)", "V=IR", "E=kq/r²", "Φ=EAcosθ"],
+    a: "v=√(T/μ)",
     teach: "String wave speed depends on tension and linear density.",
   },
   {
     module: 1,
-    chapter: 16,
-    q: "Doppler source moving toward observer means observed frequency:",
-    choices: ["Increases", "Decreases", "Becomes zero", "Does not exist"],
-    a: "Increases",
-    teach: "Moving together compresses wavefronts.",
+    q: "Electric field from a negative charge points:",
+    choices: ["Toward it", "Away from it", "In circles", "Nowhere"],
+    a: "Toward it",
+    teach: "Field direction is where a positive test charge would go.",
   },
-
-  // Module 2
+  {
+    module: 1,
+    q: "Gauss's Law cares about:",
+    choices: ["Enclosed charge", "Outside charge only", "Mass", "Color"],
+    a: "Enclosed charge",
+    teach: "Net flux through a closed surface equals qenc/ε₀.",
+  },
   {
     module: 2,
-    chapter: 25,
     q: "Voltage means:",
     choices: ["Energy per charge", "Charge per second", "Force per meter", "Magnetic field"],
     a: "Energy per charge",
-    teach: "V = U/q.",
+    teach: "V=U/q.",
   },
   {
     module: 2,
-    chapter: 25,
-    q: "Electric potential is:",
-    choices: ["Scalar", "Vector", "Always zero", "A force"],
-    a: "Scalar",
-    teach: "Voltage has no direction.",
-  },
-  {
-    module: 2,
-    chapter: 26,
-    q: "Capacitance formula:",
-    choices: ["C = Q/DeltaV", "V = IR", "F = qvB", "c = f lambda"],
-    a: "C = Q/DeltaV",
-    teach: "Capacitance is charge stored per volt.",
-  },
-  {
-    module: 2,
-    chapter: 26,
-    q: "Circular plate area uses:",
-    choices: ["A = pi*r^2", "A = pi*d^2", "A = 2*pi*r", "A = r/d"],
-    a: "A = pi*r^2",
-    teach: "Convert diameter to radius first.",
-  },
-  {
-    module: 2,
-    chapter: 27,
     q: "Ohm's Law is:",
-    choices: ["V = I*R", "F = ma", "Q = Ne", "Phi = q/epsilon"],
-    a: "V = I*R",
-    teach: "Voltage pushes current through resistance.",
+    choices: ["V=IR", "F=ma", "c=fλ", "Q=Ne"],
+    a: "V=IR",
+    teach: "Voltage, current, and resistance are connected by V=IR.",
   },
-  {
-    module: 2,
-    chapter: 27,
-    q: "Power using voltage and current:",
-    choices: ["P = I*V", "P = I/V", "P = V/R only", "P = q/r"],
-    a: "P = I*V",
-    teach: "Circuit power can be P = IV.",
-  },
-  {
-    module: 2,
-    chapter: 28,
-    q: "Series resistors combine by:",
-    choices: ["Adding directly", "Adding reciprocals", "Multiplying only", "Canceling"],
-    a: "Adding directly",
-    teach: "Series equivalent resistance is R1 + R2 + ...",
-  },
-  {
-    module: 2,
-    chapter: 28,
-    q: "Parallel branches have the same:",
-    choices: ["Voltage", "Current", "Resistance", "Power always"],
-    a: "Voltage",
-    teach: "Parallel means same voltage across branches.",
-  },
-
-  // Module 3
   {
     module: 3,
-    chapter: 29,
     q: "Magnetic force requires:",
     choices: ["Moving charge", "Stationary charge", "No field", "No velocity"],
     a: "Moving charge",
-    teach: "F = qvBsin(theta).",
+    teach: "F=qvBsinθ, so v matters.",
   },
   {
     module: 3,
-    chapter: 29,
-    q: "If v is parallel to B, magnetic force is:",
-    choices: ["Zero", "Maximum", "Infinite", "Equal to qE"],
-    a: "Zero",
-    teach: "sin(0) = 0.",
-  },
-  {
-    module: 3,
-    chapter: 30,
     q: "Faraday's Law is about:",
-    choices: ["Changing magnetic flux", "Static charge", "Sound intensity", "Friction"],
+    choices: ["Changing magnetic flux", "Static charge", "Sound", "Friction"],
     a: "Changing magnetic flux",
     teach: "Changing flux induces emf.",
   },
   {
-    module: 3,
-    chapter: 30,
-    q: "Lenz's Law says induced current:",
-    choices: ["Opposes the change", "Helps the change", "Is always zero", "Ignores flux"],
-    a: "Opposes the change",
-    teach: "The minus sign in Faraday's Law is Lenz's Law.",
-  },
-  {
-    module: 3,
-    chapter: 31,
-    q: "Light equation:",
-    choices: ["c = f*lambda", "V = IR", "F = ma", "C = Q/V"],
-    a: "c = f*lambda",
-    teach: "Light speed equals frequency times wavelength.",
-  },
-  {
-    module: 3,
-    chapter: 31,
-    q: "When light enters a material, frequency:",
-    choices: ["Stays constant", "Always doubles", "Becomes zero", "Turns into voltage"],
-    a: "Stays constant",
-    teach: "Speed and wavelength change; frequency stays.",
-  },
-
-  // Module 4
-  {
     module: 4,
-    chapter: 32,
-    q: "Best first move in a mixed problem:",
-    choices: ["Circle clue words", "Guess", "Ignore units", "Start typing numbers"],
+    q: "First move on a hard problem:",
+    choices: ["Circle clue words", "Guess", "Ignore units", "Panic"],
     a: "Circle clue words",
     teach: "Clue words identify the model.",
   },
-  {
-    module: 4,
-    chapter: 32,
-    q: "Units like N/C or V/m usually point to:",
-    choices: ["Electric field", "Magnetic flux", "Resistance", "Sound only"],
-    a: "Electric field",
-    teach: "Units are formula clues.",
-  },
-  {
-    module: 4,
-    chapter: 33,
-    q: "Final Boss method starts with:",
-    choices: ["Givens and unknown", "Guessing", "Skipping units", "Panic"],
-    a: "Givens and unknown",
-    teach: "Setup gets points and prevents formula chaos.",
-  },
-  {
-    module: 4,
-    chapter: 33,
-    q: "Formula sheet works best when it includes:",
-    choices: ["Clue words and traps", "Only equations", "Only constants", "Nothing"],
-    a: "Clue words and traps",
-    teach: "The hard part is choosing the right formula.",
-  },
 ];
-
-const BOSS_QUESTIONS = uniqueByKey(
-  RAW_BOSS_QUESTIONS,
-  (q) => `${q.module}-${q.chapter}-${q.q.trim().toLowerCase()}`
-);
 
 function solveHomework(text) {
   const lower = normalize(text);
@@ -2309,14 +2035,14 @@ function solveHomework(text) {
     let answer = "Need number of electrons.";
     if (N) {
       const Q = -N * E_CHARGE;
-      answer = `Q=N(-e)\nQ=(${N.toExponential(3)})(-1.60x10^-19 C)\nQ=${Q.toExponential(3)} C\n\nFinal Answer: ${Q.toExponential(2)} C`;
+      answer = `Q=N(-e)\nQ=(${N.toExponential(3)})(−1.60×10⁻¹⁹ C)\nQ=${Q.toExponential(3)} C\n\nFinal Answer: ${Q.toExponential(2)} C`;
     }
     return makeResult({
       topic: "Ch. 22 — Charge from Electrons",
       givens,
       unknown: "Net charge Q",
       formula: "Q=N(-e)",
-      steps: "Electrons are negative. Multiply number of added electrons by -1.60x10^-19 C.",
+      steps: "Electrons are negative. Multiply number of added electrons by −1.60×10⁻¹⁹ C.",
       answer,
       trap: "Added electrons make the object negative.",
       memory: "Electrons added = negative.",
@@ -2333,15 +2059,15 @@ function solveHomework(text) {
     let answer = "Need v1, T1, and v2.";
     if (v1 && v2 && T1) {
       const T2 = T1 * Math.pow(v2 / v1, 2);
-      answer = `T_2=T_1(v_2/v_1)²\nT_2=${T1}(${v2}/${v1})²\nT_2=${nice(T2)} N\n\nFinal Answer: ${nice(T2)} N`;
+      answer = `T₂=T₁(v₂/v₁)²\nT₂=${T1}(${v2}/${v1})²\nT₂=${nice(T2)} N\n\nFinal Answer: ${nice(T2)} N`;
     }
 
     return makeResult({
       topic: "Ch. 16 — String Wave Speed",
       givens,
-      unknown: "New tension T_2",
-      formula: "v = sqrt(T/mu), so T_2=T_1(v_2/v_1)²",
-      steps: "Same string means mu is constant. Since v depends on √T, tension depends on speed squared.",
+      unknown: "New tension T₂",
+      formula: "v=√(T/μ), so T₂=T₁(v₂/v₁)²",
+      steps: "Same string means μ is constant. Since v depends on √T, tension depends on speed squared.",
       answer,
       trap: "Square the speed ratio.",
       memory: "String tension problems use v squared.",
@@ -2376,7 +2102,7 @@ function solveHomework(text) {
 
   if (hasAny(lower, ["light", "wavelength", "nm", "index of refraction"])) {
     const nm = numsBefore(text, "nm\\b");
-    let answer = "Use f=c/lambda and convert nm to m.";
+    let answer = "Use f=c/λ and convert nm to m.";
 
     if (lower.includes("450") && lower.includes("650")) {
       answer =
@@ -2384,14 +2110,14 @@ function solveHomework(text) {
         `Red: f=${(3e8 / 650e-9).toExponential(3)} Hz\n` +
         `Index: n=650/450=${nice(650 / 450)}`;
     } else if (nm[0]) {
-      answer = `lambda=${nm[0]} nm = ${nm[0]}x10^-9 m\nf=c/lambda=${(3e8 / (nm[0] * 1e-9)).toExponential(3)} Hz`;
+      answer = `λ=${nm[0]} nm = ${nm[0]}×10⁻⁹ m\nf=c/λ=${(3e8 / (nm[0] * 1e-9)).toExponential(3)} Hz`;
     }
 
     return makeResult({
       topic: "Ch. 31 — Light and Refraction",
       givens,
       unknown: "Frequency or index",
-      formula: "c=flambda, n=lambdavacuum/lambdamaterial",
+      formula: "c=fλ, n=λvacuum/λmaterial",
       steps: "Convert nm to m. Frequency stays constant when light enters a material.",
       answer,
       trap: "Nanometers must become meters.",
@@ -2431,9 +2157,9 @@ function solveHomework(text) {
         topic: "Ch. 22 — 3D Coulomb Vector",
         givens,
         unknown: "i, j, k components",
-        formula: "F=kq_0q_3/r^2",
-        steps: "Particle 3 at (0,d_2,d_2), so r=√2d_2. Repulsion points -j and -k equally.",
-        answer: "i: 0\nj: -k*q_0*q_3/(2*sqrt(2)*d_2^2)\nk: -k*q_0*q_3/(2*sqrt(2)*d_2^2)",
+        formula: "F=kq₀q₃/r²",
+        steps: "Particle 3 at (0,d₂,d₂), so r=√2d₂. Repulsion points −j and −k equally.",
+        answer: "i: 0\nj: −k*q_0*q_3/(2*sqrt(2)*d_2^2)\nk: −k*q_0*q_3/(2*sqrt(2)*d_2^2)",
         trap: "The component split adds √2.",
         memory: "Equal y and z means equal j and k.",
       });
@@ -2443,11 +2169,11 @@ function solveHomework(text) {
       return makeResult({
         topic: "Ch. 22 — Balance Coulomb Forces",
         givens,
-        unknown: "d_1/d_2",
-        formula: "kq_0q_1/d_1² = kq_0q_2/d_2²",
-        steps: "Set magnitudes equal. Cancel k and q_0. Take square root.",
-        answer: "d_1/d_2 = sqrt(q_1/q_2)",
-        trap: "k and q_0 cancel.",
+        unknown: "d₁/d₂",
+        formula: "kq₀q₁/d₁² = kq₀q₂/d₂²",
+        steps: "Set magnitudes equal. Cancel k and q₀. Take square root.",
+        answer: "d₁/d₂ = sqrt(q₁/q₂)",
+        trap: "k and q₀ cancel.",
         memory: "Balance = set forces equal.",
       });
     }
@@ -2459,7 +2185,7 @@ function solveHomework(text) {
         unknown: "i, j, k components",
         formula: "Superposition",
         steps: "Positive q1 above q0 repels downward. Negative q2 above q0 attracts upward.",
-        answer: "i: 0\nj: -k*q_0*q_1/d_1^2 + k*q_0*q_2/d_2^2\nk: 0",
+        answer: "i: 0\nj: −k*q_0*q_1/d_1^2 + k*q_0*q_2/d_2^2\nk: 0",
         trap: "Direction gives the sign.",
         memory: "Like repel away; opposites pull toward.",
       });
@@ -2469,9 +2195,9 @@ function solveHomework(text) {
       topic: "Ch. 22 — Coulomb Vector",
       givens,
       unknown: "i, j, k components",
-      formula: "F=kq_0q_1/r^2",
+      formula: "F=kq₀q₁/r²",
       steps: "Positive q1 above positive q0 repels q0 downward.",
-      answer: "i: 0\nj: -k*q_0*q_1/d_1^2\nk: 0",
+      answer: "i: 0\nj: −k*q_0*q_1/d_1^2\nk: 0",
       trap: "Direction matters.",
       memory: "Charge above pushes same-sign origin charge down.",
     });
@@ -2480,7 +2206,7 @@ function solveHomework(text) {
   if (hasAny(lower, ["electric field", "plastic bead", "charged to", "nc", "cm from"])) {
     const qNc = numsBefore(text, "nc")[0];
     const cm = numsBefore(text, "cm")[0];
-    let answer = "Use E=k|q|/r^2.";
+    let answer = "Use E=k|q|/r².";
     if (qNc && cm) {
       const q = Math.abs(qNc) * 1e-9;
       const r = cm / 100;
@@ -2492,7 +2218,7 @@ function solveHomework(text) {
       topic: "Ch. 23 — Electric Field of Point Charge",
       givens,
       unknown: "Field strength or direction",
-      formula: "E=k|q|/r^2",
+      formula: "E=k|q|/r²",
       steps: "Convert nC to C and cm to m.",
       answer,
       trap: "Field points toward negative and away from positive.",
@@ -2505,7 +2231,7 @@ function solveHomework(text) {
       topic: "Ch. 24 — Finite Charged Wire",
       givens,
       unknown: "Direction or magnitude",
-      formula: "E=2klambdaL/(d√(d^2+L²))",
+      formula: "E=2kλL/(d√(d²+L²))",
       steps: "Symmetry cancels x-components. y-components add.",
       answer: "Direction: +j\nMagnitude: 2*k*lambda*L/(d*sqrt(d^2+L^2))",
       trap: "Do not include x-components.",
@@ -2518,9 +2244,9 @@ function solveHomework(text) {
       topic: "Ch. 24 — Charged Ring Field",
       givens,
       unknown: "Field, direction, or SHM",
-      formula: "E(z)=kqz/(z^2+a²)^(3/2)",
+      formula: "E(z)=kqz/(z²+a²)^(3/2)",
       steps: "Symmetry cancels x/y. Only z survives. Use safe denominator if Mastering rejects fractional power.",
-      answer: "Direction: parallel to z-axis\nE(z)=k*q*z/((z^2+a^2)*sqrt(z^2+a^2))\nomega=sqrt(k*q*q_0/(m*a^3))",
+      answer: "Direction: parallel to z-axis\nE(z)=k*q*z/((z^2+a^2)*sqrt(z^2+a^2))\nω=sqrt(k*q*q_0/(m*a^3))",
       trap: "Mastering may reject ^(3/2).",
       memory: "Ring axis: only z lives.",
     });
@@ -2531,9 +2257,9 @@ function solveHomework(text) {
       topic: "Ch. 26 — Parallel-Plate Charge",
       givens,
       unknown: "Charge Q",
-      formula: "Q=epsilon_0AE",
-      steps: "Find plate area A=pir^2. Use Q=epsilon_0AE.",
-      answer: "For 6.0 cm diameter and E=6.0x10⁶ N/C: Q=150 nC.",
+      formula: "Q=ε₀AE",
+      steps: "Find plate area A=πr². Use Q=ε₀AE.",
+      answer: "For 6.0 cm diameter and E=6.0×10⁶ N/C: Q=150 nC.",
       trap: "Spacing is not needed if E is given.",
       memory: "Plate charge = epsilon area field.",
     });
@@ -2546,7 +2272,7 @@ function solveHomework(text) {
       unknown: "Electric field or final speed",
       formula: "d=½at², E=ma/q, v=at",
       steps: "Use kinematics first to find acceleration. Then use electric force.",
-      answer: "For d=1.50 cm and t=1.46x10⁻⁶ s: E=147 N/C, v=2.05x10⁴ m/s.",
+      answer: "For d=1.50 cm and t=1.46×10⁻⁶ s: E=147 N/C, v=2.05×10⁴ m/s.",
       trap: "Watch powers of ten.",
       memory: "Motion first, field second.",
     });
@@ -2557,8 +2283,8 @@ function solveHomework(text) {
       topic: "Ch. 24 — Flux and Gauss's Law",
       givens,
       unknown: "Flux, field, or enclosed charge",
-      formula: "Phi=EAcostheta and Phi=qenc/epsilon_0",
-      steps: "Flat surface uses EAcostheta. Closed surface uses enclosed charge.",
+      formula: "Φ=EAcosθ and Φ=qenc/ε₀",
+      steps: "Flat surface uses EAcosθ. Closed surface uses enclosed charge.",
       answer: "Only enclosed charge controls net flux.",
       trap: "Outside charges do not change net flux.",
       memory: "Gauss cares what is inside the bubble.",
@@ -2596,7 +2322,7 @@ function solveHomework(text) {
       topic: "Ch. 27/28 — Circuits",
       givens,
       unknown: "V, I, R, P, or equivalent resistance",
-      formula: "V = I*R, P = I*V, series add, parallel reciprocals",
+      formula: "V=IR, P=IV, series add, parallel reciprocals",
       steps: "Identify series vs parallel first. Then use Ohm's Law.",
       answer: "Series: same current, resistors add. Parallel: same voltage, reciprocals.",
       trap: "Do not add parallel resistors directly.",
@@ -2609,9 +2335,9 @@ function solveHomework(text) {
       topic: "Ch. 29 — Magnetic Force",
       givens,
       unknown: "Magnetic force",
-      formula: "F=qvBsintheta",
+      formula: "F=qvBsinθ",
       steps: "Charge must be moving. Force is max at 90° and zero at 0°.",
-      answer: "Use F=qvBsintheta.",
+      answer: "Use F=qvBsinθ.",
       trap: "Stationary charge has no magnetic force.",
       memory: "Magnetism needs motion.",
     });
@@ -2622,9 +2348,9 @@ function solveHomework(text) {
       topic: "Ch. 30 — Induction",
       givens,
       unknown: "Induced emf",
-      formula: "ε=-NΔPhiB/Δt",
+      formula: "ε=−NΔΦB/Δt",
       steps: "Changing magnetic flux creates emf. Lenz gives direction.",
-      answer: "Use |ε|=NΔPhiB/Δt for magnitude.",
+      answer: "Use |ε|=NΔΦB/Δt for magnitude.",
       trap: "No changing flux means no induced emf.",
       memory: "Change flux, get emf.",
     });
@@ -2691,24 +2417,6 @@ export default function App() {
           A module-based tutor that teaches concepts first, then drills memory, then solves homework.
         </Text>
 
-        <Card color={COLORS.green}>
-          <Text style={styles.sectionTitle}>Best Study Flow</Text>
-          <Text style={styles.body}>1. Pick the module you are on.</Text>
-          <Text style={styles.body}>2. Open Learn This Module.</Text>
-          <Text style={styles.body}>3. Read one concept card slowly.</Text>
-          <Text style={styles.body}>4. Do that chapter's flashcards out loud.</Text>
-          <Text style={styles.body}>5. Paste one homework problem into the solver.</Text>
-          <Text style={styles.body}>6. Finish with the Boss Game.</Text>
-          <Text style={styles.memory}>Rule: learn it, recall it, solve it, then boss fight it.</Text>
-        </Card>
-
-        <Card color={COLORS.red}>
-          <Text style={styles.sectionTitle}>Panic Button</Text>
-          <Text style={styles.body}>When stuck, write this first:</Text>
-          <Text style={styles.formulaText}>GIVEN → UNKNOWN → MODEL → FORMULA → UNITS → CHECK</Text>
-          <Text style={styles.trap}>Do not start with the calculator. Start with clue words.</Text>
-        </Card>
-
         <Button title="Paste Homework Solver" onPress={() => setScreen("solver")} color={COLORS.green} />
         <Button title="Filter Flashcards by Chapter" onPress={() => setScreen("flashcardFilter")} color={COLORS.yellow} />
         <Button title="Full Formula Map" onPress={() => setScreen("formulas")} color={COLORS.purple} />
@@ -2744,7 +2452,7 @@ export default function App() {
 
         <Button title="Learn This Module" onPress={() => setScreen("moduleLearn")} color={COLORS.green} />
         <Button title="Module Memory Cards" onPress={() => setScreen("moduleMemory")} color={COLORS.yellow} />
-        <Button title="Module Boss Game" onPress={() => { setBossIndex(0); setBossMessage(""); setScreen("moduleBoss"); }} color={COLORS.red} />
+        <Button title="Module Boss Game" onPress={() => setScreen("moduleBoss")} color={COLORS.red} />
         <Button title="Paste Homework From This Module" onPress={() => setScreen("solver")} color={COLORS.purple} />
 
         <Text style={styles.sectionTitle}>Chapters</Text>
@@ -2762,7 +2470,7 @@ export default function App() {
               }}
             >
               <Text style={styles.chapterTitle}>{ch.title}</Text>
-              <Text style={styles.formulaText}>{ch.formula}</Text>
+              <Text style={styles.answer}>{ch.formula}</Text>
             </Pressable>
           );
         })}
@@ -2798,14 +2506,12 @@ export default function App() {
 
         <Card color={selectedChapter.color}>
           <Text style={styles.label}>Core Formula</Text>
-          <Text style={styles.formulaText}>{selectedChapter.formula}</Text>
+          <Text style={styles.answer}>{selectedChapter.formula}</Text>
 
-          <Text style={styles.label}>Chapter Checklist</Text>
+          <Text style={styles.label}>You need to know</Text>
           {selectedChapter.goals.map((g) => (
-            <Text key={g} style={styles.checkItem}>□ {g}</Text>
+            <Text key={g} style={styles.body}>- {g}</Text>
           ))}
-
-          <Text style={styles.memory}>Goal: do not move on until you can explain each box out loud.</Text>
         </Card>
 
         <Button title="Learn This Chapter" onPress={() => setScreen("chapterLearn")} color={COLORS.green} />
@@ -2863,7 +2569,7 @@ export default function App() {
           <Text style={styles.body}>{solved.unknown}</Text>
 
           <Text style={styles.label}>Formula</Text>
-          <Text style={styles.formulaText}>{solved.formula}</Text>
+          <Text style={styles.body}>{solved.formula}</Text>
 
           <Text style={styles.label}>Steps</Text>
           <Text style={styles.body}>{solved.steps}</Text>
@@ -2874,7 +2580,7 @@ export default function App() {
           <Text style={styles.label}>Trap Check</Text>
           <Text style={styles.trap}>{solved.trap}</Text>
 
-          <Text style={styles.label}>6. Memory Hook</Text>
+          <Text style={styles.label}>Memory Hook</Text>
           <Text style={styles.memory}>{solved.memory}</Text>
         </Card>
 
@@ -2887,7 +2593,7 @@ export default function App() {
     return (
       <ScrollView style={styles.container} contentContainerStyle={styles.content}>
         <Text style={styles.title}>{screen === "chapterMemory" ? selectedChapter.short : selectedModule.title} Memory Cards</Text>
-        <Text style={styles.subtitle}>Say the answer out loud before pressing show. If you hesitate, mark it Again.</Text>
+        <Text style={styles.subtitle}>Say the answer out loud before pressing show.</Text>
 
         <Card color={COLORS.yellow}>
           <Text style={styles.label}>Ch. {currentCard?.chapter}</Text>
@@ -2916,7 +2622,7 @@ export default function App() {
         <Text style={styles.title}>{selectedModule.title} Boss Game</Text>
 
         <Card color={COLORS.red}>
-          <Text style={styles.label}>Round {(bossIndex % activeBoss.length) + 1} of {activeBoss.length}</Text>
+          <Text style={styles.label}>Round {bossIndex + 1}</Text>
           <Text style={styles.bigQuestion}>{boss.q}</Text>
 
           {boss.choices.map((choice) => (
@@ -2933,7 +2639,7 @@ export default function App() {
 
           {bossMessage ? <Text style={styles.answer}>{bossMessage}</Text> : null}
 
-          <Button title="Next New Boss Round" onPress={() => { setBossMessage(""); setBossIndex((i) => i + 1); }} color={COLORS.red} />
+          <Button title="Next Boss Round" onPress={() => { setBossMessage(""); setBossIndex((i) => i + 1); }} color={COLORS.red} />
         </Card>
 
         <Button title="Back to Module" onPress={() => setScreen("module")} />
@@ -2958,12 +2664,12 @@ export default function App() {
                 setSelectedChapter(ch);
                 setCardIndex(0);
                 setShowAnswer(false);
-                setShowAnswer(false); setScreen("chapterFlashcards");
+                setScreen("chapterFlashcards");
               }}
             >
               <Text style={styles.chapterTitle}>{ch.title}</Text>
               <Text style={styles.body}>{count} flashcards</Text>
-              <Text style={styles.formulaText}>{ch.formula}</Text>
+              <Text style={styles.answer}>{ch.formula}</Text>
             </Pressable>
           );
         })}
@@ -2981,7 +2687,7 @@ export default function App() {
       <ScrollView style={styles.container} contentContainerStyle={styles.content}>
         <Text style={styles.title}>{selectedChapter.short} Flashcards</Text>
         <Text style={styles.subtitle}>
-          Ch. {selectedChapter.id} only. Say the answer out loud before pressing show. If you hesitate, mark it Again.
+          Ch. {selectedChapter.id} only. Say the answer out loud before pressing show.
         </Text>
 
         <Card color={selectedChapter.color}>
@@ -3031,7 +2737,7 @@ export default function App() {
           </Card>
         )}
 
-        <Button title="Chapter Flashcards" onPress={() => { setCardIndex(0); setShowAnswer(false); setShowAnswer(false); setScreen("chapterFlashcards"); }} color={COLORS.yellow} />
+        <Button title="Chapter Flashcards" onPress={() => { setCardIndex(0); setShowAnswer(false); setScreen("chapterFlashcards"); }} color={COLORS.yellow} />
         <Button title="Learn This Chapter" onPress={() => setScreen("chapterLearn")} color={COLORS.green} />
         <Button title="Back to Chapter" onPress={() => setScreen("chapter")} />
       </ScrollView>
@@ -3053,7 +2759,7 @@ export default function App() {
               return (
                 <View key={id} style={styles.formulaLine}>
                   <Text style={styles.chapterTitle}>{ch.title}</Text>
-                  <Text style={styles.formulaText}>{ch.formula}</Text>
+                  <Text style={styles.answer}>{ch.formula}</Text>
                   {ch.goals.map((g) => <Text key={g} style={styles.body}>- {g}</Text>)}
                 </View>
               );
@@ -3085,16 +2791,6 @@ export default function App() {
           <Text style={styles.body}>Formula | clue words | units | trap | example</Text>
         </Card>
 
-        <Card color={COLORS.red}>
-          <Text style={styles.sectionTitle}>Final Exam Survival Checklist</Text>
-          <Text style={styles.checkItem}>□ I can identify the chapter from clue words.</Text>
-          <Text style={styles.checkItem}>□ I can write givens and unknown before solving.</Text>
-          <Text style={styles.checkItem}>□ I can convert nC, μC, cm, mm, and nm.</Text>
-          <Text style={styles.checkItem}>□ I can tell scalar vs vector problems apart.</Text>
-          <Text style={styles.checkItem}>□ I can explain the formula before plugging in.</Text>
-          <Text style={styles.checkItem}>□ I can do a reasonableness check.</Text>
-        </Card>
-
         <Button title="Back Home" onPress={() => setScreen("home")} />
       </ScrollView>
     );
@@ -3102,7 +2798,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Tiny app hiccup — go home and keep studying.</Text>
+      <Text style={styles.title}>Screen not found.</Text>
       <Button title="Back Home" onPress={() => setScreen("home")} />
     </View>
   );
@@ -3114,25 +2810,25 @@ function LessonCard({ lesson, chapter }) {
       <Text style={styles.label}>{chapter?.title}</Text>
       <Text style={styles.sectionTitle}>{lesson.name}</Text>
 
-      <Text style={styles.label}>1. Plain-English Meaning</Text>
+      <Text style={styles.label}>Plain-English Meaning</Text>
       <Text style={styles.body}>{lesson.explain}</Text>
 
-      <Text style={styles.label}>2. Formula / Rule</Text>
-      <Text style={styles.formulaText}>{lesson.formula}</Text>
+      <Text style={styles.label}>Formula / Rule</Text>
+      <Text style={styles.answer}>{lesson.formula}</Text>
 
-      <Text style={styles.label}>3. Clue Words That Trigger This</Text>
+      <Text style={styles.label}>Clue Words</Text>
       <Text style={styles.body}>{lesson.clues}</Text>
 
-      <Text style={styles.label}>4. Example Pattern</Text>
+      <Text style={styles.label}>Example</Text>
       <Text style={styles.body}>{lesson.example}</Text>
 
-      <Text style={styles.label}>5. Common Trap</Text>
+      <Text style={styles.label}>Common Trap</Text>
       <Text style={styles.trap}>{lesson.trap}</Text>
 
-      <Text style={styles.label}>6. Memory Hook</Text>
+      <Text style={styles.label}>Memory Hook</Text>
       <Text style={styles.memory}>{lesson.memory}</Text>
 
-      <Text style={styles.label}>7. Mini Check</Text>
+      <Text style={styles.label}>Mini Check</Text>
       <Text style={styles.bigQuestion}>{lesson.check}</Text>
       <Text style={styles.answer}>{lesson.checkAnswer}</Text>
     </Card>
