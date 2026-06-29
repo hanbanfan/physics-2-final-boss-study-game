@@ -9,13 +9,13 @@ import {
 } from "react-native";
 
 const COLORS = {
-  bg: "#050816",
+  bg: "#0f172a",
   card: "#111827",
-  card2: "#1e293b",
-  text: "#ffffff",
-  sub: "#e5e7eb",
-  yellow: "#facc15",
-  green: "#4ade80",
+  card2: "#1f2937",
+  text: "#f9fafb",
+  sub: "#cbd5e1",
+  yellow: "#fbbf24",
+  green: "#34d399",
   red: "#fb7185",
   blue: "#60a5fa",
   purple: "#c084fc",
@@ -273,687 +273,6 @@ const CHAPTERS = {
       "Survival strategy",
     ],
   },
-};
-
-
-
-
-const BARNEY_PHYSICS_GUIDE = [
-  {
-    chapter: "Ch. 16 — Waves and Sound",
-    mainIdea: "A wave is energy traveling. The thing wiggles, but the energy moves forward.",
-    formulas: ["v = fλ", "v = ω/k", "f = 1/T"],
-    mustKnow: [
-      "Big wavelength means the wave is spread out.",
-      "High frequency means lots of waves per second.",
-      "Wave speed depends on the medium.",
-      "Sound needs a medium. Light does not."
-    ],
-    barney: "Waves are just vibes moving through space."
-  },
-  {
-    chapter: "Ch. 22 — Electric Charge and Coulomb’s Law",
-    mainIdea: "Charges push or pull on each other. Same charges repel. Opposite charges attract.",
-    formulas: ["F = k|q1q2|/r^2", "q = Ne"],
-    mustKnow: [
-      "More charge means bigger force.",
-      "More distance means much smaller force.",
-      "Force follows an inverse-square rule.",
-      "Direction matters because electric force is a vector."
-    ],
-    barney: "Like charges are two stubborn people yelling, ‘get away from me.’ Opposite charges are toxic exes running back together."
-  },
-  {
-    chapter: "Ch. 23 — Electric Fields",
-    mainIdea: "Electric field tells you what force a positive test charge would feel at a location.",
-    formulas: ["E = F/q", "E = k|q|/r^2", "F = qE"],
-    mustKnow: [
-      "Positive charges make fields point away.",
-      "Negative charges make fields point toward.",
-      "Electric field is force per charge.",
-      "Field lines never cross."
-    ],
-    barney: "Electric field is the invisible push/pull zone around a charge."
-  },
-  {
-    chapter: "Ch. 24 — Electric Flux and Gauss’s Law",
-    mainIdea: "Flux asks how much electric field goes through a surface. Gauss’s Law counts charge inside a closed surface.",
-    formulas: ["Φ = EAcosθ", "Φ = Q_inside/ε0", "∮E·dA = Q_inside/ε0"],
-    mustKnow: [
-      "Only enclosed charge matters for net flux.",
-      "Outside charges can affect field, but not net flux.",
-      "Field leaving a closed surface is positive flux.",
-      "Field entering a closed surface is negative flux.",
-      "Pick Gaussian surfaces that match symmetry."
-    ],
-    barney: "Gauss’s Law is a charge-counting bubble. Only what is inside the bubble counts."
-  },
-  {
-    chapter: "Ch. 25 — Electric Potential and Electric Potential Energy",
-    mainIdea: "Voltage is energy per charge. Potential belongs to the location. Potential energy belongs to the charge.",
-    formulas: ["V = U/q", "U = qV", "ΔU = qΔV", "U = kq1q2/r"],
-    mustKnow: [
-      "Voltage is not the same as energy.",
-      "A charge gains or loses energy when it moves through a voltage difference.",
-      "Positive charges naturally move toward lower potential.",
-      "Electrons naturally move from negative to positive terminals.",
-      "Work to assemble charges equals total electric potential energy."
-    ],
-    barney: "Voltage is the hill. Charge is the thing sitting on the hill. Potential energy is how much energy that charge has because of the hill."
-  },
-  {
-    chapter: "Ch. 26 — Capacitors",
-    mainIdea: "A capacitor stores charge and electric energy between plates.",
-    formulas: ["C = Q/ΔV", "C = ε0A/d", "U = 1/2 C(ΔV)^2", "E = ΔV/d"],
-    mustKnow: [
-      "Bigger plate area means bigger capacitance.",
-      "Bigger spacing means smaller capacitance.",
-      "If charge stays fixed and spacing increases, voltage increases.",
-      "Capacitance is charge storage per volt."
-    ],
-    barney: "A capacitor is a charge sandwich. Big plates hold more charge. Farther plates hold less charge."
-  },
-  {
-    chapter: "Ch. 27 — Current and Resistance",
-    mainIdea: "Current is moving charge. Resistance fights the flow. Voltage pushes the flow.",
-    formulas: ["I = ΔQ/Δt", "V = IR", "R = ρL/A", "P = IV"],
-    mustKnow: [
-      "Current is charge per second.",
-      "Voltage pushes current through a circuit.",
-      "Resistance reduces current.",
-      "Longer wires have more resistance.",
-      "Thicker wires have less resistance."
-    ],
-    barney: "Voltage is the push, current is the flow, resistance is the clog."
-  },
-  {
-    chapter: "Ch. 28 — DC Circuits",
-    mainIdea: "Circuits are charge-flow paths. Series has one path. Parallel has multiple paths.",
-    formulas: ["R_series = R1 + R2 + ...", "1/R_parallel = 1/R1 + 1/R2 + ...", "V = IR", "P = IV"],
-    mustKnow: [
-      "Series resistors have the same current.",
-      "Parallel resistors have the same voltage.",
-      "Series resistors add directly.",
-      "Parallel resistors use reciprocal adding.",
-      "Batteries provide voltage difference."
-    ],
-    barney: "Series is a single-file line. Parallel is everyone splitting up at Target."
-  },
-  {
-    chapter: "Ch. 29 — Magnetic Fields",
-    mainIdea: "Magnetic forces happen to moving charges or currents in magnetic fields.",
-    formulas: ["F = qvBsinθ", "F = ILBsinθ", "r = mv/(qB)"],
-    mustKnow: [
-      "No motion means no magnetic force on a charge.",
-      "Magnetic force is sideways/perpendicular.",
-      "Use right-hand rule for positive charge direction.",
-      "For electrons, reverse the right-hand-rule direction."
-    ],
-    barney: "Electric fields push charges. Magnetic fields shove moving charges sideways."
-  },
-  {
-    chapter: "Ch. 30 — Electromagnetic Induction",
-    mainIdea: "Changing magnetic flux creates voltage.",
-    formulas: ["emf = -NΔΦB/Δt", "ΦB = BAcosθ"],
-    mustKnow: [
-      "Changing magnetic field can induce current.",
-      "Changing area can induce current.",
-      "Changing angle can induce current.",
-      "Lenz’s Law says the induced current opposes the change."
-    ],
-    barney: "Induction is physics yelling, ‘I don’t like change.’"
-  },
-  {
-    chapter: "Ch. 31 — Electromagnetic Waves and Light",
-    mainIdea: "Light is an electromagnetic wave. It has electric and magnetic fields traveling together.",
-    formulas: ["c = fλ", "n = c/v", "v = c/n"],
-    mustKnow: [
-      "Frequency stays the same when light enters a new material.",
-      "Speed changes in a material.",
-      "Wavelength changes in a material.",
-      "Index of refraction tells how much light slows down."
-    ],
-    barney: "Light changes speed in materials, but it keeps the same beat."
-  },
-  {
-    chapter: "Ch. 32 — Mixed Review",
-    mainIdea: "The hard part is recognizing the problem type before grabbing a formula.",
-    formulas: ["GIVEN → UNKNOWN → MODEL → FORMULA → UNITS → CHECK"],
-    mustKnow: [
-      "Do not start with math.",
-      "Start by asking what chapter/model the problem belongs to.",
-      "Circle clue words.",
-      "Write the unknown before picking a formula."
-    ],
-    barney: "Do not start with math. Start with, ‘what kind of problem is this?’"
-  },
-  {
-    chapter: "Ch. 33 — Final Boss Review",
-    mainIdea: "Everything connects: charge, field, force, work, energy, circuits, magnetism, and waves.",
-    formulas: ["GIVEN → UNKNOWN → MODEL → FORMULA → UNITS → CHECK"],
-    mustKnow: [
-      "Most mistakes are unit mistakes, sign mistakes, or formula-choice mistakes.",
-      "Always convert units before solving.",
-      "Always check if your answer direction/sign makes sense.",
-      "If Pearson is mean, slow down and identify the model."
-    ],
-    barney: "Physics II is not 900 formulas. It is one giant chain of cause and effect."
-  }
-];
-
-const BARNEY_WHOLE_CLASS_MEMORY = [
-  "Charge makes field.",
-  "Field makes force.",
-  "Force does work.",
-  "Work changes energy.",
-  "Energy moves charges.",
-  "Moving charges make current.",
-  "Current makes magnetism.",
-  "Changing magnetism makes voltage.",
-  "Light is the whole electric-magnetic mess traveling through space."
-];
-
-const WORK_ENERGY_ELECTRIC_NOTES = {
-  title: "Class Notes — Work, Energy, and Electric Forces",
-  bigIdea:
-    "Work and energy connect mechanics and electricity. In mechanics, forces change kinetic and potential energy. In electricity, electric forces do the same thing for charges.",
-  sections: [
-    {
-      heading: "1. Work",
-      points: [
-        "Work is force times displacement in the direction of the force.",
-        "Formula: W = F*d*cos(theta).",
-        "theta is the angle between force and displacement.",
-        "Positive work helps the motion and increases kinetic energy.",
-        "Negative work opposes motion and decreases kinetic energy.",
-        "No work is done if force and displacement are perpendicular.",
-        "If theta = 90 degrees, cos(theta) = 0, so W = 0."
-      ]
-    },
-    {
-      heading: "2. Kinetic and Potential Energy",
-      points: [
-        "Kinetic energy is energy of motion.",
-        "Formula: KE = 1/2*m*v^2.",
-        "Potential energy is stored energy due to position or configuration.",
-        "Gravitational potential energy: PE_g = m*g*y.",
-        "Spring potential energy: PE_s = 1/2*k*x^2."
-      ]
-    },
-    {
-      heading: "3. Work-Energy Theorem",
-      points: [
-        "Total work changes kinetic energy.",
-        "Formula: W_total = Delta KE.",
-        "If total work is positive, speed increases.",
-        "If total work is negative, speed decreases.",
-        "If total work is zero, kinetic energy does not change."
-      ]
-    },
-    {
-      heading: "4. Conservative and Non-Conservative Forces",
-      points: [
-        "Conservative forces store and return energy.",
-        "Gravity, ideal springs, and electric forces are conservative.",
-        "For conservative forces: W = -Delta PE.",
-        "If there is no friction or air resistance, KE + PE = constant.",
-        "Non-conservative forces like friction turn mechanical energy into heat.",
-        "With friction or air resistance, mechanical energy decreases."
-      ]
-    },
-    {
-      heading: "5. Energy Method for Motion",
-      points: [
-        "Energy methods can replace long kinematics/Newton's Law setups.",
-        "A falling object converts gravitational PE into KE.",
-        "For a falling object: m*g*Delta y = 1/2*m*v^2.",
-        "Speed from falling height: v = sqrt(2*g*Delta y).",
-        "Mass cancels in many simple energy problems."
-      ]
-    },
-    {
-      heading: "6. Variable Forces and Springs",
-      points: [
-        "If force changes with position, work is area under the force vs displacement graph.",
-        "Formula: W = integral(F dx).",
-        "For springs, F = -kx.",
-        "Spring energy comes from the triangular area under the force graph.",
-        "Spring potential energy: PE_s = 1/2*k*x^2."
-      ]
-    },
-    {
-      heading: "7. Force from Potential Energy",
-      points: [
-        "Force can be found from potential energy.",
-        "Formula idea: F = -gradient(U).",
-        "In one dimension: F = -dU/dx.",
-        "The negative sign means force points toward lower potential energy.",
-        "This works for gravity, springs, and electric forces."
-      ]
-    },
-    {
-      heading: "8. Electric Forces and Fields",
-      points: [
-        "Electric force on a charge in an electric field is F = qE.",
-        "Work done by an electric field is W = q*E*d when field and displacement line up.",
-        "More generally: W = q*(E dot d).",
-        "Electric fields are conservative.",
-        "Electric work changes electric potential energy and kinetic energy."
-      ]
-    },
-    {
-      heading: "9. Electric Potential Energy",
-      points: [
-        "Electric potential energy between two point charges is U = k*q1*q2/r.",
-        "Like charges have positive potential energy.",
-        "Opposite charges have negative potential energy.",
-        "Work to assemble charges equals total electric potential energy.",
-        "For many charges, add every unique pair once."
-      ]
-    },
-    {
-      heading: "10. Gravity vs Electricity",
-      points: [
-        "Gravity is always attractive.",
-        "Electric force can attract or repel.",
-        "Gravity uses mass; electricity uses charge.",
-        "Gravity field is g; electric field is E.",
-        "Gravitational PE: U = mgy.",
-        "Electric PE: U = qV or U = k*q1*q2/r.",
-        "Both gravity and electric forces are conservative."
-      ]
-    }
-  ],
-  formulas: [
-    "W = F*d*cos(theta)",
-    "KE = 1/2*m*v^2",
-    "PE_g = m*g*y",
-    "PE_s = 1/2*k*x^2",
-    "W_total = Delta KE",
-    "W_conservative = -Delta PE",
-    "KE + PE = constant when no non-conservative work",
-    "v = sqrt(2*g*Delta y)",
-    "W = integral(F dx)",
-    "F = -dU/dx",
-    "F = qE",
-    "W_electric = q*E*d",
-    "U = qV",
-    "DeltaU = q*DeltaV",
-    "U = k*q1*q2/r"
-  ],
-  testClues: [
-    "force and displacement angle -> W = F*d*cos(theta)",
-    "speed or motion energy -> KE = 1/2*m*v^2",
-    "height -> PE_g = mgy",
-    "spring or compression/stretch -> PE_s = 1/2*k*x^2",
-    "total work -> Delta KE",
-    "no friction -> KE + PE conserved",
-    "electric field and charge -> F = qE",
-    "electric field, charge, distance -> W = qEd",
-    "voltage and charge -> U = qV or DeltaU = qDeltaV",
-    "two point charges and distance -> U = k*q1*q2/r",
-    "assemble charges -> add every pair once"
-  ],
-  traps: [
-    "Work is not just F*d. Use the component of force in the direction of displacement.",
-    "Perpendicular force does zero work.",
-    "Do not confuse electric potential V with electric potential energy U.",
-    "Potential belongs to the location. Potential energy belongs to the charge at that location.",
-    "Do not use mass in electric potential energy unless kinetic energy is involved.",
-    "For charge assembly, count every pair once.",
-    "For electric energy problems, signs matter.",
-    "Friction means mechanical energy is not conserved."
-  ]
-};
-
-const MODULE_TEST_GUIDES = {
-  1: {
-    title: "Module 1 Test Study Guide — Waves, Charge, Fields, Flux, and Gauss",
-    goal:
-      "This module tests whether you can move from basic wave behavior into electric charge, Coulomb force, electric fields, electric flux, and Gauss's Law.",
-    chapters: ["Ch. 16 Waves", "Ch. 22 Charge/Coulomb Force", "Ch. 23 Electric Fields", "Ch. 24 Flux/Gauss's Law"],
-    bigIdeas: [
-      "Waves carry energy through space or a medium.",
-      "Charge comes in positive and negative types.",
-      "Like charges repel; opposite charges attract.",
-      "Coulomb's Law gives force between point charges.",
-      "Electric field tells what force a positive test charge would feel.",
-      "Electric flux measures field passing through a surface.",
-      "Gauss's Law connects net flux through a closed surface to enclosed charge.",
-      "Symmetry is the cheat code for many electric field and flux problems."
-    ],
-    formulaMap: [
-      "Wave speed: v = f*lambda",
-      "String wave speed: v = sqrt(T/mu)",
-      "String tension ratio: T_2 = T_1*(v_2/v_1)^2",
-      "Charge from electrons: Q = N*(-e)",
-      "Coulomb force: F = k*|q_1*q_2|/r^2",
-      "Electric field from force: E = F/q",
-      "Point charge field: E = k*|q|/r^2",
-      "Flux through flat surface: Phi = E*A*cos(theta)",
-      "Component flux: Phi = A*(E dot n_hat)",
-      "Gauss's Law: Phi = Q_inside/epsilon_0",
-      "Inside conductor at equilibrium: E = 0",
-      "Conductor surface: E = sigma/epsilon_0",
-      "Infinite sheet: E = |sigma|/(2*epsilon_0)"
-    ],
-    clueMap: [
-      "string + tension + wave speed -> v = sqrt(T/mu)",
-      "frequency + wavelength -> v = f*lambda",
-      "electrons added/removed -> Q = N*e",
-      "two charges + distance -> Coulomb's Law",
-      "electric field strength + point charge -> E = k|q|/r^2",
-      "force on charge in field -> F = qE",
-      "neutral object attracted -> polarization",
-      "closed surface + enclosed charge -> Gauss's Law",
-      "flat surface + angle -> flux formula",
-      "xy-plane/xz-plane/yz-plane -> component flux",
-      "conductor equilibrium -> E inside conductor is zero",
-      "infinite sheet -> pillbox Gaussian surface"
-    ],
-    problemRecipes: [
-      "For wave problems: identify whether the unknown is speed, frequency, wavelength, tension, or graph behavior.",
-      "For charge problems: identify signs first, then decide attraction or repulsion.",
-      "For Coulomb force vectors: draw charges, draw arrows, then write components.",
-      "For electric fields: decide whether the problem asks for field from a charge or force on a charge.",
-      "For polarization: remember neutral objects can still attract.",
-      "For flux: ask whether the surface is open/flat or closed.",
-      "For Gauss's Law: only enclosed charge controls net flux.",
-      "For symmetry: cancel components before choosing the final formula."
-    ],
-    mustPractice: [
-      "Charge from number of electrons.",
-      "Coulomb force magnitude.",
-      "Coulomb force direction and i/j/k components.",
-      "Point charge electric field magnitude and direction.",
-      "Field superposition at a midpoint.",
-      "Polarization with conductors vs insulators.",
-      "Flux sign rules.",
-      "Flat surface component flux.",
-      "Gauss's Law with enclosed charge.",
-      "Conductors and cavities.",
-      "Infinite sheets, spheres, rods, and Gaussian surface choices."
-    ],
-    commonMistakes: [
-      "Using the angle with the surface instead of the normal vector.",
-      "Forgetting nC and microC must become C.",
-      "Forgetting cm must become m.",
-      "Treating electric field like a scalar when direction matters.",
-      "Adding vector magnitudes without checking direction.",
-      "Including outside charges in Gauss's Law net flux.",
-      "Forgetting entering flux is negative and exiting flux is positive.",
-      "Using full sphere charge for a point inside a uniformly charged solid sphere.",
-      "Confusing conductor surface field with infinite sheet field."
-    ],
-    testStrategy: [
-      "Start every problem by naming the chapter.",
-      "Write GIVEN and UNKNOWN before formulas.",
-      "Draw charge diagrams for Ch. 22 and Ch. 23.",
-      "Draw normal vectors for Ch. 24 flux problems.",
-      "Circle words like enclosed, inside, conductor, normal, field lines, midpoint, and symmetry.",
-      "Check units before calculating.",
-      "For direction questions, explain the concept before doing math."
-    ]
-  },
-
-  2: {
-    title: "Module 2 Test Study Guide — Potential, Capacitors, Current, and Circuits",
-    goal:
-      "This module tests whether you understand electric energy, voltage, charge storage, current flow, resistance, and DC circuit behavior.",
-    chapters: ["Ch. 25 Electric Potential", "Ch. 26 Capacitance", "Ch. 27 Current/Resistance", "Ch. 28 DC Circuits"],
-    bigIdeas: [
-      "Voltage is electric potential energy per charge.",
-      "Electric potential is scalar; electric field is vector.",
-      "Capacitors store separated charge.",
-      "Capacitance tells how much charge is stored per volt.",
-      "Current is moving charge.",
-      "Voltage pushes current; resistance fights current.",
-      "Series circuits share current.",
-      "Parallel circuits share voltage.",
-      "Kirchhoff rules are conservation laws for charge and energy."
-    ],
-    formulaMap: [
-      "Electric potential: V = U/q",
-      "Potential energy: U = qV",
-      "Energy change: DeltaU = q*DeltaV",
-      "Capacitance: C = Q/DeltaV",
-      "Capacitor charge: Q = C*DeltaV",
-      "Parallel plate capacitance: C = epsilon_0*A/d",
-      "Parallel plate field relation: Q = epsilon_0*A*E",
-      "Current: I = DeltaQ/DeltaT",
-      "Ohm's Law: V = I*R",
-      "Power: P = I*V",
-      "Power: P = I^2*R",
-      "Power: P = V^2/R",
-      "Series resistance: R_eq = R_1 + R_2 + ...",
-      "Parallel resistance: 1/R_eq = 1/R_1 + 1/R_2 + ..."
-    ],
-    clueMap: [
-      "voltage + energy per charge -> V = U/q",
-      "potential energy change -> DeltaU = q*DeltaV",
-      "capacitor + charge + voltage -> C = Q/DeltaV",
-      "parallel plate + area + spacing -> C = epsilon_0*A/d",
-      "diameter plates -> convert diameter to radius, then A = pi*r^2",
-      "charge per time -> current",
-      "voltage + current + resistance -> V = IR",
-      "watts or power -> P = IV or related power formulas",
-      "series -> same current",
-      "parallel -> same voltage",
-      "junction -> current in equals current out",
-      "loop -> voltage changes sum to zero"
-    ],
-    problemRecipes: [
-      "For potential: decide if the problem asks for voltage or energy.",
-      "For capacitors: identify whether Q, C, DeltaV, E, A, or d is given.",
-      "For circular plates: convert diameter to radius before finding area.",
-      "For current: look for charge per time.",
-      "For resistance: use V = IR when V, I, and R appear.",
-      "For power: choose the power formula that uses the variables given.",
-      "For circuits: simplify series/parallel sections before solving.",
-      "For Kirchhoff: use junction rule for current and loop rule for voltage."
-    ],
-    mustPractice: [
-      "Voltage and potential energy changes.",
-      "Capacitance from Q and DeltaV.",
-      "Parallel plate capacitor area and spacing.",
-      "Charge on plates from electric field.",
-      "Current from charge and time.",
-      "Ohm's Law plug-and-chug.",
-      "Power in a resistor.",
-      "Series equivalent resistance.",
-      "Parallel equivalent resistance.",
-      "Mixed series-parallel circuit simplification.",
-      "Kirchhoff junction and loop reasoning."
-    ],
-    commonMistakes: [
-      "Treating voltage like a vector.",
-      "Confusing electric potential with electric potential energy.",
-      "Using diameter instead of radius for circular capacitor plates.",
-      "Forgetting to convert cm or mm to meters.",
-      "Adding parallel resistors directly.",
-      "Thinking series resistors all have the same voltage.",
-      "Thinking parallel resistors all have the same current.",
-      "Using the wrong power formula for the givens."
-    ],
-    testStrategy: [
-      "Write whether the problem is energy, capacitor, current, resistance, or circuit.",
-      "Circle units: V, C, F, A, ohms, W.",
-      "For circuits, label series and parallel before calculating.",
-      "Always find equivalent resistance before total current when possible.",
-      "For power problems, pick the formula with one unknown.",
-      "Check if answers make sense: parallel resistance should be smaller than the smallest branch."
-    ]
-  },
-
-  3: {
-    title: "Module 3 Test Study Guide — Magnetism, Induction, and EM Waves",
-    goal:
-      "This module tests whether you can connect moving charges, magnetic fields, changing magnetic flux, induced emf, and electromagnetic waves.",
-    chapters: ["Ch. 29 Magnetic Fields", "Ch. 30 Electromagnetic Induction", "Ch. 31 Electromagnetic Waves"],
-    bigIdeas: [
-      "Magnetic force acts on moving charges.",
-      "Magnetic force is perpendicular to velocity and magnetic field.",
-      "Stationary charges feel no magnetic force.",
-      "Changing magnetic flux induces emf.",
-      "Lenz's Law says induction opposes the change.",
-      "Light is an electromagnetic wave.",
-      "For light, c = f*lambda.",
-      "Frequency stays constant when light enters a material.",
-      "Speed and wavelength change during refraction."
-    ],
-    formulaMap: [
-      "Magnetic force: F = q*v*B*sin(theta)",
-      "Circular path radius: r = m*v/(q*B)",
-      "Magnetic period: T = 2*pi*m/(q*B)",
-      "Magnetic flux: Phi_B = B*A*cos(theta)",
-      "Faraday's Law: epsilon = -N*DeltaPhi_B/DeltaT",
-      "Magnitude of emf: |epsilon| = N*DeltaPhi_B/DeltaT",
-      "Light equation: c = f*lambda",
-      "Frequency: f = c/lambda",
-      "Index of refraction: n = c/v",
-      "Wavelength index relation: n = lambda_vacuum/lambda_material"
-    ],
-    clueMap: [
-      "moving charge + magnetic field -> F = qvBsin(theta)",
-      "stationary charge in B field -> F = 0",
-      "circular motion in magnetic field -> r = mv/(qB)",
-      "changing magnetic field/area/angle -> induction",
-      "coil + loops + changing flux -> Faraday's Law",
-      "opposes change -> Lenz's Law",
-      "wavelength + frequency + light -> c = f*lambda",
-      "nm wavelength -> convert to meters",
-      "material/refraction/index -> n"
-    ],
-    problemRecipes: [
-      "For magnetic force: check if the charge is moving first.",
-      "For magnetic direction: use right-hand rule, then reverse for negative charge.",
-      "For circular magnetic motion: set magnetic force equal to centripetal force.",
-      "For induction: identify what is changing: B, A, angle, or time.",
-      "For Faraday's Law: calculate DeltaPhi first, then divide by DeltaT.",
-      "For Lenz's Law: decide what change the induced current must oppose.",
-      "For light: convert wavelength to meters before calculating frequency.",
-      "For refraction: keep frequency constant."
-    ],
-    mustPractice: [
-      "Magnetic force magnitude.",
-      "Magnetic force direction with right-hand rule.",
-      "Zero magnetic force cases.",
-      "Charged particle circular motion in B field.",
-      "Magnetic flux through a loop.",
-      "Induced emf from changing flux.",
-      "Lenz's Law direction questions.",
-      "Frequency from wavelength.",
-      "Index of refraction from wavelength or speed.",
-      "Red vs blue light comparisons."
-    ],
-    commonMistakes: [
-      "Forgetting magnetic force requires motion.",
-      "Using cos(theta) instead of sin(theta) for magnetic force.",
-      "Forgetting to reverse direction for negative charges.",
-      "Forgetting no changing flux means no induced emf.",
-      "Thinking Lenz's Law opposes the field instead of the change.",
-      "Forgetting nm must become meters.",
-      "Thinking frequency changes during refraction."
-    ],
-    testStrategy: [
-      "For magnetism, ask: is the charge moving?",
-      "For magnetic force, find the angle between v and B.",
-      "For induction, write what changes before using Faraday's Law.",
-      "For Lenz's Law, write 'opposes the change' in words.",
-      "For light, convert nm to meters immediately.",
-      "Check if your answer direction makes physical sense."
-    ]
-  },
-
-  4: {
-    title: "Module 4 Final Exam Study Guide — Mixed Review and Final Boss Method",
-    goal:
-      "This module is about recognizing problem types fast and surviving mixed final-exam questions without panicking.",
-    chapters: ["Ch. 32 Mixed Review", "Ch. 33 Final Boss Review", "All Previous Chapters"],
-    bigIdeas: [
-      "The final is mostly formula recognition plus unit discipline.",
-      "Clue words identify the chapter.",
-      "Units identify the formula.",
-      "Drawing diagrams prevents sign errors.",
-      "Setup earns points even if arithmetic is hard.",
-      "A formula sheet only helps if you know when to use each formula.",
-      "The safest method is GIVEN -> UNKNOWN -> MODEL -> FORMULA -> UNITS -> CHECK."
-    ],
-    formulaMap: [
-      "Waves: v = f*lambda",
-      "String waves: v = sqrt(T/mu)",
-      "Charge: Q = N*e",
-      "Coulomb force: F = k*|q_1*q_2|/r^2",
-      "Electric field: E = F/q",
-      "Point charge field: E = k*|q|/r^2",
-      "Flux: Phi = E*A*cos(theta)",
-      "Gauss: Phi = Q_inside/epsilon_0",
-      "Voltage: V = U/q",
-      "Capacitance: C = Q/DeltaV",
-      "Ohm's Law: V = I*R",
-      "Power: P = I*V",
-      "Magnetic force: F = q*v*B*sin(theta)",
-      "Faraday: epsilon = -N*DeltaPhi_B/DeltaT",
-      "Light: c = f*lambda"
-    ],
-    clueMap: [
-      "frequency/wavelength -> waves or light",
-      "tension/string -> string wave speed",
-      "electrons added -> charge",
-      "two charges separated -> Coulomb force",
-      "N/C or V/m -> electric field",
-      "closed surface/enclosed charge -> Gauss's Law",
-      "normal vector/area/angle -> flux",
-      "voltage/energy per charge -> potential",
-      "capacitor/farad -> capacitance",
-      "ohm/resistor/current -> circuits",
-      "moving charge/Tesla -> magnetism",
-      "changing flux/coil/emf -> induction",
-      "nm/refraction/index -> light"
-    ],
-    problemRecipes: [
-      "Step 1: Breathe and circle clue words.",
-      "Step 2: Write GIVEN with units.",
-      "Step 3: Write UNKNOWN.",
-      "Step 4: Name the chapter/model.",
-      "Step 5: Pick formula.",
-      "Step 6: Convert units.",
-      "Step 7: Plug in.",
-      "Step 8: Check units and sign.",
-      "Step 9: Ask if the answer is physically reasonable.",
-      "Step 10: Move on if stuck and come back later."
-    ],
-    mustPractice: [
-      "One problem from every chapter.",
-      "Formula recognition drills.",
-      "Unit conversion drills.",
-      "Vector direction problems.",
-      "Flux sign problems.",
-      "Series/parallel circuit recognition.",
-      "Magnetic force direction.",
-      "Light wavelength/frequency conversion.",
-      "Mixed problems where the formula is not obvious."
-    ],
-    commonMistakes: [
-      "Starting with the calculator instead of clue words.",
-      "Forgetting unit conversions.",
-      "Using the wrong angle.",
-      "Ignoring vector direction.",
-      "Treating scalar quantities like vectors.",
-      "Mixing up field, force, potential, and flux.",
-      "Using Gauss's Law when symmetry is not helpful.",
-      "Overthinking easy formula-recognition questions."
-    ],
-    testStrategy: [
-      "Do all easy formula-recognition questions first.",
-      "Mark hard vector problems and return after building confidence.",
-      "Write setup even when unsure.",
-      "Use units as clues.",
-      "Use diagrams for charges, fields, circuits, and magnetic directions.",
-      "Never leave a problem completely blank if you can write the model/formula.",
-      "Every time panic hits, write: GIVEN -> UNKNOWN -> MODEL -> FORMULA."
-    ]
-  }
 };
 
 const MODULES = [
@@ -2699,34 +2018,6 @@ if (typeof BASE_MEMORY_CARDS !== "undefined") {
   });
 }
 
-
-const WORK_ENERGY_ELECTRIC_FLASHCARDS = [
-  { chapter: 25, front: "Work formula?", back: "W = F*d*cos(theta)." },
-  { chapter: 25, front: "When is work positive?", back: "When force helps the motion." },
-  { chapter: 25, front: "When is work negative?", back: "When force opposes the motion." },
-  { chapter: 25, front: "When is work zero?", back: "When force and displacement are perpendicular." },
-  { chapter: 25, front: "Kinetic energy formula?", back: "KE = 1/2*m*v^2." },
-  { chapter: 25, front: "Gravitational potential energy?", back: "PE_g = m*g*y." },
-  { chapter: 25, front: "Spring potential energy?", back: "PE_s = 1/2*k*x^2." },
-  { chapter: 25, front: "Work-energy theorem?", back: "W_total = Delta KE." },
-  { chapter: 25, front: "Conservative force work equals?", back: "W = -Delta PE." },
-  { chapter: 25, front: "Electric force in a field?", back: "F = qE." },
-  { chapter: 25, front: "Electric work in uniform field?", back: "W = q*E*d when aligned." },
-  { chapter: 25, front: "Electric potential energy from voltage?", back: "U = qV." },
-  { chapter: 25, front: "Potential energy between two charges?", back: "U = k*q1*q2/r." },
-  { chapter: 25, front: "Work to assemble charges?", back: "Add k*q_i*q_j/r_ij for every pair once." },
-  { chapter: 25, front: "Potential belongs to what?", back: "The location." },
-  { chapter: 25, front: "Potential energy belongs to what?", back: "The charge at that location." },
-];
-
-if (typeof BASE_MEMORY_CARDS !== "undefined") {
-  WORK_ENERGY_ELECTRIC_FLASHCARDS.forEach((card) => {
-    if (!BASE_MEMORY_CARDS.some((existing) => existing.chapter === card.chapter && existing.front === card.front)) {
-      BASE_MEMORY_CARDS.push(card);
-    }
-  });
-}
-
 const LESSON_MEMORY_CARDS = Object.entries(LESSONS).flatMap(([chapter, lessons]) =>
   lessons.map((lesson) => ({
     chapter: Number(chapter),
@@ -3353,1384 +2644,520 @@ const BOSS_QUESTIONS = uniqueByKey(
   (q) => `${q.module}-${q.chapter}-${q.q.trim().toLowerCase()}`
 );
 
-function solveHomework(text, testMode = false) {
-  const raw = text || "";
+function solveHomework(text) {
+  const lower = normalize(text);
+  const sci = allScientific(text);
+  const givens = [...sci.map((n) => n.toExponential(3)), ...allNumbers(text)];
 
-  function cleanText(t) {
-    return String(t)
-      // Pearson/Mastering text cleanup
-      .replace(/Upper\s+Delta\s+Upper\s+V/gi, "Delta V")
-      .replace(/Upper\s+U\s+Subscript\s+Upper\s+E/gi, "U_E")
-      .replace(/Upper\s+W/gi, "W")
-      .replace(/Upper\s+L/gi, "L")
-      .replace(/Upper\s+N/gi, "N")
-      .replace(/Upper\s+C/gi, "C")
-      .replace(/Upper\s+V/gi, "V")
-      .replace(/Upper\s+E/gi, "E")
-      .replace(/Baseline/gi, "")
-      .replace(/StartFraction/gi, "(")
-      .replace(/EndFraction/gi, ")")
-      .replace(/Over/gi, "/")
-      .replace(/left parenthesis/gi, "(")
-      .replace(/right parenthesis/gi, ")")
-      .replace(/left bracket/gi, "[")
-      .replace(/right bracket/gi, "]")
-
-      // Superscripts and signs
-      .replace(/Superscript\s+negative\s+/gi, "e-")
-      .replace(/Superscript\s+minus\s+/gi, "e-")
-      .replace(/Superscript\s+positive\s+/gi, "e+")
-      .replace(/Superscript\s+plus\s+/gi, "+")
-      .replace(/Superscript\s*\+\s*/gi, "+")
-      .replace(/Superscript\s*-\s*/gi, "e-")
-      .replace(/Superscript\s*/gi, "e")
-
-      // Words to symbols
-      .replace(/negative\s+(\d*\.?\d+)/gi, "-$1")
-      .replace(/positive\s+(\d*\.?\d+)/gi, "+$1")
-      .replace(/charge\s+negative\s+2\s*e/gi, "charge -2e")
-      .replace(/charge\s+plus\s+e/gi, "charge +e")
-      .replace(/charge\s+positive\s+e/gi, "charge +e")
-      .replace(/He\s*\+\s*ion/gi, "He+ ion")
-      .replace(/He\s+plus\s+ion/gi, "He+ ion")
-      .replace(/cmtimes/gi, " cm times ")
-      .replace(/mmplus/gi, " mm plus ")
-      .replace(/cmplus/gi, " cm plus ")
-      .replace(/plus or minus/gi, "+/-")
-      .replace(/plus\/minus/gi, "+/-")
-      .replace(/plusminus/gi, "+/-")
-      .replace(/plus/gi, "+")
-      .replace(/minus/gi, "-")
-      .replace(/times/gi, "*")
-      .replace(/divided by/gi, "/")
-      .replace(/squared/gi, "^2")
-      .replace(/cubed/gi, "^3")
-      .replace(/micro/gi, "u")
-      .replace(/μ/gi, "u")
-      .replace(/ϵ|ε/gi, "epsilon")
-      .replace(/Φ/gi, "phi")
-      .replace(/Delta/gi, "Delta")
-
-      // Unit cleanup
-      .replace(/m\s*\/\s*s/gi, "m/s")
-      .replace(/n\s*\/\s*c/gi, "N/C")
-      .replace(/n\s*m\^?2\s*\/\s*c/gi, "N*m^2/C")
-      .replace(/\s+/g, " ")
-      .trim();
-  }
-
-  const cleaned = cleanText(raw);
-  const lower = cleaned.toLowerCase();
-
-  const constants = {
-    k: 8.99e9,
-    e: 1.602e-19,
-    eps0: 8.854e-12,
-    c: 3.00e8,
-    mp: 1.673e-27,
-    me: 9.109e-31,
-  };
-
-  function has(words) {
-    return words.some((w) => lower.includes(w.toLowerCase()));
-  }
-
-  function fmt(x, sig = 3) {
-    if (!Number.isFinite(x)) return "not enough information";
-    const ax = Math.abs(x);
-    if (ax !== 0 && (ax >= 10000 || ax < 0.01)) return x.toExponential(sig);
-    return Number(x.toPrecision(sig + 1)).toString();
-  }
-
-  function allNums() {
-    const out = [];
-
-    // Handles: 4.90 * 10 e4, 4.90*10e4, 4.90 x 10^4-ish pasted formats
-    const sciPatterns = [
-      /([-+]?\d*\.?\d+)\s*\*\s*10\s*e?\s*([-+]?\d+)/gi,
-      /([-+]?\d*\.?\d+)\s*x\s*10\s*e?\s*([-+]?\d+)/gi,
-      /([-+]?\d*\.?\d+)\s*[×]\s*10\s*e?\s*([-+]?\d+)/gi,
-      /([-+]?\d*\.?\d+)\s*e\s*([-+]?\d+)/gi,
-    ];
-
-    sciPatterns.forEach((re) => {
-      let m;
-      while ((m = re.exec(cleaned)) !== null) {
-        out.push(Number(m[1]) * Math.pow(10, Number(m[2])));
-      }
-    });
-
-    const plain = cleaned.match(/[-+]?\d*\.?\d+(?:e[-+]?\d+)?/gi) || [];
-    plain.forEach((n) => {
-      const val = Number(n);
-      if (Number.isFinite(val)) out.push(val);
-    });
-
-    return [...new Set(out.filter((x) => Number.isFinite(x)))];
-  }
-
-  const numbers = allNums();
-
-  function numbersBeforeUnit(unitRegex) {
-    const re = new RegExp("([-+]?\\d*\\.?\\d+(?:\\s*(?:\\*|x|×)\\s*10\\s*e?\\s*[-+]?\\d+|e[-+]?\\d+)?)\\s*" + unitRegex, "gi");
-    const vals = [];
-    let m;
-
-    while ((m = re.exec(cleaned)) !== null) {
-      const part = m[1]
-        .replace(/\s+/g, "")
-        .replace(/x/gi, "*")
-        .replace(/×/g, "*");
-
-      const sci = part.match(/^([-+]?\\d*\\.?\\d+)\\*10e?([-+]?\\d+)$/i);
-      if (sci) {
-        vals.push(Number(sci[1]) * Math.pow(10, Number(sci[2])));
-      } else {
-        const val = Number(part);
-        if (Number.isFinite(val)) vals.push(val);
-      }
-    }
-
-    return vals;
-  }
-
-  function numberBeforeUnit(unitRegex) {
-    const re = new RegExp("([-+]?\\d*\\.?\\d+(?:\\s*(?:\\*|x|×)\\s*10\\s*e?\\s*[-+]?\\d+|e[-+]?\\d+)?)\\s*" + unitRegex, "i");
-    const m = cleaned.match(re);
-    if (!m) return null;
-
-    const part = m[1]
-      .replace(/\s+/g, "")
-      .replace(/x/gi, "*")
-      .replace(/×/g, "*");
-
-    const sci = part.match(/^([-+]?\d*\.?\d+)\*10e?([-+]?\d+)$/i);
-    if (sci) return Number(sci[1]) * Math.pow(10, Number(sci[2]));
-
-    const val = Number(part);
-    return Number.isFinite(val) ? val : null;
-  }
-
-  function getFieldE() {
-    return numberBeforeUnit("n\\s*/\\s*c") || numberBeforeUnit("v\\s*/\\s*m") || null;
-  }
-
-  function getSpeed() {
-    return numberBeforeUnit("m\\s*/\\s*s") || numberBeforeUnit("m\\s*\\/\\s*s") || null;
-  }
-
-  function getDistanceMeters() {
-    const mm = numberBeforeUnit("mm\\b");
-    if (mm !== null) return mm * 1e-3;
-
-    const cm = numberBeforeUnit("cm\\b");
-    if (cm !== null) return cm * 1e-2;
-
-    const nm = numberBeforeUnit("nm\\b");
-    if (nm !== null) return nm * 1e-9;
-
-    const m = numberBeforeUnit("m\\b");
-    if (m !== null) return m;
-
-    return null;
-  }
-
-  function getChargeCoulombs() {
-    const nc = numberBeforeUnit("nc\\b");
-    if (nc !== null) return nc * 1e-9;
-
-    const uc = numberBeforeUnit("uc\\b");
-    if (uc !== null) return uc * 1e-6;
-
-    const c = numberBeforeUnit("c\\b");
-    if (c !== null) return c;
-
-    return null;
-  }
-
-  function answerBlock({
-    topic,
-    confidence = "high confidence",
-    givens = [],
-    unknown,
-    formula,
-    steps,
-    answer,
-    trap,
-    memory,
-  }) {
+  if (!text.trim()) {
     return makeResult({
-      topic: `${topic} — ${confidence}`,
-      givens,
-      unknown,
-      formula,
-      steps,
-      answer,
-      trap,
-      memory,
-    });
-  }
-
-  function notEnough(topic, formula, needs, trap) {
-    return answerBlock({
-      topic,
-      confidence: "recognized but needs cleaner data",
-      givens: numbers.map((n) => fmt(n)),
-      unknown: needs,
-      formula,
-      steps:
-        "I recognize the type of problem, but the pasted text is missing a number or unit I need. Paste the entire problem exactly, including units.",
-      answer: "No final answer yet.",
-      trap,
-      memory: "GIVEN → UNKNOWN → MODEL → FORMULA → UNITS → CHECK",
-    });
-  }
-
-  if (!raw.trim()) {
-    return answerBlock({
-      topic: "Smart Physics Solver",
-      confidence: "waiting",
+      topic: "Paste Any Homework Question",
       givens: [],
-      unknown: "Paste a full problem",
-      formula: "The solver chooses the formula from clue words and units.",
-      steps:
-        "Paste the whole problem. Best results come from including units, answer choices, and exactly what it asks for.",
-      answer: "Waiting for problem.",
-      trap: "Numbers alone are not enough. The words pick the physics model.",
-      memory: "Clue words choose formulas.",
+      unknown: "Whatever the question asks for",
+      formula: "The app chooses from clue words.",
+      steps: "Paste the full problem with units and answer choices.",
+      answer: "Waiting for homework.",
+      trap: "Do not paste only numbers. The words identify the model.",
+      memory: "Before solving, guess the chapter.",
+    });
+  }
+
+  const K = 8.99e9;
+  const E_CHARGE = 1.60e-19;
+
+  if (hasAny(lower, ["atomic structure", "protons", "electrons", "neutrons", "valence electrons"])) {
+    return makeResult({
+      topic: "Ch. 22 — Atomic Structure and Electric Charge",
+      givens,
+      unknown: "Charge concept or net charge",
+      formula: "net charge = positive charge - negative charge",
+      steps: "Protons are positive, electrons are negative, neutrons are neutral. If electrons outnumber protons, the object is negative. If protons outnumber electrons, it is positive.",
+      answer: "Atoms are neutral when protons and electrons balance. Charge changes mainly because electrons move.",
+      trap: "Neutrons do not count toward electric charge.",
+      memory: "Protons plus, electrons minus, neutrons neutral.",
+    });
+  }
+
+  if (hasAny(lower, ["conductivity", "resistivity", "valence", "free electrons", "rubber", "gold", "metal conductor"])) {
+    return makeResult({
+      topic: "Ch. 22/27 — Conductivity and Resistivity",
+      givens,
+      unknown: "Whether material conducts or resists current",
+      formula: "more free electrons -> higher conductivity",
+      steps: "Check whether electrons are free to move. Metals usually conduct well. Rubber/plastic usually insulate. Resistivity is like a clog that makes current harder.",
+      answer: "Conductors have mobile electrons. Insulators have tightly bound electrons. Higher resistivity means less current flow.",
+      trap: "Do not assume valence electron count alone decides everything; mobility matters most.",
+      memory: "Conductor = charge cruises. Resistivity = clogged hose.",
+    });
+  }
+
+  if (hasAny(lower, ["dipole", "dipole moment", "torque", "alignment"])) {
+    return makeResult({
+      topic: "Ch. 23 — Dipoles and Polarization",
+      givens,
+      unknown: "Dipole behavior in an electric field",
+      formula: "dipole = equal and opposite charges separated by distance",
+      steps: "A dipole has a positive end and a negative end. In an external electric field, the two ends feel forces in opposite directions, creating torque and alignment.",
+      answer: "Dipoles tend to align with external electric fields.",
+      trap: "A dipole can have zero net charge but still interact with fields.",
+      memory: "Dipole = tiny plus-minus arrow.",
     });
   }
 
 
-
-  // ------------------------------------------------------------
-  // CLASS NOTES: WORK, ENERGY, AND ELECTRIC FORCES
-  // ------------------------------------------------------------
-
-  if (
-    has(["work"]) &&
-    has(["force", "displacement"]) &&
-    has(["angle", "theta", "perpendicular", "parallel"])
-  ) {
-    return answerBlock({
-      topic: "Class Notes — Work From Force and Displacement",
-      confidence: "concept/formula",
-      givens: numbers.map((n) => fmt(n)),
-      unknown: "Work W",
-      formula: "W = F*d*cos(theta)",
-      steps:
-        "Work uses only the part of the force in the direction of displacement.\\n" +
-        "If force helps motion, work is positive.\\n" +
-        "If force opposes motion, work is negative.\\n" +
-        "If force is perpendicular to displacement, work is zero.",
-      answer:
-        "Use W = F*d*cos(theta).",
-      trap:
-        "Do not use W = F*d unless force and displacement point the same direction.",
-      memory:
-        "Work cares about direction.",
+  if (hasAny(lower, ["electrons are added", "excess electrons", "number of electrons"])) {
+    const N = sci[0] || numsBefore(text, "electrons")[0];
+    let answer = "Need number of electrons.";
+    if (N) {
+      const Q = -N * E_CHARGE;
+      answer = `Q=N(-e)\nQ=(${N.toExponential(3)})(-1.60x10^-19 C)\nQ=${Q.toExponential(3)} C\n\nFinal Answer: ${Q.toExponential(2)} C`;
+    }
+    return makeResult({
+      topic: "Ch. 22 — Charge from Electrons",
+      givens,
+      unknown: "Net charge Q",
+      formula: "Q=N(-e)",
+      steps: "Electrons are negative. Multiply number of added electrons by -1.60x10^-19 C.",
+      answer,
+      trap: "Added electrons make the object negative.",
+      memory: "Electrons added = negative.",
     });
   }
 
-  if (
-    has(["work-energy theorem", "work energy theorem", "total work", "delta ke", "change in kinetic energy"])
-  ) {
-    return answerBlock({
-      topic: "Class Notes — Work-Energy Theorem",
-      confidence: "concept/formula",
-      givens: numbers.map((n) => fmt(n)),
-      unknown: "Change in kinetic energy or total work",
-      formula: "W_total = Delta KE",
-      steps:
-        "Total work done on an object changes its kinetic energy.\\n" +
-        "Positive total work increases speed.\\n" +
-        "Negative total work decreases speed.",
-      answer:
-        "Use W_total = Delta KE.",
-      trap:
-        "This uses total/net work, not just one random force unless that is the only force doing work.",
-      memory:
-        "Work changes motion energy.",
-    });
-  }
+  if (hasAny(lower, ["string", "tension"]) && hasAny(lower, ["speed", "wave speed", "m/s"])) {
+    const speeds = numsBefore(text, "m\\s*/\\s*s");
+    const tensions = numsBefore(text, "n\\b");
+    const v1 = speeds[0];
+    const v2 = speeds[1];
+    const T1 = tensions[0];
 
-  if (
-    has(["conservation of energy", "mechanical energy", "kinetic", "potential"]) &&
-    has(["no friction", "conservative", "constant"])
-  ) {
-    return answerBlock({
-      topic: "Class Notes — Conservation of Mechanical Energy",
-      confidence: "concept/formula",
-      givens: numbers.map((n) => fmt(n)),
-      unknown: "KE, PE, speed, height, or spring compression",
-      formula: "KE_i + PE_i = KE_f + PE_f",
-      steps:
-        "If only conservative forces act, total mechanical energy stays constant.\\n" +
-        "Energy can change form between kinetic and potential.\\n" +
-        "Falling: gravitational PE turns into KE.\\n" +
-        "Spring: spring PE turns into KE.",
-      answer:
-        "Use KE + PE = constant when there is no friction or air resistance.",
-      trap:
-        "If friction or air resistance is present, mechanical energy is not conserved.",
-      memory:
-        "No friction means energy trades forms.",
-    });
-  }
-
-  if (
-    has(["electric force", "electric field"]) &&
-    has(["charge", "q"]) &&
-    has(["work", "force", "displacement"])
-  ) {
-    return answerBlock({
-      topic: "Class Notes — Electric Force and Electric Work",
-      confidence: "concept/formula",
-      givens: numbers.map((n) => fmt(n)),
-      unknown: "Electric force or work",
-      formula: "F = qE and W = q*E*d",
-      steps:
-        "A charge in an electric field feels force F = qE.\\n" +
-        "If it moves along the field direction, electric work is W = qEd.\\n" +
-        "If the angle matters, use dot product logic.",
-      answer:
-        "Use F = qE for force. Use W = qEd for electric work when aligned.",
-      trap:
-        "For negative charges, the force direction is opposite the electric field.",
-      memory:
-        "Electric field pushes charges; work changes energy.",
-    });
-  }
-
-  if (
-    has(["potential energy between two point charges", "electric potential energy between charges", "two point charges"]) &&
-    has(["separated", "distance", "r"])
-  ) {
-    return answerBlock({
-      topic: "Class Notes — Electric Potential Energy Between Charges",
-      confidence: "concept/formula",
-      givens: numbers.map((n) => fmt(n)),
-      unknown: "Electric potential energy U",
-      formula: "U = k*q1*q2/r",
-      steps:
-        "Use the product of the two charges.\\n" +
-        "Like charges give positive U.\\n" +
-        "Opposite charges give negative U.\\n" +
-        "Distance r is in the denominator.",
-      answer:
-        "Use U = k*q1*q2/r.",
-      trap:
-        "Do not square one charge unless the two charges both have magnitude q.",
-      memory:
-        "Charge-pair energy is k q1 q2 over r.",
-    });
-  }
-
-
-  // ------------------------------------------------------------
-  // PEARSON PASTE MODE: common Mastering/Pearson problem patterns
-  // ------------------------------------------------------------
-
-  // He+ ion accelerated from rest to speed: find potential difference
-  if (
-    has(["he+ ion", "he + ion", "he ion", "helium ion"]) &&
-    has(["potential difference", "delta v", "accelerate"]) &&
-    has(["mass 4 u", "4 u", "4u"]) &&
-    has(["from rest", "speed"])
-  ) {
-    const v =
-      numberBeforeUnit("m\\s*/\\s*s") ||
-      numbers.find((n) => n > 1e4 && n < 1e8);
-
-    if (!v) {
-      return notEnough(
-        "Pearson Ch. 25 — He+ Ion Accelerated by Potential Difference",
-        "q*DeltaV = 1/2*m*v^2",
-        "final speed v",
-        "Pearson text may have hidden the speed. Paste the whole line with m/s."
-      );
+    let answer = "Need v1, T1, and v2.";
+    if (v1 && v2 && T1) {
+      const T2 = T1 * Math.pow(v2 / v1, 2);
+      answer = `T_2=T_1(v_2/v_1)²\nT_2=${T1}(${v2}/${v1})²\nT_2=${nice(T2)} N\n\nFinal Answer: ${nice(T2)} N`;
     }
 
-    const atomicMassUnit = 1.66e-27;
-    const m = 4 * atomicMassUnit;
-    const q = constants.e;
-    const deltaV = (0.5 * m * v * v) / q;
-
-    return answerBlock({
-      topic: "Pearson Ch. 25 — He+ Ion Accelerated by Potential Difference",
-      confidence: "high confidence",
-      givens: [
-        "He+ charge = +e = 1.60e-19 C",
-        "mass = 4u = 6.64e-27 kg",
-        `v = ${fmt(v)} m/s`,
-        "starts from rest"
-      ],
-      unknown: "Potential difference Delta V",
-      formula: "q*DeltaV = 1/2*m*v^2, so DeltaV = (1/2*m*v^2)/q",
-      steps:
-        "The ion starts from rest, so the electric potential energy becomes kinetic energy.\n" +
-        "m = 4u = 4(1.66e-27 kg) = 6.64e-27 kg.\n" +
-        `DeltaV = [1/2(6.64e-27)(${fmt(v)})^2] / (1.60e-19)`,
-      answer:
-        `Final Answer: DeltaV = ${fmt(deltaV)} V\n\n` +
-        "For Pearson/Mastering, try: 4.7e4 V",
-      trap:
-        "Do not use electron mass or proton mass. He+ has mass 4u.",
-      memory:
-        "Voltage gives kinetic energy: qDeltaV = KE.",
+    return makeResult({
+      topic: "Ch. 16 — String Wave Speed",
+      givens,
+      unknown: "New tension T_2",
+      formula: "v = sqrt(T/mu), so T_2=T_1(v_2/v_1)²",
+      steps: "Same string means mu is constant. Since v depends on √T, tension depends on speed squared.",
+      answer,
+      trap: "Square the speed ratio.",
+      memory: "String tension problems use v squared.",
     });
   }
 
-  // Electron potential energy at negative terminal relative to positive terminal
-  if (
-    has(["electric potential energy", "potential energy"]) &&
-    has(["electron"]) &&
-    has(["negative terminal", "negative end"]) &&
-    has(["positive terminal", "positive end"]) &&
-    has(["-12 v", "negative 12 v", "12 v"]) &&
-    has(["0 v", "zero v", "positive terminal is 0"])
-  ) {
-    const q = -constants.e;
-    const V = -12;
-    const U = q * V;
-
-    return answerBlock({
-      topic: "Pearson Ch. 25 — Electron Electric Potential Energy",
-      confidence: "high confidence",
-      givens: [
-        "q_electron = -1.60e-19 C",
-        "V_negative_terminal = -12 V",
-        "V_positive_terminal = 0 V"
-      ],
-      unknown: "Electric potential energy U_E",
-      formula: "U = q*V",
-      steps:
-        "Electric potential energy is charge times electric potential.\n" +
-        "Use the electron's location: the negative terminal has V = -12 V.\n" +
-        "U = (-1.60e-19)(-12).",
-      answer:
-        `Final Answer: U_E = ${fmt(U)} J\n\n` +
-        "If Pearson wants fewer sig figs, use 1.9e-18 J.",
-      trap:
-        "Electron charge is negative and the terminal potential is negative, so U is positive.",
-      memory:
-        "Potential energy = charge times voltage.",
+  if (hasAny(lower, ["transverse", "longitudinal"])) {
+    return makeResult({
+      topic: "Ch. 16 — Wave Types",
+      givens,
+      unknown: "Wave type",
+      formula: "Transverse=perpendicular, longitudinal=parallel",
+      steps: "Ask how the medium moves compared with the wave direction.",
+      answer: "Transverse: perpendicular. Longitudinal: parallel. Sound in air is longitudinal.",
+      trap: "Do not confuse wave direction with particle motion.",
+      memory: "Transverse turns sideways; longitudinal lines up.",
     });
   }
 
-  // Work needed to move electron from positive to negative terminal
-  if (
-    has(["move an electron", "electron from the positive", "positive to the negative"]) &&
-    has(["how much work", "work w", "work would you need"]) &&
-    has(["battery", "terminal"])
-  ) {
-    const q = -constants.e;
-    const Vi = 0;
-    const Vf = -12;
-    const deltaU = q * (Vf - Vi);
-
-    return answerBlock({
-      topic: "Pearson Ch. 25 — Work to Move Electron Across Battery",
-      confidence: "high confidence",
-      givens: [
-        "electron charge = -1.60e-19 C",
-        "V_initial = 0 V at positive terminal",
-        "V_final = -12 V at negative terminal"
-      ],
-      unknown: "Work you must do on the electron",
-      formula: "W_you = DeltaU = q*(V_f - V_i)",
-      steps:
-        "You are forcing the electron from positive to negative.\n" +
-        "That is opposite the direction it naturally jumps, so you must add energy.\n" +
-        "DeltaV = -12 - 0 = -12 V.\n" +
-        "W = (-1.60e-19)(-12).",
-      answer:
-        `Final Answer: W = ${fmt(deltaU)} J\n\n` +
-        "Try 1.92e-18 J. If Pearson wants 2 sig figs, try 1.9e-18 J.",
-      trap:
-        "The work you do is positive. The electric field would do negative work for this forced direction.",
-      memory:
-        "Forced opposite natural motion means you add energy.",
+  if (hasAny(lower, ["doppler", "ambulance", "siren", "blue shift", "red shift"])) {
+    return makeResult({
+      topic: "Ch. 16 — Doppler Effect",
+      givens,
+      unknown: "Observed frequency",
+      formula: "Moving together → higher f. Moving apart → lower f.",
+      steps: "Predict whether the observed frequency should go up or down before choosing signs.",
+      answer: "Toward = higher pitch/frequency. Away = lower pitch/frequency.",
+      trap: "Do not memorize signs blindly.",
+      memory: "Toward = tighter waves = higher frequency.",
     });
   }
 
-  // Concept: potential vs potential energy for -2e ion
-  if (
-    has(["electric potential", "potential energy"]) &&
-    has(["negative ion", "-2e", "negative 2 e"]) &&
-    has(["relative to the electron", "relative to an electron", "twice", "same"])
-  ) {
-    return answerBlock({
-      topic: "Pearson Ch. 25 — Potential vs Potential Energy",
-      confidence: "high confidence conceptual",
-      givens: [
-        "electron charge = -e",
-        "negative ion charge = -2e",
-        "same terminal/location"
-      ],
-      unknown: "How V and U compare",
-      formula: "U = q*V",
-      steps:
-        "Electric potential V depends on location, not the particle.\n" +
-        "Both particles are at the same terminal, so electric potential is the same.\n" +
-        "Electric potential energy depends on charge.\n" +
-        "The ion has twice the charge magnitude, so it has twice the potential energy.",
-      answer:
-        "Final Answer: The electric potential is the same and the electric potential energy is twice as much.",
-      trap:
-        "Do not use mass. Electric potential energy depends on charge and voltage.",
-      memory:
-        "Potential belongs to place. Potential energy belongs to charge.",
-    });
-  }
+  if (hasAny(lower, ["light", "wavelength", "nm", "index of refraction"])) {
+    const nm = numsBefore(text, "nm\\b");
+    let answer = "Use f=c/lambda and convert nm to m.";
 
-  // Concept: electric PE converts to kinetic energy
-  if (
-    has(["electron"]) &&
-    has(["negative terminal", "negative end"]) &&
-    has(["positive terminal", "positive end"]) &&
-    has(["what happens to this energy", "jumps from the negative", "converted to kinetic", "kinetic energy"])
-  ) {
-    return answerBlock({
-      topic: "Pearson Ch. 25 — Electric PE Converts to KE",
-      confidence: "high confidence conceptual",
-      givens: [
-        "electron starts at negative terminal",
-        "electron moves toward positive terminal"
-      ],
-      unknown: "What happens to electric potential energy",
-      formula: "lost electric potential energy becomes kinetic energy",
-      steps:
-        "The electron is accelerated by the electric force.\n" +
-        "As it moves, stored electric potential energy turns into motion.",
-      answer:
-        "Final Answer: It is converted to kinetic energy.",
-      trap:
-        "Energy does not disappear. It changes form.",
-      memory:
-        "Potential energy turns into speed.",
-    });
-  }
-
-
-
-  // ------------------------------------------------------------
-  // PEARSON PATTERN BANK: questions Hannah already solved
-  // ------------------------------------------------------------
-
-  // Charge configuration comparison: less work to assemble than intro square
-  if (
-    has(["requires less work to assemble", "configuration in the problem introduction"]) &&
-    has(["figure a", "figure b", "figure c"]) &&
-    has(["three positive charges", "one negative charge"])
-  ) {
-    return answerBlock({
-      topic: "Pearson Ch. 25 — Compare Work to Assemble Charge Configurations",
-      confidence: "high confidence conceptual",
-      givens: [
-        "Intro square with side L has three +q and one -q",
-        "Intro configuration energy is 0 in units of kq^2/L",
-        "Figure a: equilateral triangle, -q at center",
-        "Figure b: four charges in a line",
-        "Figure c: square with side 2L"
-      ],
-      unknown: "Which figure needs less work to assemble than the intro configuration",
-      formula: "U_total = sum(k*q_i*q_j/r_ij) over every pair",
-      steps:
-        "Work to assemble equals total electric potential energy.\\n" +
-        "Less work means lower total potential energy.\\n\\n" +
-        "Intro square energy = 0.\\n\\n" +
-        "Figure a has 3 positive-positive side pairs and 3 positive-negative center pairs.\\n" +
-        "Its total is approximately -2.20(kq^2/L), which is less than 0.\\n\\n" +
-        "Figure b is positive, about +0.67(kq^2/L).\\n" +
-        "Figure c is 0 because it is the same pattern but scaled.",
-      answer:
-        "Final Answer: figure a",
-      trap:
-        "Do not only count signs. Count every pair and include distances.",
-      memory:
-        "Assembly work = total pair energy. More negative means less work.",
-    });
-  }
-
-  // Electron spark direction between jumper cables
-  if (
-    has(["spark", "jumper cable", "jumper cables"]) &&
-    has(["electrons traveling", "direction are the electrons", "movement of electrons"]) &&
-    has(["positive terminal", "negative terminal"])
-  ) {
-    return answerBlock({
-      topic: "Pearson Ch. 25 — Electron Direction During Spark",
-      confidence: "high confidence conceptual",
-      givens: [
-        "electrons have negative charge",
-        "negative terminal repels electrons",
-        "positive terminal attracts electrons"
-      ],
-      unknown: "Direction electrons travel during spark",
-      formula: "negative charges move toward higher electric potential / positive terminal",
-      steps:
-        "Electrons are negatively charged.\\n" +
-        "They are repelled by the negative terminal.\\n" +
-        "They are attracted to the positive terminal.\\n" +
-        "So the actual electron motion is from negative to positive.",
-      answer:
-        "Final Answer: The electrons are traveling from the negative to the positive terminal.",
-      trap:
-        "Electron flow is opposite conventional current.",
-      memory:
-        "Electrons run from negative toward positive.",
-    });
-  }
-
-  // Proton beam therapy: total charge needed from energy and voltage
-  if (
-    has(["proton-beam therapy", "proton beam therapy", "tumor", "protons"]) &&
-    has(["deposit", "proton energy", "total charge"]) &&
-    has(["potential difference", "kv"])
-  ) {
-    const energyJ = numberBeforeUnit("j\\b") || numbers.find((n) => n > 0 && n < 10);
-    const kvVals = numbersBeforeUnit("kv\\b");
-    const kv = kvVals.length ? kvVals[kvVals.length - 1] : null;
-
-    if (!(energyJ && kv)) {
-      return notEnough(
-        "Pearson Ch. 25 — Proton Beam Therapy Total Charge",
-        "q_total = E_total / DeltaV",
-        "energy in J and potential difference in kV",
-        "Convert kV to V before solving."
-      );
+    if (lower.includes("450") && lower.includes("650")) {
+      answer =
+        `Blue: f=${(3e8 / 450e-9).toExponential(3)} Hz\n` +
+        `Red: f=${(3e8 / 650e-9).toExponential(3)} Hz\n` +
+        `Index: n=650/450=${nice(650 / 450)}`;
+    } else if (nm[0]) {
+      answer = `lambda=${nm[0]} nm = ${nm[0]}x10^-9 m\nf=c/lambda=${(3e8 / (nm[0] * 1e-9)).toExponential(3)} Hz`;
     }
 
-    const V = kv * 1000;
-    const qTotal = energyJ / V;
-
-    return answerBlock({
-      topic: "Pearson Ch. 25 — Proton Beam Therapy Total Charge",
-      confidence: "high confidence",
-      givens: [
-        `energy deposited = ${fmt(energyJ)} J`,
-        `potential difference = ${fmt(kv)} kV = ${fmt(V)} V`
-      ],
-      unknown: "Total charge of protons",
-      formula: "E_total = q_total*DeltaV, so q_total = E_total/DeltaV",
-      steps:
-        "Each coulomb accelerated through a voltage gains energy qDeltaV.\\n" +
-        "For a whole beam, total energy = total charge times voltage.\\n" +
-        `q_total = ${fmt(energyJ)} / ${fmt(V)}`,
-      answer:
-        `Final Answer: q = ${fmt(qTotal)} C`,
-      trap:
-        "The problem gives kV. Convert to volts by multiplying by 1000.",
-      memory:
-        "Beam energy = total charge times voltage.",
+    return makeResult({
+      topic: "Ch. 31 — Light and Refraction",
+      givens,
+      unknown: "Frequency or index",
+      formula: "c=flambda, n=lambdavacuum/lambdamaterial",
+      steps: "Convert nm to m. Frequency stays constant when light enters a material.",
+      answer,
+      trap: "Nanometers must become meters.",
+      memory: "Refraction changes speed and wavelength, not frequency.",
     });
   }
 
-
-  // ------------------------------------------------------------
-  // PEARSON FOLLOW-UP: same 2.20 cm x 2.20 cm capacitor, new spacing only
-  // ------------------------------------------------------------
-  if (
-    has(["potential difference across the capacitor"]) &&
-    has(["spacing between the plates"]) &&
-    has(["1.40 mm", "1.4 mm"]) &&
-    !has(["charged to", "0.712", "2.20 cm"])
-  ) {
-    const side = 2.20e-2;
-    const A = side * side;
-    const Q = 0.712e-9;
-    const d = 1.40e-3;
-    const Ccap = constants.eps0 * A / d;
-    const V = Q / Ccap;
-
-    return answerBlock({
-      topic: "Pearson Ch. 26 — Capacitor Follow-Up With New Spacing",
-      confidence: "high confidence for this Pearson set",
-      givens: [
-        "Using previous part's capacitor:",
-        "plate size = 2.20 cm x 2.20 cm",
-        "charge = +/-0.712 nC",
-        "new spacing = 1.40 mm"
-      ],
-      unknown: "Potential difference DeltaV",
-      formula: "C = epsilon_0*A/d and DeltaV = Q/C",
-      steps:
-        "This is the follow-up to the earlier capacitor problem.\\n" +
-        "The plate size and charge stay the same.\\n" +
-        "Only the spacing changes to 1.40 mm.\\n" +
-        "Since d doubled from 0.700 mm to 1.40 mm, capacitance is cut in half.\\n" +
-        "Because DeltaV = Q/C, the voltage doubles.\\n" +
-        "Previous answer was about 116 V, so new voltage is about 232.6 V.",
-      answer:
-        `Final Answer: DeltaV = ${fmt(V)} V\\n\\n` +
-        "Enter: 233 V",
-      trap:
-        "A short Pearson follow-up may omit the plate size and charge. It is using the same capacitor from Part A.",
-      memory:
-        "For a fixed charge capacitor, bigger spacing means bigger voltage.",
+  if (hasAny(lower, ["plastic balls", "copper ball", "test charge", "weakly attracted", "strongly attracted", "strongly repelled"])) {
+    return makeResult({
+      topic: "Ch. 23 — Polarization",
+      givens,
+      unknown: "Attraction, repulsion, or neither",
+      formula: "Like repel, opposites attract, neutral objects polarize.",
+      steps: "Use the positive test charge to infer signs. Weak attraction usually means neutral insulator. Strong neutral attraction usually means conductor.",
+      answer: "A negative plastic, B positive plastic, C neutral plastic, D neutral copper. A-B attractive, A-C weak attractive, A-D attractive, C-D neither.",
+      trap: "Neutral can still attract.",
+      memory: "Conductors polarize strongly; insulators weakly.",
     });
   }
 
-  // Parallel plate capacitor square plates: find voltage
-  if (
-    has(["parallel-plate capacitor", "parallel plate capacitor"]) &&
-    has(["plates", "charged to", "spacing"]) &&
-    has(["potential difference"])
-  ) {
-    const cmVals = numbersBeforeUnit("cm\\b");
-    const mmVals = numbersBeforeUnit("mm\\b");
-    const nCVals = numbersBeforeUnit("nc\\b");
+  if (hasAny(lower, ["rod", "end a", "end b", "negative charge", "many contacts", "several contacts"])) {
+    return makeResult({
+      topic: "Ch. 23 — Conductors vs Insulators",
+      givens,
+      unknown: "Charge distribution or force",
+      formula: "Conductor spreads charge; insulator traps charge.",
+      steps: "First approach polarizes. Contact transfers electrons. Conductors spread charge. Insulators keep it local.",
+      answer: "Plastic: negative charge stays near end A. Conductor: negative charge spreads across both ends. Negative ball later gets repelled by negative charged ends.",
+      trap: "Identify conductor vs insulator first.",
+      memory: "Conductor = charge cruises. Insulator = charge stuck.",
+    });
+  }
 
-    // Pearson often has "2.20 cm x 2.20 cm" and spacing 0.700 mm.
-    const sideCm = cmVals[0];
-    const spacingMm = mmVals.length ? mmVals[mmVals.length - 1] : null;
-    const chargeNc = nCVals.length ? Math.abs(nCVals[0]) : null;
-
-    if (sideCm && spacingMm && chargeNc) {
-      const side = sideCm * 1e-2;
-      const A = side * side;
-      const d = spacingMm * 1e-3;
-      const Q = chargeNc * 1e-9;
-      const Ccap = constants.eps0 * A / d;
-      const V = Q / Ccap;
-
-      return answerBlock({
-        topic: "Pearson Ch. 26 — Parallel Plate Capacitor Voltage",
-        confidence: "high confidence",
-        givens: [
-          `plate side = ${sideCm} cm = ${fmt(side)} m`,
-          `area = ${fmt(A)} m^2`,
-          `charge = ${chargeNc} nC = ${fmt(Q)} C`,
-          `spacing = ${spacingMm} mm = ${fmt(d)} m`
-        ],
-        unknown: "Potential difference DeltaV",
-        formula: "C = epsilon_0*A/d and DeltaV = Q/C",
-        steps:
-          "Find plate area first.\\n" +
-          "A = side^2.\\n" +
-          "C = epsilon_0*A/d.\\n" +
-          "DeltaV = Q/C.\\n" +
-          `C = (8.854e-12)(${fmt(A)})/(${fmt(d)}) = ${fmt(Ccap)} F\\n` +
-          `DeltaV = ${fmt(Q)}/${fmt(Ccap)}`,
-        answer:
-          `Final Answer: DeltaV = ${fmt(V)} V`,
-        trap:
-          "Convert cm to m, mm to m, and nC to C.",
-        memory:
-          "Capacitor voltage = charge divided by capacitance.",
+  if (hasAny(lower, ["particle 0", "q_0", "d_1"])) {
+    if (hasAny(lower, ["particle 3", "q_3", "d_2, d_2"])) {
+      return makeResult({
+        topic: "Ch. 22 — 3D Coulomb Vector",
+        givens,
+        unknown: "i, j, k components",
+        formula: "F=kq_0q_3/r^2",
+        steps: "Particle 3 at (0,d_2,d_2), so r=√2d_2. Repulsion points -j and -k equally.",
+        answer: "i: 0\nj: -k*q_0*q_3/(2*sqrt(2)*d_2^2)\nk: -k*q_0*q_3/(2*sqrt(2)*d_2^2)",
+        trap: "The component split adds √2.",
+        memory: "Equal y and z means equal j and k.",
       });
     }
 
-    return notEnough(
-      "Pearson Ch. 26 — Parallel Plate Capacitor Voltage",
-      "C = epsilon_0*A/d and DeltaV = Q/C",
-      "plate size, charge, and spacing",
-      "Pearson may glue the text together. Make sure it includes cm, nC, and mm."
-    );
-  }
-
-  // Point charge voltage inverse distance: 9 V at 1 m, find voltage at 2 m or 3 m
-  if (
-    has(["voltage meter", "1 m away", "9 v"]) &&
-    has(["what is the voltage", "voltage 2 m", "voltage 3 m", "away from the charge"])
-  ) {
-    const targetM =
-      lower.includes("3 m") ? 3 :
-      lower.includes("2 m") ? 2 :
-      null;
-
-    if (targetM) {
-      const V = 9 / targetM;
-
-      return answerBlock({
-        topic: "Pearson Ch. 25 — Point Charge Voltage vs Distance",
-        confidence: "high confidence",
-        givens: [
-          "V = 9 V at r = 1 m",
-          `target distance = ${targetM} m`
-        ],
-        unknown: "Voltage at new distance",
-        formula: "V = kq/r, so V is proportional to 1/r",
-        steps:
-          "For a point charge, voltage decreases as 1/r.\\n" +
-          `V_new = 9 V * (1 m / ${targetM} m).`,
-        answer:
-          `Final Answer: V = ${fmt(V)} V`,
-        trap:
-          "Electric potential goes like 1/r, not 1/r^2. Electric field goes like 1/r^2.",
-        memory:
-          "Voltage halves when distance doubles.",
+    if (hasAny(lower, ["ratio", "no net force", "balance", "d_1 divided by d_2"])) {
+      return makeResult({
+        topic: "Ch. 22 — Balance Coulomb Forces",
+        givens,
+        unknown: "d_1/d_2",
+        formula: "kq_0q_1/d_1² = kq_0q_2/d_2²",
+        steps: "Set magnitudes equal. Cancel k and q_0. Take square root.",
+        answer: "d_1/d_2 = sqrt(q_1/q_2)",
+        trap: "k and q_0 cancel.",
+        memory: "Balance = set forces equal.",
       });
     }
-  }
 
-  // General point charge voltage ratio
-  if (
-    has(["electric potential", "voltage"]) &&
-    has(["point charge", "positive charge"]) &&
-    has(["1 m away"]) &&
-    has(["2 m away", "3m away", "3 m away", "distance"])
-  ) {
-    const targetM =
-      lower.includes("3 m") || lower.includes("3m") ? 3 :
-      lower.includes("2 m") || lower.includes("2m") ? 2 :
-      null;
-
-    if (targetM) {
-      const V = 9 / targetM;
-
-      return answerBlock({
-        topic: "Pearson Ch. 25 — Point Charge Potential",
-        confidence: "high confidence",
-        givens: [
-          "V_1 = 9 V",
-          "r_1 = 1 m",
-          `r_2 = ${targetM} m`
-        ],
-        unknown: "V_2",
-        formula: "V_2 = V_1*(r_1/r_2)",
-        steps:
-          `V_2 = 9*(1/${targetM})`,
-        answer:
-          `Final Answer: V = ${fmt(V)} V`,
-        trap:
-          "Use 1/r for voltage. Use 1/r^2 for electric field.",
-        memory:
-          "Potential is softer than field: 1/r instead of 1/r^2.",
+    if (hasAny(lower, ["particle 2", "q_2", "negative q 2", "third"])) {
+      return makeResult({
+        topic: "Ch. 22 — Net Coulomb Force",
+        givens,
+        unknown: "i, j, k components",
+        formula: "Superposition",
+        steps: "Positive q1 above q0 repels downward. Negative q2 above q0 attracts upward.",
+        answer: "i: 0\nj: -k*q_0*q_1/d_1^2 + k*q_0*q_2/d_2^2\nk: 0",
+        trap: "Direction gives the sign.",
+        memory: "Like repel away; opposites pull toward.",
       });
     }
-  }
 
-  // Equipotential lines and electric field direction
-  if (
-    has(["equipotential", "equipotential lines"]) &&
-    has(["electric field", "e-field sensors"]) &&
-    has(["perpendicular", "parallel", "lower voltages", "higher voltages"])
-  ) {
-    return answerBlock({
-      topic: "Pearson Ch. 25 — Equipotential Lines and Electric Field",
-      confidence: "high confidence conceptual",
-      givens: [
-        "equipotential line = same voltage everywhere on the line",
-        "electric field points in direction of decreasing voltage"
-      ],
-      unknown: "Correct statement about E-field and equipotential lines",
-      formula: "E-field is perpendicular to equipotential lines",
-      steps:
-        "Along an equipotential line, voltage does not change.\\n" +
-        "The electric field points in the direction voltage changes fastest.\\n" +
-        "Therefore it must be perpendicular to the equipotential line.\\n" +
-        "For a positive charge, electric field points outward from higher voltage toward lower voltage.",
-      answer:
-        "Final Answer: At any point, the electric field is perpendicular to the equipotential line at that point, and it is directed toward lines of lower voltages.",
-      trap:
-        "The field is not parallel to equipotential lines.",
-      memory:
-        "E-field crosses contour lines at 90 degrees and goes downhill in voltage.",
+    return makeResult({
+      topic: "Ch. 22 — Coulomb Vector",
+      givens,
+      unknown: "i, j, k components",
+      formula: "F=kq_0q_1/r^2",
+      steps: "Positive q1 above positive q0 repels q0 downward.",
+      answer: "i: 0\nj: -k*q_0*q_1/d_1^2\nk: 0",
+      trap: "Direction matters.",
+      memory: "Charge above pushes same-sign origin charge down.",
     });
   }
 
-
-  // ------------------------------------------------------------
-  // FORMULA PICKER
-  // ------------------------------------------------------------
-  if (has(["what formula", "which formula", "what equation", "how do i solve"])) {
-    return answerBlock({
-      topic: "Formula Picker",
-      confidence: "setup mode",
-      givens: numbers.map((n) => fmt(n)),
-      unknown: "Best formula",
-      formula:
-        "Match clue words: charge force -> Coulomb; field -> E; flux/enclosed charge -> Gauss; voltage -> energy; capacitor -> C/Q/V; circuit -> V=IR; magnetism -> qvB; light -> c=f*lambda.",
-      steps:
-        "Charge from electrons: Q = N*(-e)\n" +
-        "Force between charges: F = k*|q1*q2|/r^2\n" +
-        "Point charge field: E = k*|q|/r^2\n" +
-        "Force in field: F = qE\n" +
-        "Particle across plates: qEd = 1/2*m*v^2\n" +
-        "Flux: Phi = E*A*cos(theta)\n" +
-        "Gauss: Phi = Q_inside/epsilon_0\n" +
-        "Capacitor: C = Q/DeltaV\n" +
-        "Ohm: V = IR\n" +
-        "Magnetism: F = qvBsin(theta)\n" +
-        "Light: c = f*lambda",
-      answer: "Circle clue words first, then pick from this map.",
-      trap: "Do not choose a formula from numbers alone.",
-      memory: "Words pick formula. Units check formula.",
+  if (hasAny(lower, ["electric field", "plastic bead", "charged to", "nc", "cm from"])) {
+    const qNc = numsBefore(text, "nc")[0];
+    const cm = numsBefore(text, "cm")[0];
+    let answer = "Use E=k|q|/r^2.";
+    if (qNc && cm) {
+      const q = Math.abs(qNc) * 1e-9;
+      const r = cm / 100;
+      const E = K * q / (r * r);
+      const direction = hasAny(lower, ["minus", "-"]) ? "toward the bead" : "away from the bead";
+      answer = `E=${E.toExponential(3)} N/C\nDirection: ${direction}`;
+    }
+    return makeResult({
+      topic: "Ch. 23 — Electric Field of Point Charge",
+      givens,
+      unknown: "Field strength or direction",
+      formula: "E=k|q|/r^2",
+      steps: "Convert nC to C and cm to m.",
+      answer,
+      trap: "Field points toward negative and away from positive.",
+      memory: "Positive pushes out; negative pulls in.",
     });
   }
 
-  // ------------------------------------------------------------
-  // ELECTRONS ADDED / CHARGE
-  // ------------------------------------------------------------
-  if (has(["electrons are added", "electrons added", "excess electrons", "number of electrons"])) {
-    const N = numbers.find((n) => n > 1000);
-    if (!N) return notEnough("Charge From Electrons", "Q = N*(-e)", "number of electrons", "Added electrons make negative charge.");
+  if (hasAny(lower, ["finite charged wire", "wire of length", "linear charge density", "point p"])) {
+    return makeResult({
+      topic: "Ch. 24 — Finite Charged Wire",
+      givens,
+      unknown: "Direction or magnitude",
+      formula: "E=2klambdaL/(d√(d^2+L²))",
+      steps: "Symmetry cancels x-components. y-components add.",
+      answer: "Direction: +j\nMagnitude: 2*k*lambda*L/(d*sqrt(d^2+L^2))",
+      trap: "Do not include x-components.",
+      memory: "Symmetry kills sideways.",
+    });
+  }
 
-    const Q = -N * constants.e;
-    return answerBlock({
-      topic: "Ch. 22 — Charge From Electrons",
-      givens: [`N = ${fmt(N)} electrons`, "e = 1.602e-19 C"],
+  if (hasAny(lower, ["uniformly charged ring", "ring in the xy", "z axis", "radius a"])) {
+    return makeResult({
+      topic: "Ch. 24 — Charged Ring Field",
+      givens,
+      unknown: "Field, direction, or SHM",
+      formula: "E(z)=kqz/(z^2+a²)^(3/2)",
+      steps: "Symmetry cancels x/y. Only z survives. Use safe denominator if Mastering rejects fractional power.",
+      answer: "Direction: parallel to z-axis\nE(z)=k*q*z/((z^2+a^2)*sqrt(z^2+a^2))\nomega=sqrt(k*q*q_0/(m*a^3))",
+      trap: "Mastering may reject ^(3/2).",
+      memory: "Ring axis: only z lives.",
+    });
+  }
+
+  if (hasAny(lower, ["parallel-plate capacitor", "diameter electrodes", "charge on each electrode"])) {
+    return makeResult({
+      topic: "Ch. 26 — Parallel-Plate Charge",
+      givens,
       unknown: "Charge Q",
-      formula: "Q = N*(-e)",
-      steps: `Q = (${fmt(N)})(-1.602e-19 C)`,
-      answer: `Final Answer: Q = ${fmt(Q)} C`,
-      trap: "Electrons added means negative.",
-      memory: "Electrons added = minus.",
+      formula: "Q=epsilon_0AE",
+      steps: "Find plate area A=pir^2. Use Q=epsilon_0AE.",
+      answer: "For 6.0 cm diameter and E=6.0x10⁶ N/C: Q=150 nC.",
+      trap: "Spacing is not needed if E is given.",
+      memory: "Plate charge = epsilon area field.",
     });
   }
 
-  // ------------------------------------------------------------
-  // PROTON SPEED ACROSS CAPACITOR FROM FIELD + SPACING
-  // ------------------------------------------------------------
-  if (
-    has(["proton"]) &&
-    has(["released from rest"]) &&
-    has(["parallel-plate", "parallel plate", "capacitor"]) &&
-    has(["electric field", "field strength", "n/c"])
-  ) {
-    const E = getFieldE();
-    const d = getDistanceMeters();
-
-    if (!(E && d)) {
-      return notEnough(
-        "Proton Speed Across Parallel Plates",
-        "v = sqrt(2*q*E*d/m)",
-        "electric field E and plate spacing d",
-        "Spacing must be converted to meters."
-      );
-    }
-
-    const v = Math.sqrt((2 * constants.e * E * d) / constants.mp);
-
-    return answerBlock({
-      topic: "Ch. 23/25 — Proton Speed Across Parallel Plates",
-      givens: [
-        `E = ${fmt(E)} N/C`,
-        `d = ${fmt(d)} m`,
-        "q_proton = 1.602e-19 C",
-        "m_proton = 1.673e-27 kg",
-      ],
-      unknown: "Final speed v",
-      formula: "q*E*d = 1/2*m*v^2, so v = sqrt(2*q*E*d/m)",
-      steps:
-        "The proton starts from rest.\n" +
-        "The electric field does work: W = qEd.\n" +
-        "That work becomes kinetic energy: qEd = 1/2mv^2.\n" +
-        `v = sqrt((2)(1.602e-19)(${fmt(E)})(${fmt(d)})/(1.673e-27))`,
-      answer: `Final Answer: v = ${fmt(v)} m/s`,
-      trap: "A positive exponent is expected. The particle should move fast, not 10^-5 m/s slow.",
-      memory: "Released from rest across plates = electric work becomes kinetic energy.",
-    });
-  }
-
-  // ------------------------------------------------------------
-  // ELECTRON SPEED FROM PROTON SPEED IN SAME CAPACITOR
-  // ------------------------------------------------------------
-  if (
-    has(["proton"]) &&
-    has(["electron"]) &&
-    has(["parallel-plate", "parallel plate", "capacitor"]) &&
-    has(["released from rest"]) &&
-    has(["speed", "final speed"])
-  ) {
-    const vp = getSpeed();
-    if (!vp) {
-      return notEnough(
-        "Electron Speed From Proton Speed",
-        "v_e = v_p*sqrt(m_p/m_e)",
-        "proton speed",
-        "Same voltage gives same kinetic energy, not same speed."
-      );
-    }
-
-    const ve = vp * Math.sqrt(constants.mp / constants.me);
-
-    return answerBlock({
-      topic: "Ch. 23/25 — Electron Speed From Proton Speed",
-      givens: [
-        `v_proton = ${fmt(vp)} m/s`,
-        "m_proton = 1.673e-27 kg",
-        "m_electron = 9.109e-31 kg",
-      ],
-      unknown: "Electron final speed",
-      formula: "v_e = v_p*sqrt(m_p/m_e)",
-      steps:
-        "Same capacitor means same voltage difference.\n" +
-        "Proton and electron have the same charge magnitude.\n" +
-        "So they gain the same kinetic energy.\n" +
-        "1/2*m_p*v_p^2 = 1/2*m_e*v_e^2\n" +
-        `v_e = ${fmt(vp)}*sqrt((1.673e-27)/(9.109e-31))`,
-      answer: `Final Answer: v = ${fmt(ve)} m/s`,
-      trap: "Do not give the electron the same speed. It is much lighter, so it moves faster.",
-      memory: "Same energy, lighter particle, faster speed.",
+  if (hasAny(lower, ["proton", "oppositely charged parallel plates", "released from rest", "strikes"])) {
+    return makeResult({
+      topic: "Ch. 23/24 — Proton Between Plates",
+      givens,
+      unknown: "Electric field or final speed",
+      formula: "d=½at², E=ma/q, v=at",
+      steps: "Use kinematics first to find acceleration. Then use electric force.",
+      answer: "For d=1.50 cm and t=1.46x10⁻⁶ s: E=147 N/C, v=2.05x10⁴ m/s.",
+      trap: "Watch powers of ten.",
+      memory: "Motion first, field second.",
     });
   }
 
 
-  // ------------------------------------------------------------
-  // WORK TO ASSEMBLE POINT CHARGES AT SQUARE CORNERS
-  // ------------------------------------------------------------
-  if (
-    has(["work", "assemble", "configuration"]) &&
-    has(["four point charges", "corners of a square", "side length"]) &&
-    has(["+q", "-q", "kq"])
-  ) {
-    return answerBlock({
-      topic: "Ch. 25 — Work to Assemble Charges at Square Corners",
-      confidence: "high confidence",
-      givens: [
-        "A, B, C have charge +q",
-        "D has charge -q",
-        "square side length = L",
-        "use k instead of 1/(4*pi*epsilon_0)"
-      ],
-      unknown: "Numeric multiplier of kq^2/L",
-      formula: "W = sum of k*q_i*q_j/r_ij over every charge pair",
-      steps:
-        "There are 6 unique pairs of charges.\\n\\n" +
-        "Positive-positive pairs:\\n" +
-        "two side pairs: +1 +1\\n" +
-        "one diagonal pair: +1/sqrt(2)\\n\\n" +
-        "Positive-negative pairs:\\n" +
-        "two side pairs: -1 -1\\n" +
-        "one diagonal pair: -1/sqrt(2)\\n\\n" +
-        "Total multiplier = 1 + 1 + 1/sqrt(2) - 1 - 1 - 1/sqrt(2)",
-      answer:
-        "Final Answer: W = 0 * (kq^2/L)\\n\\n" +
-        "Enter: 0",
-      trap:
-        "Do not only count adjacent charges. You must count all 6 pairs: 4 sides and 2 diagonals.",
-      memory:
-        "Assembly work = add every pair once.",
-    });
-  }
-
-  // ------------------------------------------------------------
-  // POINT CHARGE ELECTRIC FIELD
-  // ------------------------------------------------------------
-  if (has(["electric field"]) && has(["point charge", "bead", "charge"]) && has(["cm", "mm", "m from", "distance"])) {
-    const q = Math.abs(getChargeCoulombs() || 0);
-    const r = getDistanceMeters();
-
-    if (!(q && r)) {
-      return notEnough("Point Charge Electric Field", "E = k*|q|/r^2", "charge q and distance r", "Convert nC/uC and cm/mm first.");
-    }
-
-    const E = constants.k * q / (r * r);
-    const direction = has(["negative", "-"]) ? "toward the charge" : "away from the charge";
-
-    return answerBlock({
-      topic: "Ch. 23 — Electric Field of a Point Charge",
-      givens: [`q = ${fmt(q)} C`, `r = ${fmt(r)} m`],
-      unknown: "Electric field E",
-      formula: "E = k*|q|/r^2",
-      steps: `E = (8.99e9)(${fmt(q)})/(${fmt(r)})^2`,
-      answer: `Final Answer: E = ${fmt(E)} N/C, direction ${direction}`,
-      trap: "Magnitude is positive. Direction comes from charge sign.",
-      memory: "Positive points away. Negative points toward.",
-    });
-  }
-
-  // ------------------------------------------------------------
-  // FORCE ON CHARGE IN ELECTRIC FIELD
-  // ------------------------------------------------------------
-  if (has(["force"]) && has(["electric field", "n/c"]) && has(["charge", "proton", "electron"])) {
-    const E = getFieldE();
-    let q = getChargeCoulombs();
-
-    if (!q && has(["proton"])) q = constants.e;
-    if (!q && has(["electron"])) q = constants.e;
-
-    if (!(E && q)) {
-      return notEnough("Force on Charge in Electric Field", "F = qE", "charge q and electric field E", "Use charge magnitude for force magnitude.");
-    }
-
-    const F = q * E;
-
-    return answerBlock({
-      topic: "Ch. 23 — Force on Charge in Electric Field",
-      givens: [`q = ${fmt(q)} C`, `E = ${fmt(E)} N/C`],
-      unknown: "Force F",
-      formula: "F = qE",
-      steps: `F = (${fmt(q)})(${fmt(E)})`,
-      answer: `Final Answer: F = ${fmt(F)} N`,
-      trap: "Electron force direction is opposite the electric field.",
-      memory: "Field times charge gives force.",
-    });
-  }
-
-  // ------------------------------------------------------------
-  // GAUSS'S LAW / FLUX
-  // ------------------------------------------------------------
-  if (has(["gauss", "closed surface", "enclosed charge", "net flux", "flux through a closed"])) {
-    const q = getChargeCoulombs();
-
-    if (q) {
-      const phi = q / constants.eps0;
-      return answerBlock({
-        topic: "Ch. 24 — Gauss's Law Net Flux",
-        givens: [`Q_inside = ${fmt(q)} C`, "epsilon_0 = 8.854e-12"],
-        unknown: "Net electric flux",
-        formula: "Phi = Q_inside / epsilon_0",
-        steps: `Phi = (${fmt(q)})/(8.854e-12)`,
-        answer: `Final Answer: Phi = ${fmt(phi)} N*m^2/C`,
-        trap: "Only enclosed charge counts. Outside charges do not affect net flux.",
-        memory: "Gauss asks: how much charge is inside?",
-      });
-    }
-
-    return answerBlock({
-      topic: "Ch. 24 — Gauss's Law",
-      confidence: "concept",
-      givens: numbers.map((n) => fmt(n)),
-      unknown: "Flux or enclosed charge",
-      formula: "Phi = Q_inside / epsilon_0",
-      steps:
-        "Add only the charges inside the closed surface.\n" +
-        "Positive charges add positive flux.\n" +
-        "Negative charges add negative flux.\n" +
-        "Outside charges do not count.",
-      answer: "Net flux depends only on Q_inside.",
-      trap: "Do not include charges outside the Gaussian surface.",
-      memory: "Closed surface = inside charge only.",
-    });
-  }
-
-  if (has(["flux"]) && has(["area", "surface", "normal", "angle"])) {
-    return answerBlock({
-      topic: "Ch. 24 — Electric Flux Through Flat Surface",
-      confidence: "formula/setup",
-      givens: numbers.map((n) => fmt(n)),
-      unknown: "Electric flux",
+  if (hasAny(lower, ["normal vector", "angle with the normal", "angle between the electric field and the normal"])) {
+    return makeResult({
+      topic: "Ch. 24 — Flux Angle and Normal Vector",
+      givens,
+      unknown: "Which angle/component to use",
       formula: "Phi = E*A*cos(theta)",
-      steps:
-        "Use the angle between the electric field and the normal vector.\n" +
-        "If the problem gives angle with the surface, convert to angle with normal.",
-      answer: "Use Phi = E*A*cos(theta).",
-      trap: "Theta is with the normal, not always the surface.",
-      memory: "Flux uses the normal.",
+      steps: "Use theta between the electric field and the normal vector. The normal vector sticks straight out of the surface.",
+      answer: "Do not use the angle with the surface unless you convert it to the angle with the normal.",
+      trap: "Angle with surface and angle with normal are complements.",
+      memory: "Flux uses the normal, not the tabletop.",
     });
   }
 
-
-
-  // ------------------------------------------------------------
-  // ELECTRIC POTENTIAL VS POTENTIAL ENERGY CONCEPT
-  // ------------------------------------------------------------
-  if (
-    has(["electric potential", "potential energy"]) &&
-    has(["negative ion", "charge negative 2 e", "-2e", "negative 2 e"]) &&
-    has(["relative to the electron", "twice", "same"])
-  ) {
-    return answerBlock({
-      topic: "Ch. 25 — Electric Potential vs Electric Potential Energy",
-      confidence: "high confidence conceptual",
-      givens: [
-        "electron charge = -e",
-        "negative ion charge = -2e",
-        "same terminal/location"
-      ],
-      unknown: "How electric potential and electric potential energy compare",
-      formula: "U = q*V",
-      steps:
-        "Electric potential V depends on the location, not the particle.\\n" +
-        "The electron and the negative ion are at the same terminal, so electric potential is the same.\\n" +
-        "Electric potential energy depends on charge: U = qV.\\n" +
-        "The negative ion has twice the charge magnitude of an electron: -2e instead of -e.\\n" +
-        "So its electric potential energy is twice as much.",
-      answer:
-        "Final Answer: The electric potential is the same and the electric potential energy is twice as much.",
-      trap:
-        "Do not use mass. Electric potential energy depends on charge and voltage, not the mass of the ion.",
-      memory:
-        "Potential belongs to the place. Potential energy belongs to the charge at that place.",
+  if (hasAny(lower, ["xy-plane", "xz-plane", "yz-plane"]) && hasAny(lower, ["flux", "component", "electric field"])) {
+    return makeResult({
+      topic: "Ch. 24 — Flat Surface Component Flux",
+      givens,
+      unknown: "Which component of E matters",
+      formula: "Phi = A*(E dot n_hat)",
+      steps: "Find the surface plane. The missing axis is the normal direction. Only that component of E contributes to flux.",
+      answer: "xy-plane uses E_z. xz-plane uses E_y. yz-plane uses E_x.",
+      trap: "Do not include components that lie in the surface.",
+      memory: "The missing axis is the normal.",
     });
   }
 
-  // ------------------------------------------------------------
-  // ELECTRIC POTENTIAL ENERGY CONCEPT
-  // ------------------------------------------------------------
-  if (
-    has(["potential energy", "electrical potential energy"]) &&
-    has(["potential difference", "voltage", " v "]) &&
-    has(["electron", "charge", "positive and negative"])
-  ) {
-    return answerBlock({
-      topic: "Ch. 25 — Electric Potential Energy",
-      confidence: "high confidence conceptual",
-      givens: numbers.map((n) => fmt(n)),
-      unknown: "What electrical potential energy depends on",
-      formula: "U = q*V and DeltaU = q*DeltaV",
-      steps:
-        "Electric potential energy depends on charge and electric potential.\\n" +
-        "For a change in potential energy, use DeltaU = q*DeltaV.\\n" +
-        "The electron has charge q = -e.\\n" +
-        "The jumper cables create a potential difference of 12 V.\\n" +
-        "So the energy depends on the electron's charge and the potential difference.",
-      answer:
-        "Final Answer: It depends on the charge of the particle and the potential difference between the two ends.\\n\\n" +
-        "For an electron, the charge is fixed, so its potential energy depends on the 12 V potential difference.",
-      trap:
-        "It does not directly depend on the short distance between the cable ends or the path the electron takes.",
-      memory:
-        "Voltage is energy per charge. Potential energy = charge times voltage.",
+  if (hasAny(lower, ["conductor", "electrostatic equilibrium"]) && hasAny(lower, ["inside", "electric field"])) {
+    return makeResult({
+      topic: "Ch. 24 — Field Inside a Conductor",
+      givens,
+      unknown: "Electric field inside conductor",
+      formula: "E_inside_conductor = 0",
+      steps: "In electrostatic equilibrium, charges in a conductor rearrange until the electric field inside the conducting material is zero.",
+      answer: "E = 0 inside a conductor in electrostatic equilibrium.",
+      trap: "This does not mean the field just outside the conductor is zero.",
+      memory: "Inside a calm conductor, E is zero.",
     });
   }
 
-  // ------------------------------------------------------------
-  // CAPACITORS
-  // ------------------------------------------------------------
-  if (has(["capacitor", "capacitance", "farad"])) {
-    if (has(["electric field"]) && has(["plate", "diameter", "area", "electrode"])) {
-      return answerBlock({
-        topic: "Ch. 26 — Parallel Plate Capacitor",
-        confidence: "formula/setup",
-        givens: numbers.map((n) => fmt(n)),
-        unknown: "Q, C, E, A, or d",
-        formula: "Q = epsilon_0*A*E and C = epsilon_0*A/d",
-        steps:
-          "For circular plates, convert diameter to radius first.\n" +
-          "A = pi*r^2.\n" +
-          "If E is given, Q = epsilon_0*A*E.",
-        answer: "Use the capacitor formula matching the unknown.",
-        trap: "Do not use diameter as radius.",
-        memory: "Plate area matters.",
-      });
-    }
+  if (hasAny(lower, ["surface charge density", "sigma", "just outside a conductor"])) {
+    return makeResult({
+      topic: "Ch. 24 — Field Just Outside a Conductor",
+      givens,
+      unknown: "E or sigma",
+      formula: "E = sigma / epsilon_0 and sigma = epsilon_0*E",
+      steps: "For a conductor surface, the field just outside is perpendicular to the surface and depends on surface charge density.",
+      answer: "Use E = sigma/epsilon_0 or sigma = epsilon_0*E.",
+      trap: "Do not use the one-sheet formula with 2*epsilon_0 for a conductor surface.",
+      memory: "Conductor surface: sigma over epsilon_0.",
+    });
+  }
 
-    return answerBlock({
-      topic: "Ch. 26 — Capacitors",
-      confidence: "formula/setup",
-      givens: numbers.map((n) => fmt(n)),
-      unknown: "C, Q, DeltaV, energy, or field",
-      formula: "C = Q/DeltaV",
-      steps:
-        "Capacitance stores charge per volt.\n" +
-        "Use Q = C*DeltaV if solving for charge.\n" +
-        "Use DeltaV = Q/C if solving for voltage.",
-      answer: "Pick the capacitor formula based on the unknown.",
+  if (hasAny(lower, ["cavity", "hollow conductor", "inner wall", "inside a hollow"])) {
+    return makeResult({
+      topic: "Ch. 24 — Conductor with a Cavity",
+      givens,
+      unknown: "Charge on inner wall or outer surface",
+      formula: "Q_inner_wall = -Q_cavity",
+      steps: "A charge inside the cavity induces equal and opposite charge on the inner wall. Any remaining conductor charge goes to the outside surface.",
+      answer: "If the cavity contains +105 nC, the inner wall has -105 nC.",
+      trap: "Do not forget the inner wall charge must cancel the cavity charge inside the conducting material.",
+      memory: "Cavity wall gets the opposite charge.",
+    });
+  }
+
+  if (hasAny(lower, ["infinite sheet", "charged sheet", "sheet of charge"])) {
+    return makeResult({
+      topic: "Ch. 24 — Infinite Sheet of Charge",
+      givens,
+      unknown: "Electric field from one infinite sheet",
+      formula: "E = |sigma| / (2*epsilon_0)",
+      steps: "Use a pillbox Gaussian surface. Positive sheet field points away. Negative sheet field points toward.",
+      answer: "For one infinite sheet: E = |sigma|/(2*epsilon_0).",
+      trap: "One sheet uses 2*epsilon_0. A conductor surface uses epsilon_0.",
+      memory: "Positive sheet pushes away; negative sheet pulls in.",
+    });
+  }
+
+  if (hasAny(lower, ["gaussian surface", "choose the gaussian", "pick the gaussian", "symmetry"])) {
+    return makeResult({
+      topic: "Ch. 24 — Choosing a Gaussian Surface",
+      givens,
+      unknown: "Best Gaussian surface",
+      formula: "Match the Gaussian surface to symmetry.",
+      steps: "Point charge -> sphere. Solid charged sphere -> sphere. Infinite rod/cylinder -> cylinder. Infinite sheet -> pillbox. Conductor surface -> tiny pillbox.",
+      answer: "Pick the surface that makes E constant and perpendicular/parallel in simple ways.",
+      trap: "A bad Gaussian surface makes Gauss's Law unhelpful.",
+      memory: "Match the bubble to the shape.",
+    });
+  }
+
+  if (hasAny(lower, ["solid sphere", "charged solid ball", "uniformly charged sphere"])) {
+    return makeResult({
+      topic: "Ch. 24 — Uniformly Charged Solid Sphere",
+      givens,
+      unknown: "Electric field inside or outside sphere",
+      formula: "Inside: E = rho*r/(3*epsilon_0). Outside: E = rho*r_b^3/(3*epsilon_0*r^2).",
+      steps: "Inside the sphere, only charge enclosed inside radius r counts. Outside the sphere, the whole ball acts like a point charge.",
+      answer: "Field starts at zero in the center, increases outward, and is maximum at the surface.",
+      trap: "Do not use the full charge for an inside point unless r equals the ball radius.",
+      memory: "Sphere grows inside, falls outside.",
+    });
+  }
+
+  if (hasAny(lower, ["charged cylinder", "infinite cylinder", "charged rod", "infinite rod"])) {
+    return makeResult({
+      topic: "Ch. 24 — Charged Cylinder or Rod",
+      givens,
+      unknown: "Electric field for cylindrical symmetry",
+      formula: "Inside cylinder: E = rho*r/(2*epsilon_0)",
+      steps: "Use a cylindrical Gaussian surface. The field points radially outward for positive charge and inward for negative charge.",
+      answer: "For an infinite uniformly charged cylinder inside: E = rho*r/(2*epsilon_0).",
+      trap: "Use cylindrical symmetry, not spherical symmetry.",
+      memory: "Rod or cylinder -> cylinder Gaussian surface.",
+    });
+  }
+
+  if (hasAny(lower, ["flux", "gauss", "enclosed charge", "closed surface"])) {
+    return makeResult({
+      topic: "Ch. 24 — Flux and Gauss's Law",
+      givens,
+      unknown: "Flux, field, or enclosed charge",
+      formula: "Phi=EAcostheta and Phi=qenc/epsilon_0",
+      steps: "Flat surface uses EAcostheta. Closed surface uses enclosed charge.",
+      answer: "Only enclosed charge controls net flux.",
+      trap: "Outside charges do not change net flux.",
+      memory: "Gauss cares what is inside the bubble.",
+    });
+  }
+
+  if (hasAny(lower, ["voltage", "potential", "potential energy", "volt"])) {
+    return makeResult({
+      topic: "Ch. 25 — Electric Potential",
+      givens,
+      unknown: "V, U, or q",
+      formula: "V=U/q, U=qV",
+      steps: "Voltage is energy per charge.",
+      answer: "Use V=U/q or U=qV.",
+      trap: "Potential is scalar; field is vector.",
+      memory: "Voltage = energy per charge.",
+    });
+  }
+
+  if (hasAny(lower, ["capacitor", "capacitance", "farad"])) {
+    return makeResult({
+      topic: "Ch. 26 — Capacitance",
+      givens,
+      unknown: "C, Q, or ΔV",
+      formula: "C=Q/ΔV",
+      steps: "Capacitance is charge stored per volt.",
+      answer: "Use C=Q/ΔV, Q=CΔV, or ΔV=Q/C.",
       trap: "Capacitance is not charge.",
-      memory: "Capacitor = charge storage per volt.",
+      memory: "Capacitor stores charge per volt.",
     });
   }
 
-  // ------------------------------------------------------------
-  // CIRCUITS
-  // ------------------------------------------------------------
-  if (has(["resistor", "resistance", "ohm", "current", "circuit", "voltage", "power"])) {
-    return answerBlock({
+  if (hasAny(lower, ["current", "resistance", "resistor", "ohm", "circuit", "power", "series", "parallel"])) {
+    return makeResult({
       topic: "Ch. 27/28 — Circuits",
-      confidence: "formula/setup",
-      givens: numbers.map((n) => fmt(n)),
+      givens,
       unknown: "V, I, R, P, or equivalent resistance",
-      formula: "V = I*R; P = I*V; series add; parallel reciprocals",
-      steps:
-        "First decide series or parallel.\n" +
-        "Series: same current, resistances add.\n" +
-        "Parallel: same voltage, reciprocals add.\n" +
-        "Then use Ohm's Law.",
-      answer: "Use the circuit formula with one unknown.",
+      formula: "V = I*R, P = I*V, series add, parallel reciprocals",
+      steps: "Identify series vs parallel first. Then use Ohm's Law.",
+      answer: "Series: same current, resistors add. Parallel: same voltage, reciprocals.",
       trap: "Do not add parallel resistors directly.",
       memory: "Series same current. Parallel same voltage.",
     });
   }
 
-  // ------------------------------------------------------------
-  // WAVES / LIGHT
-  // ------------------------------------------------------------
-  if (has(["wavelength", "frequency", "hz", "nm", "light"])) {
-    const nm = numberBeforeUnit("nm\\b");
-
-    if (nm) {
-      const f = constants.c / (nm * 1e-9);
-      return answerBlock({
-        topic: "Ch. 16/31 — Wave or Light Frequency",
-        givens: [`lambda = ${nm} nm = ${fmt(nm * 1e-9)} m`],
-        unknown: "Frequency f",
-        formula: "c = f*lambda, so f = c/lambda",
-        steps: `f = (3.00e8)/(${fmt(nm * 1e-9)})`,
-        answer: `Final Answer: f = ${fmt(f)} Hz`,
-        trap: "Convert nm to meters.",
-        memory: "Light uses c = f lambda.",
-      });
-    }
-
-    return answerBlock({
-      topic: "Ch. 16/31 — Waves",
-      confidence: "formula/setup",
-      givens: numbers.map((n) => fmt(n)),
-      unknown: "v, f, or lambda",
-      formula: "v = f*lambda",
-      steps: "Use the two known quantities to solve for the third.",
-      answer: "Use v = f*lambda.",
-      trap: "Do not mix up frequency and angular frequency.",
-      memory: "Wave speed = frequency times wavelength.",
-    });
-  }
-
-  // ------------------------------------------------------------
-  // MAGNETISM
-  // ------------------------------------------------------------
-  if (has(["magnetic", "tesla", "b field", "moving charge"])) {
-    return answerBlock({
+  if (hasAny(lower, ["magnetic", "tesla", "moving charge", "b field"])) {
+    return makeResult({
       topic: "Ch. 29 — Magnetic Force",
-      confidence: "formula/setup",
-      givens: numbers.map((n) => fmt(n)),
+      givens,
       unknown: "Magnetic force",
-      formula: "F = q*v*B*sin(theta)",
-      steps:
-        "Magnetic force needs a moving charge.\n" +
-        "Force is zero if velocity is parallel to B.\n" +
-        "Force is maximum at 90 degrees.",
-      answer: "Use F = qvBsin(theta).",
-      trap: "Stationary charges feel no magnetic force.",
+      formula: "F=qvBsintheta",
+      steps: "Charge must be moving. Force is max at 90° and zero at 0°.",
+      answer: "Use F=qvBsintheta.",
+      trap: "Stationary charge has no magnetic force.",
       memory: "Magnetism needs motion.",
     });
   }
 
-  if (has(["induction", "emf", "faraday", "lenz", "magnetic flux"])) {
-    return answerBlock({
+  if (hasAny(lower, ["induction", "emf", "faraday", "lenz", "magnetic flux"])) {
+    return makeResult({
       topic: "Ch. 30 — Induction",
-      confidence: "formula/setup",
-      givens: numbers.map((n) => fmt(n)),
+      givens,
       unknown: "Induced emf",
-      formula: "epsilon = -N*DeltaPhi_B/DeltaT",
-      steps:
-        "Changing magnetic flux creates emf.\n" +
-        "Use magnitude for numeric answer.\n" +
-        "Use Lenz's Law for direction.",
-      answer: "Use |epsilon| = N*DeltaPhi_B/DeltaT.",
+      formula: "ε=-NΔPhiB/Δt",
+      steps: "Changing magnetic flux creates emf. Lenz gives direction.",
+      answer: "Use |ε|=NΔPhiB/Δt for magnitude.",
       trap: "No changing flux means no induced emf.",
       memory: "Change flux, get emf.",
     });
   }
 
-  // ------------------------------------------------------------
-  // SAFE FALLBACK
-  // ------------------------------------------------------------
-  return answerBlock({
-    topic: "Smart Physics Solver",
-    confidence: "not safe to calculate yet",
-    givens: numbers.map((n) => fmt(n)),
-    unknown: "The requested quantity",
-    formula: "Not confidently classified.",
-    steps:
-      "I do not want the app to fake an answer.\n\n" +
-      "Use this setup:\n" +
-      "1. GIVEN: list numbers with units.\n" +
-      "2. UNKNOWN: what does it ask for?\n" +
-      "3. MODEL: waves, charge, field, flux, capacitor, circuit, magnetism, or light?\n" +
-      "4. FORMULA: pick from clue words.\n" +
-      "5. UNITS: convert nC, uC, mm, cm, nm.\n" +
-      "6. CHECK: does the size/direction make sense?",
-    answer:
-      "Paste the full problem with units and answer choices. I need more context to solve accurately.",
-    trap:
-      "A solver that guesses is worse than no solver. This one stops when confidence is low.",
-    memory:
-      "GIVEN → UNKNOWN → MODEL → FORMULA → UNITS → CHECK",
+  return makeResult({
+    topic: "Universal Physics Breakdown",
+    givens,
+    unknown: "The thing the question asks for",
+    formula: "Not confidently classified yet.",
+    steps: "Circle clue words. List givens. Identify unknown. Pick chapter/model. Check units.",
+    answer: "I will not invent an answer if the problem type is unclear. Paste answer choices too.",
+    trap: "Full wording matters.",
+    memory: "Givens → Unknown → Model → Formula.",
   });
 }
 
@@ -4756,13 +3183,12 @@ export default function App() {
   const [selectedChapter, setSelectedChapter] = useState(CHAPTERS[16]);
   const [lessonIndex, setLessonIndex] = useState(0);
   const [problem, setProblem] = useState("");
-  const [testMode, setTestMode] = useState(false);
   const [cardIndex, setCardIndex] = useState(0);
   const [showAnswer, setShowAnswer] = useState(false);
   const [bossIndex, setBossIndex] = useState(0);
   const [bossMessage, setBossMessage] = useState("");
 
-  const solved = useMemo(() => solveHomework(problem, testMode), [problem, testMode]);
+  const solved = useMemo(() => solveHomework(problem), [problem]);
 
   const chapterLessons = LESSONS[selectedChapter.id] || [];
   const currentLesson = chapterLessons[lessonIndex % Math.max(chapterLessons.length, 1)];
@@ -4803,9 +3229,6 @@ export default function App() {
         </Card>
 
         <Button title="Paste Homework Solver" onPress={() => setScreen("solver")} color={COLORS.green} />
-        <Button title="Module Test Study Guides" onPress={() => setScreen("moduleTestGuidePicker")} color={COLORS.orange} />
-        <Button title="Work + Energy Class Notes" onPress={() => setScreen("workEnergyNotes")} color={COLORS.purple} />
-        <Button title="Physics II Barney Guide" onPress={() => setScreen("barneyGuide")} color={COLORS.yellow} />
         <Button title="Filter Flashcards by Chapter" onPress={() => setScreen("flashcardFilter")} color={COLORS.yellow} />
         <Button title="Full Formula Map" onPress={() => setScreen("formulas")} color={COLORS.purple} />
         <Button title="Exam Cram Plan" onPress={() => setScreen("cram")} color={COLORS.blue} />
@@ -4938,25 +3361,7 @@ export default function App() {
     return (
       <ScrollView style={styles.container} contentContainerStyle={styles.content}>
         <Text style={styles.title}>Paste Homework Solver</Text>
-        <Text style={styles.subtitle}>Paste the full Pearson/Mastering problem exactly. The solver now cleans weird text like Upper, Baseline, Superscript, StartFraction, and divided by.</Text>
-
-        <Pressable
-          style={[styles.modeToggle, testMode ? styles.modeToggleOn : null]}
-          onPress={() => setTestMode(!testMode)}
-        >
-          <Text style={styles.modeToggleText}>
-            {testMode ? "TEST MODE ON: setup-first, no blind answer dumping" : "TEST MODE OFF: homework/practice solver"}
-          </Text>
-        </Pressable>
-
-        <Card color={testMode ? COLORS.red : COLORS.green}>
-          <Text style={styles.sectionTitle}>{testMode ? "Test Mode Rules" : "Practice Mode"}</Text>
-          <Text style={styles.body}>
-            {testMode
-              ? "Use this to identify the model, formula, units, and setup. Only use during a real test if your instructor allows outside tools."
-              : "Practice mode can calculate when it has enough clean numbers."}
-          </Text>
-        </Card>
+        <Text style={styles.subtitle}>Paste the full problem. The solver explains the model, formula, trap, and memory hook.</Text>
 
         <TextInput
           style={styles.input}
@@ -4978,9 +3383,6 @@ export default function App() {
 
           <Text style={styles.label}>Formula</Text>
           <Text style={styles.formulaText}>{solved.formula}</Text>
-
-          <Text style={styles.label}>Test Setup System</Text>
-          <Text style={styles.body}>GIVEN → UNKNOWN → MODEL → FORMULA → UNITS → CHECK</Text>
 
           <Text style={styles.label}>Steps</Text>
           <Text style={styles.body}>{solved.steps}</Text>
@@ -5151,173 +3553,6 @@ export default function App() {
         <Button title="Chapter Flashcards" onPress={() => { setCardIndex(0); setShowAnswer(false); setShowAnswer(false); setScreen("chapterFlashcards"); }} color={COLORS.yellow} />
         <Button title="Learn This Chapter" onPress={() => setScreen("chapterLearn")} color={COLORS.green} />
         <Button title="Back to Chapter" onPress={() => setScreen("chapter")} />
-      </ScrollView>
-    );
-  }
-
-
-
-
-  if (screen === "barneyGuide") {
-    return (
-      <ScrollView style={styles.container} contentContainerStyle={styles.content}>
-        <Text style={styles.title}>Physics II Barney Guide</Text>
-        <Text style={styles.subtitle}>
-          The main idea of every chapter, explained like Pearson has already done enough emotional damage.
-        </Text>
-
-        <View style={styles.wholeChainCard}>
-          <Text style={styles.wholeChainTitle}>The Whole Class in One Chain</Text>
-          <Text style={styles.wholeChainSubtitle}>This is the entire class in cause-and-effect order:</Text>
-
-          {BARNEY_WHOLE_CLASS_MEMORY.map((line, index) => (
-            <View key={line} style={styles.wholeChainRow}>
-              <Text style={styles.wholeChainNumber}>{index + 1}</Text>
-              <Text style={styles.wholeChainText}>{line}</Text>
-            </View>
-          ))}
-        </View>
-
-        {BARNEY_PHYSICS_GUIDE.map((chapter) => (
-          <Card key={chapter.chapter} color={COLORS.blue}>
-            <Text style={styles.sectionTitle}>{chapter.chapter}</Text>
-
-            <Text style={styles.label}>Main Idea</Text>
-            <Text style={styles.body}>{chapter.mainIdea}</Text>
-
-            <Text style={styles.label}>Must Know</Text>
-            {chapter.mustKnow.map((item) => (
-              <Text key={item} style={styles.body}>- {item}</Text>
-            ))}
-
-            <Text style={styles.label}>Core Formula(s)</Text>
-            <View style={styles.barneyFormulaBox}>
-              {chapter.formulas.map((formula) => (
-                <Text key={formula} style={styles.barneyFormulaText}>{formula}</Text>
-              ))}
-            </View>
-
-            <Text style={styles.label}>Barney Memory</Text>
-            <Text style={styles.memory}>{chapter.barney}</Text>
-          </Card>
-        ))}
-
-        <Card color={COLORS.red}>
-          <Text style={styles.sectionTitle}>Final Boss Method</Text>
-          <Text style={styles.bigText}>GIVEN → UNKNOWN → MODEL → FORMULA → UNITS → CHECK</Text>
-          <Text style={styles.body}>
-            Most wrong answers come from grabbing a formula too early. Identify the chapter first, then solve.
-          </Text>
-        </Card>
-
-        <Button title="Open Solver" onPress={() => setScreen("solver")} color={COLORS.green} />
-        <Button title="Back Home" onPress={() => setScreen("home")} />
-      </ScrollView>
-    );
-  }
-
-  if (screen === "workEnergyNotes") {
-    return (
-      <ScrollView style={styles.container} contentContainerStyle={styles.content}>
-        <Text style={styles.title}>{WORK_ENERGY_ELECTRIC_NOTES.title}</Text>
-        <Text style={styles.subtitle}>{WORK_ENERGY_ELECTRIC_NOTES.bigIdea}</Text>
-
-        {WORK_ENERGY_ELECTRIC_NOTES.sections.map((section) => (
-          <Card key={section.heading} color={COLORS.blue}>
-            <Text style={styles.sectionTitle}>{section.heading}</Text>
-            {section.points.map((point) => (
-              <Text key={point} style={styles.body}>- {point}</Text>
-            ))}
-          </Card>
-        ))}
-
-        <Card color={COLORS.green}>
-          <Text style={styles.sectionTitle}>Most Important Formulas</Text>
-          {WORK_ENERGY_ELECTRIC_NOTES.formulas.map((formula) => (
-            <Text key={formula} style={styles.formulaText}>{formula}</Text>
-          ))}
-        </Card>
-
-        <Card color={COLORS.yellow}>
-          <Text style={styles.sectionTitle}>Pearson Clue Words</Text>
-          {WORK_ENERGY_ELECTRIC_NOTES.testClues.map((clue) => (
-            <Text key={clue} style={styles.body}>- {clue}</Text>
-          ))}
-        </Card>
-
-        <Card color={COLORS.red}>
-          <Text style={styles.sectionTitle}>Common Traps</Text>
-          {WORK_ENERGY_ELECTRIC_NOTES.traps.map((trap) => (
-            <Text key={trap} style={styles.trap}>- {trap}</Text>
-          ))}
-        </Card>
-
-        <Button title="Open Solver" onPress={() => setScreen("solver")} color={COLORS.green} />
-        <Button title="Back Home" onPress={() => setScreen("home")} />
-      </ScrollView>
-    );
-  }
-
-  if (screen === "moduleTestGuidePicker") {
-    return (
-      <ScrollView style={styles.container} contentContainerStyle={styles.content}>
-        <Text style={styles.title}>Module Test Study Guides</Text>
-        <Text style={styles.subtitle}>
-          Pick a module to see what the test is really checking, the formulas, clue words, common traps, and how to practice.
-        </Text>
-
-        {MODULES.map((mod) => {
-          const guide = MODULE_TEST_GUIDES[mod.id];
-          return (
-            <Pressable
-              key={mod.id}
-              style={[styles.moduleButton, { borderColor: COLORS.orange }]}
-              onPress={() => {
-                setSelectedModule(mod);
-                setScreen("moduleTestGuide");
-              }}
-            >
-              <Text style={styles.moduleTitle}>{guide?.title || mod.title}</Text>
-              <Text style={styles.body}>{guide?.goal || mod.mission}</Text>
-            </Pressable>
-          );
-        })}
-
-        <Button title="Back Home" onPress={() => setScreen("home")} />
-      </ScrollView>
-    );
-  }
-
-  if (screen === "moduleTestGuide") {
-    const guide = MODULE_TEST_GUIDES[selectedModule.id];
-
-    return (
-      <ScrollView style={styles.container} contentContainerStyle={styles.content}>
-        <Text style={styles.title}>{guide?.title || selectedModule.title + " Test Guide"}</Text>
-        <Text style={styles.subtitle}>{guide?.goal || selectedModule.mission}</Text>
-
-        {guide ? (
-          <>
-            <ModuleGuideSection title="Chapters Covered" items={guide.chapters} color={COLORS.blue} />
-            <ModuleGuideSection title="Big Ideas You Must Understand" items={guide.bigIdeas} color={COLORS.green} />
-            <ModuleGuideSection title="Formula Map" items={guide.formulaMap} color={COLORS.purple} formula />
-            <ModuleGuideSection title="Clue Words → Formula" items={guide.clueMap} color={COLORS.yellow} />
-            <ModuleGuideSection title="How to Solve These Problems" items={guide.problemRecipes} color={COLORS.orange} />
-            <ModuleGuideSection title="Problems You Must Practice" items={guide.mustPractice} color={COLORS.blue} />
-            <ModuleGuideSection title="Common Mistakes" items={guide.commonMistakes} color={COLORS.red} />
-            <ModuleGuideSection title="Test Strategy" items={guide.testStrategy} color={COLORS.green} />
-          </>
-        ) : (
-          <Card>
-            <Text style={styles.body}>No module guide loaded yet.</Text>
-          </Card>
-        )}
-
-        <Button title="Learn This Module" onPress={() => setScreen("moduleLearn")} color={COLORS.green} />
-        <Button title="Module Flashcards" onPress={() => setScreen("moduleMemory")} color={COLORS.yellow} />
-        <Button title="Module Boss Game" onPress={() => { setBossIndex(0); setBossMessage(""); setScreen("moduleBoss"); }} color={COLORS.red} />
-        <Button title="Back to Module" onPress={() => setScreen("module")} />
-        <Button title="Pick Another Module Guide" onPress={() => setScreen("moduleTestGuidePicker")} color={COLORS.purple} />
       </ScrollView>
     );
   }
@@ -5498,248 +3733,153 @@ function StudyGuideSection({ title, items, color }) {
   );
 }
 
-
-function ModuleGuideSection({ title, items, color, formula }) {
-  return (
-    <Card color={color}>
-      <Text style={styles.sectionTitle}>{title}</Text>
-      {items.map((item) => (
-        <Text key={item} style={formula ? styles.formulaText : styles.body}>- {item}</Text>
-      ))}
-    </Card>
-  );
-}
-
 const styles = StyleSheet.create({
-  wholeChainCard: {
-    marginBottom: 18,
-    padding: 18,
-    borderRadius: 22,
-    backgroundColor: "#020617",
-    borderWidth: 3,
-    borderColor: "#22c55e",
-  },
-  wholeChainTitle: {
-    fontSize: 30,
-    lineHeight: 38,
-    fontWeight: "900",
-    color: "#bbf7d0",
-    marginBottom: 8,
-  },
-  wholeChainSubtitle: {
-    fontSize: 19,
-    lineHeight: 28,
-    fontWeight: "700",
-    color: "#e0f2fe",
-    marginBottom: 14,
-  },
-  wholeChainRow: {
-    flexDirection: "row",
-    alignItems: "flex-start",
-    marginBottom: 12,
-    padding: 12,
-    borderRadius: 14,
-    backgroundColor: "#0f172a",
-    borderWidth: 1,
-    borderColor: "#334155",
-  },
-  wholeChainNumber: {
-    width: 34,
-    height: 34,
-    borderRadius: 17,
-    textAlign: "center",
-    lineHeight: 34,
-    fontSize: 18,
-    fontWeight: "900",
-    color: "#020617",
-    backgroundColor: "#86efac",
-    marginRight: 12,
-    overflow: "hidden",
-  },
-  wholeChainText: {
-    flex: 1,
-    fontSize: 23,
-    lineHeight: 32,
-    fontWeight: "900",
-    color: "#f8fafc",
-  },
-
-  barneyFormulaBox: {
-    marginTop: 8,
-    marginBottom: 14,
-    padding: 14,
-    borderRadius: 16,
-    backgroundColor: "#020617",
-    borderWidth: 2,
-    borderColor: "#facc15",
-  },
-  barneyFormulaText: {
-    fontSize: 24,
-    lineHeight: 34,
-    fontWeight: "900",
-    color: "#fef08a",
-    marginBottom: 8,
-  },
-
   container: {
     flex: 1,
     backgroundColor: COLORS.bg,
   },
   content: {
-    padding: 22,
-    paddingBottom: 60,
-    maxWidth: 920,
+    padding: 18,
+    paddingBottom: 50,
+    maxWidth: 900,
     width: "100%",
     alignSelf: "center",
   },
   title: {
-    color: "#ffffff",
-    fontSize: 40,
-    lineHeight: 48,
+    color: COLORS.text,
+    fontSize: 34,
     fontWeight: "900",
-    marginBottom: 14,
-    letterSpacing: 0.2,
+    marginBottom: 8,
   },
   subtitle: {
-    color: "#e5e7eb",
-    fontSize: 20,
-    lineHeight: 32,
-    marginBottom: 22,
-    fontWeight: "700",
+    color: COLORS.sub,
+    fontSize: 17,
+    lineHeight: 25,
+    marginBottom: 16,
   },
   card: {
-    backgroundColor: "#111827",
+    backgroundColor: COLORS.card,
     borderWidth: 2,
-    borderColor: "#64748b",
-    borderRadius: 22,
-    padding: 22,
-    marginBottom: 20,
-  },
-  sectionTitle: {
-    color: "#ffffff",
-    fontSize: 27,
-    lineHeight: 34,
-    fontWeight: "900",
+    borderColor: COLORS.card2,
+    borderRadius: 18,
+    padding: 16,
     marginBottom: 14,
   },
+  sectionTitle: {
+    color: COLORS.text,
+    fontSize: 22,
+    fontWeight: "900",
+    marginBottom: 8,
+  },
   body: {
-    color: "#f8fafc",
-    fontSize: 20,
-    lineHeight: 34,
-    marginBottom: 10,
-    fontWeight: "700",
+    color: COLORS.sub,
+    fontSize: 16,
+    lineHeight: 24,
+    marginBottom: 6,
   },
   label: {
-    color: "#fde047",
-    fontSize: 17,
-    lineHeight: 24,
+    color: COLORS.yellow,
+    fontSize: 15,
     fontWeight: "900",
-    marginTop: 16,
-    marginBottom: 8,
+    marginTop: 10,
+    marginBottom: 4,
     textTransform: "uppercase",
-    letterSpacing: 0.8,
   },
   answer: {
-    color: "#bbf7d0",
-    fontSize: 22,
-    lineHeight: 36,
-    fontWeight: "900",
-    marginBottom: 12,
+    color: COLORS.green,
+    fontSize: 18,
+    lineHeight: 27,
+    fontWeight: "800",
+    marginBottom: 8,
   },
   trap: {
-    color: "#fecdd3",
-    fontSize: 21,
-    lineHeight: 35,
-    fontWeight: "900",
-    marginBottom: 10,
+    color: COLORS.red,
+    fontSize: 17,
+    lineHeight: 25,
+    fontWeight: "800",
   },
   memory: {
-    color: "#f5d0fe",
-    fontSize: 21,
-    lineHeight: 35,
-    fontWeight: "900",
-    marginBottom: 10,
+    color: COLORS.purple,
+    fontSize: 17,
+    lineHeight: 25,
+    fontWeight: "800",
   },
   input: {
-    backgroundColor: "#020617",
-    color: "#ffffff",
-    minHeight: 180,
-    borderRadius: 18,
-    padding: 18,
-    fontSize: 20,
-    lineHeight: 33,
-    marginBottom: 18,
-    borderWidth: 2,
-    borderColor: "#64748b",
+    backgroundColor: COLORS.card2,
+    color: COLORS.text,
+    minHeight: 150,
+    borderRadius: 16,
+    padding: 14,
+    fontSize: 16,
+    lineHeight: 23,
+    marginBottom: 14,
+    borderWidth: 1,
+    borderColor: "#334155",
     textAlignVertical: "top",
   },
   button: {
-    paddingVertical: 17,
-    paddingHorizontal: 18,
-    borderRadius: 16,
-    marginBottom: 13,
+    paddingVertical: 14,
+    paddingHorizontal: 16,
+    borderRadius: 14,
+    marginBottom: 10,
   },
   buttonText: {
-    color: "#020617",
-    fontSize: 21,
-    lineHeight: 28,
+    color: "#111827",
+    fontSize: 18,
     fontWeight: "900",
     textAlign: "center",
   },
   moduleButton: {
-    backgroundColor: "#111827",
+    backgroundColor: COLORS.card,
     borderWidth: 2,
-    borderColor: "#60a5fa",
-    borderRadius: 22,
-    padding: 22,
-    marginBottom: 18,
+    borderColor: COLORS.blue,
+    borderRadius: 18,
+    padding: 16,
+    marginBottom: 12,
   },
   moduleTitle: {
-    color: "#ffffff",
-    fontSize: 29,
-    lineHeight: 36,
+    color: COLORS.text,
+    fontSize: 24,
     fontWeight: "900",
-    marginBottom: 9,
+    marginBottom: 4,
   },
   chapterButton: {
-    backgroundColor: "#111827",
+    backgroundColor: COLORS.card,
     borderWidth: 2,
-    borderRadius: 20,
-    padding: 20,
-    marginBottom: 16,
+    borderRadius: 16,
+    padding: 14,
+    marginBottom: 10,
   },
   chapterTitle: {
-    color: "#ffffff",
-    fontSize: 24,
-    lineHeight: 31,
+    color: COLORS.text,
+    fontSize: 19,
     fontWeight: "900",
-    marginBottom: 9,
+    marginBottom: 4,
   },
   bigQuestion: {
-    color: "#ffffff",
-    fontSize: 31,
-    lineHeight: 43,
+    color: COLORS.text,
+    fontSize: 24,
+    lineHeight: 32,
     fontWeight: "900",
-    marginBottom: 20,
+    marginBottom: 14,
   },
   choice: {
-    backgroundColor: "#1e293b",
-    borderRadius: 18,
-    padding: 18,
-    marginBottom: 14,
-    borderWidth: 2,
-    borderColor: "#64748b",
+    backgroundColor: COLORS.card2,
+    borderRadius: 14,
+    padding: 14,
+    marginBottom: 10,
+    borderWidth: 1,
+    borderColor: "#475569",
   },
   choiceText: {
-    color: "#ffffff",
-    fontSize: 21,
-    lineHeight: 30,
-    fontWeight: "900",
+    color: COLORS.text,
+    fontSize: 17,
+    fontWeight: "800",
   },
   formulaLine: {
-    borderTopWidth: 2,
-    borderTopColor: "#475569",
-    paddingTop: 16,
-    marginTop: 16,
+    borderTopWidth: 1,
+    borderTopColor: "#334155",
+    paddingTop: 10,
+    marginTop: 10,
   },
 });

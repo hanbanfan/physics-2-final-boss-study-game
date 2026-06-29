@@ -5166,17 +5166,12 @@ export default function App() {
           The main idea of every chapter, explained like Pearson has already done enough emotional damage.
         </Text>
 
-        <View style={styles.wholeChainCard}>
-          <Text style={styles.wholeChainTitle}>The Whole Class in One Chain</Text>
-          <Text style={styles.wholeChainSubtitle}>This is the entire class in cause-and-effect order:</Text>
-
-          {BARNEY_WHOLE_CLASS_MEMORY.map((line, index) => (
-            <View key={line} style={styles.wholeChainRow}>
-              <Text style={styles.wholeChainNumber}>{index + 1}</Text>
-              <Text style={styles.wholeChainText}>{line}</Text>
-            </View>
+        <Card color={COLORS.green}>
+          <Text style={styles.sectionTitle}>The Whole Class in One Chain</Text>
+          {BARNEY_WHOLE_CLASS_MEMORY.map((line) => (
+            <Text key={line} style={styles.bigText}>- {line}</Text>
           ))}
-        </View>
+        </Card>
 
         {BARNEY_PHYSICS_GUIDE.map((chapter) => (
           <Card key={chapter.chapter} color={COLORS.blue}>
@@ -5511,59 +5506,6 @@ function ModuleGuideSection({ title, items, color, formula }) {
 }
 
 const styles = StyleSheet.create({
-  wholeChainCard: {
-    marginBottom: 18,
-    padding: 18,
-    borderRadius: 22,
-    backgroundColor: "#020617",
-    borderWidth: 3,
-    borderColor: "#22c55e",
-  },
-  wholeChainTitle: {
-    fontSize: 30,
-    lineHeight: 38,
-    fontWeight: "900",
-    color: "#bbf7d0",
-    marginBottom: 8,
-  },
-  wholeChainSubtitle: {
-    fontSize: 19,
-    lineHeight: 28,
-    fontWeight: "700",
-    color: "#e0f2fe",
-    marginBottom: 14,
-  },
-  wholeChainRow: {
-    flexDirection: "row",
-    alignItems: "flex-start",
-    marginBottom: 12,
-    padding: 12,
-    borderRadius: 14,
-    backgroundColor: "#0f172a",
-    borderWidth: 1,
-    borderColor: "#334155",
-  },
-  wholeChainNumber: {
-    width: 34,
-    height: 34,
-    borderRadius: 17,
-    textAlign: "center",
-    lineHeight: 34,
-    fontSize: 18,
-    fontWeight: "900",
-    color: "#020617",
-    backgroundColor: "#86efac",
-    marginRight: 12,
-    overflow: "hidden",
-  },
-  wholeChainText: {
-    flex: 1,
-    fontSize: 23,
-    lineHeight: 32,
-    fontWeight: "900",
-    color: "#f8fafc",
-  },
-
   barneyFormulaBox: {
     marginTop: 8,
     marginBottom: 14,
